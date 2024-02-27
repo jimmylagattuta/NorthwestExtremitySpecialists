@@ -1,0 +1,800 @@
+@keyframes portalEntranceFallback {
+    0% {
+        filter: grayscale(100%);
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        filter: none;
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes portalEntrance {
+    0% {
+        filter: grayscale(100%); /* Start with full grayscale */
+        --_p: 65%; /* Start at 75% */
+        --c: rgba(218, 102, 123, 0.5); /* Start with specified color */
+    }
+
+    25% {
+        filter: grayscale(50%); /* Further reducing grayscale */
+        --_p: 67.5%; /* Maintained */
+        --c: rgba(218, 102, 123, 0.55); /* Maintained */
+    }
+
+    50% {
+        filter: grayscale(50%); /* Further reducing grayscale */
+        --_p: 70%; /* Maintained */
+        --c: rgba(218, 102, 123, 0.6); /* Maintained */
+    }
+
+    75% {
+        filter: grayscale(25%); /* Further reducing grayscale */
+        --_p: 72.5%; /* Maintained */
+        --c: rgba(218, 102, 123, 0.65); /* Maintained */
+    }
+
+    100% {
+        filter: grayscale(0%); /* No grayscale */
+        --_p: 75%; /* Maintained */
+        --c: rgba(218, 102, 123, 0.7); /* Maintained */
+    }
+}
+
+.no-animation {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  
+.portal-section   {
+    animation: portalEntrance 0.2s forwards;
+    animation-delay: 3s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out; /* Start slow, accelerate, then decelerate */
+
+    margin: 0;
+    display: grid;
+    place-content: center;
+    grid-auto-flow: column;
+    gap: 30px;
+    background: pink;
+    position: relative;
+    width: 65%;
+    background: rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+    transition: all 0.3s ease 0s;
+    z-index: 10;
+    margin: 10px 0px 120px 70px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 0.2rem;
+    color: #fff;
+    --g: 4px;     /* the gap */
+    --b: 4px;    /* border thickness*/
+    --c: #5f39393f; /* the color */
+    padding: calc(var(--g) + var(--b));
+    --_c: #0000 0 25%, var(--c) 0 50%;
+    --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+    --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+    background:
+      var(--_g1) var(--_p, 25%) 0   ,var(--_g2) 0    var(--_p,125%),
+      var(--_g1) var(--_p,125%) 100%,var(--_g2) 100% var(--_p, 25%);
+    background-size: 200% var(--b),var(--b) 200%;
+    cursor: pointer;
+    filter: grayscale(50%);
+    transition: .3s;
+    width: 65%;
+    text-align: center;
+    opacity: 1; /* Initial opacity set to 0 */
+    transform: translateY(20px); /* Initial position offscreen */
+}
+
+.portal-section.border-animation {
+    opacity: 1; /* When scrolled into view, change opacity to 1 */
+    transform: translateY(0); /* Move to original position */
+}
+.portal-section h2 {
+    /* Other styles for h2 elements... */
+    position: relative; /* Needed for absolute positioning of ::after pseudo-element */
+    display: inline-block; /* Ensure the underline covers the entire width of the text */
+}
+
+.portal-section h2::after {
+    /* Create the underline using absolute positioning */
+    content: '';
+    position: absolute;
+    right: 0; /* Start from the middle */
+    bottom: -2px; /* Adjust this value based on your preference */
+    width: 0; /* Initially, the width is 0 */
+    height: 2px; /* Adjust the height of the underline */
+    background-color: rgba(161, 2, 42, 0.7);
+    transition: width 0.5s ease, left 0.5s ease; /* Transition the width and left position */
+    transform: translateX(0%); /* Center the underline */
+}
+
+.portal-section h2::after {
+    animation: underlineEntrance 1s forwards; /* Apply the entrance animation */
+    animation-delay: 2s;
+}
+
+@keyframes underlineEntrance {
+    0% {
+        width: 0; /* Start with no underline */
+        left: 50%; /* Start from the middle */
+    }
+    100% {
+        width: 100%; /* Expand underline to full width */
+        left: 0; /* Align to the left */
+    }
+}
+
+@keyframes growAndShrink {
+    0%, 100% {
+      transform: scale(0.8); /* Original size */
+    }
+    10%, 90% { /* Adjusted for quick growth and longer stay at grown size */
+      transform: scale(1.05); /* Grow slightly more than original size */
+    }
+}
+
+.animate-grow-portal {
+    display: inline-block; /* Required for transform to work on inline elements like span */
+    animation: growAndShrink 6s infinite; /* Apply the animation */
+    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: rgb(240, 112, 176);
+    margin-left: 3px;
+}
+
+.portal-section:hover a  {
+    animation: grow 0.3s ease infinite;
+    transform: scale(1.1);
+}
+
+.portal-section:hover {
+    --c: rgb(241, 104, 129);
+    /* filter: grayscale(0%); */
+
+}
+
+.portal-unordered-list-about {
+    flex-direction: column;
+    list-style-type: none;
+    align-items: center;
+    margin: 10px;
+    padding: 10px;
+}
+
+.portal-unordered-list-about li {
+    text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+    padding: 4px 0px 4px 0px;
+    font-size: 1.2rem;
+    color: #333;
+    opacity: 0.6;
+    color: black;
+    letter-spacing: 0.1rem;
+    text-shadow: 
+    3px 2px 0px rgba(136, 136, 136, 0.6);
+}
+
+.portal-unordered-list-about li img {
+    max-width: 100px;
+}
+
+.portal-unordered-list-about a {
+    font-size: 1.8rem;
+    transition: font-size 0.3s ease 0s; /* Adding transition for smoother hover effect */
+}
+
+.portal-unordered-list-about a:active {
+    transform: translateY(3px);
+}
+
+.portal-section p {
+    font-size: 1.2rem;
+    color: black;
+}
+@media (max-width: 1400px) {
+    .portal-section   {
+        margin: 0;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: pink;
+        position: relative;
+        width: 65%;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+        transition: all 0.3s ease 0s;
+        z-index: 10;
+        margin: -175px 0px 120px 70px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 0.2rem;
+        color: #fff;
+        --g: 4px;     /* the gap */
+        --b: 4px;    /* border thickness*/
+        --c: #5f39393f; /* the color */
+        padding: 10px 80px 10px 80px;
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+        background:
+          var(--_g1) var(--_p, 25%) 0   ,var(--_g2) 0    var(--_p,125%),
+          var(--_g1) var(--_p,125%) 100%,var(--_g2) 100% var(--_p, 25%);
+          background-size: 200% var(--b),var(--b) 200%;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: .3s;
+        width: 35%;
+        text-align: center;
+        opacity: 1; /* Initial opacity set to 0 */
+        transform: translateY(20px); /* Initial position offscreen */
+        filter: grayscale(0%); /* No grayscale */
+        --_p: 75%; /* Maintained */
+        --c: rgba(218, 102, 123, 0.7); /* Maintained */
+    }
+    
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 2rem;
+    }
+
+    .portal-section p {
+        font-size: 1.1rem;
+        color: black;
+        line-height: 30px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 1rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 25px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+}
+@media (max-width: 1030px) {
+    .portal-section   {
+        animation: portalEntrance 0.2s forwards;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out; /* Start slow, accelerate, then decelerate */
+    
+        margin: 0;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: pink;
+        position: relative;
+        width: 65%;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+        transition: all 0.3s ease 0s;
+        z-index: 10;
+        margin: -175px 0px 120px 70px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 0.2rem;
+        color: #fff;
+        --g: 4px;     /* the gap */
+        --b: 4px;    /* border thickness*/
+        --c: #5f39393f; /* the color */
+        padding: 10px 60px 10px 60px;
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+        background:
+          var(--_g1) var(--_p, 25%) 0   ,var(--_g2) 0    var(--_p,125%),
+          var(--_g1) var(--_p,125%) 100%,var(--_g2) 100% var(--_p, 25%);
+        background-size: 200% var(--b),var(--b) 200%;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: .3s;
+        width: 45%;
+        text-align: center;
+        opacity: 1; /* Initial opacity set to 0 */
+        transform: translateY(20px); /* Initial position offscreen */
+    }
+    
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 2rem;
+    }
+
+    .portal-section p {
+        font-size: 1.1rem;
+        color: black;
+        line-height: 30px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 1rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 25px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+}
+@media (max-width: 950px) {
+    .about-parent-div {
+        flex-direction: column;
+    }
+
+
+    .portal-section {
+        animation: portalEntrance 0.2s forwards;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        margin: 0;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: pink;
+        position: relative;
+        width: 65%;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+        transition: all 0.3s ease 0s;
+        z-index: 10;
+        /* ------------------------------------ */
+        margin: 40px auto 0px auto;
+        /* ------------------------------------ */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 0.2rem;
+        color: #fff;
+        --g: 4px;
+        --b: 4px;
+        --c: #5f39393f;
+        padding: 30px 40px 10px 40px;
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+        background: var(--_g1) var(--_p, 25%) 0 ,var(--_g2) 0 var(--_p, 125%), var(--_g1) var(--_p, 125%) 100%,var(--_g2) 100% var(--_p, 25%);
+        background-size: 200% var(--b),var(--b) 200%;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: .3s;
+        /* ------------------------- */
+        width: 75%;
+        /* ------------------------- */
+        text-align: center;
+        opacity: 1;
+        transform: translateY(20px);
+        align-self: center;
+    }
+
+
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 2rem;
+    }
+
+    .portal-section p {
+        font-size: 1.3rem;
+        color: black;
+        line-height: 30px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 1.3rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 25px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+
+}
+@media (max-width: 815px) {
+    .about-parent-div {
+        flex-direction: column;
+    }
+
+
+    .portal-section {
+        animation: portalEntrance 0.2s forwards;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        margin: 0;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: pink;
+        position: relative;
+        width: 65%;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+        transition: all 0.3s ease 0s;
+        z-index: 10;
+        /* ------------------------------------ */
+        margin: 40px auto 0px auto;
+        /* ------------------------------------ */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 0.2rem;
+        color: #fff;
+        --g: 4px;
+        --b: 4px;
+        --c: #5f39393f;
+        padding: 30px 40px 10px 40px;
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+        background: var(--_g1) var(--_p, 25%) 0 ,var(--_g2) 0 var(--_p, 125%), var(--_g1) var(--_p, 125%) 100%,var(--_g2) 100% var(--_p, 25%);
+        background-size: 200% var(--b),var(--b) 200%;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: .3s;
+        /* ------------------------- */
+        width: 75%;
+        /* ------------------------- */
+        text-align: center;
+        opacity: 1;
+        transform: translateY(20px);
+        align-self: center;
+    }
+
+
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 2rem;
+    }
+
+    .portal-section p {
+        font-size: 1.3rem;
+        color: black;
+        line-height: 30px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 1.3rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 25px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+
+}
+@media (max-width: 700px) {
+    .about-parent-div {
+        flex-direction: column;
+    }
+
+
+    .portal-section {
+        animation: portalEntrance 0.2s forwards;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        margin: 0;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: pink;
+        position: relative;
+        width: 65%;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+        transition: all 0.3s ease 0s;
+        z-index: 10;
+        /* ------------------------------------ */
+        margin: 40px auto 0px auto;
+        /* ------------------------------------ */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 0.2rem;
+        color: #fff;
+        --g: 4px;
+        --b: 4px;
+        --c: #5f39393f;
+        padding: 30px 40px 10px 40px;
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+        background: var(--_g1) var(--_p, 25%) 0 ,var(--_g2) 0 var(--_p, 125%), var(--_g1) var(--_p, 125%) 100%,var(--_g2) 100% var(--_p, 25%);
+        background-size: 200% var(--b),var(--b) 200%;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: .3s;
+        /* ------------------------- */
+        width: 75%;
+        /* ------------------------- */
+        text-align: center;
+        opacity: 1;
+        transform: translateY(20px);
+        align-self: center;
+    }
+
+
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 1.6rem;
+    }
+
+    .portal-section p {
+        font-size: 1rem;
+        color: black;
+        line-height: 20px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 1rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 25px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+
+}
+@media (max-width: 440px) {
+    .about-parent-div {
+        flex-direction: column;
+    }
+
+
+    .portal-section {
+        animation: portalEntrance 0.2s forwards;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        margin: 0;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: pink;
+        position: relative;
+        width: 65%;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+        transition: all 0.3s ease 0s;
+        z-index: 10;
+        /* ------------------------------------ */
+        margin: 40px auto 0px 50px;
+        /* ------------------------------------ */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 0.2rem;
+        color: #fff;
+        --g: 4px;
+        --b: 4px;
+        --c: #5f39393f;
+        padding: calc(var(--g) + var(--b));
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+        background: var(--_g1) var(--_p, 25%) 0 ,var(--_g2) 0 var(--_p, 125%), var(--_g1) var(--_p, 125%) 100%,var(--_g2) 100% var(--_p, 25%);
+        background-size: 200% var(--b),var(--b) 200%;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: .3s;
+        /* ------------------------- */
+        width: 80%;
+        /* ------------------------- */
+        text-align: center;
+        opacity: 1;
+        transform: translateY(20px);
+        align-self: center;
+    }
+
+
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 1.4rem;
+    }
+
+    .portal-section p {
+        font-size: 0.8rem;
+        color: black;
+        line-height: 20px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 0.8rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 20px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+    .portal-unordered-list-about a {
+        font-size: 1.5rem;
+        transition: font-size 0.3s ease 0s;
+    }
+}
+@media (max-width: 350px) {
+    .about-parent-div {
+        flex-direction: column;
+        /* ------------------------- */
+        margin-bottom: -40px;
+        /* ------------------------- */
+    }
+
+
+    .portal-section {
+        animation: portalEntrance 0.2s forwards;
+        animation-delay: 2s;
+        animation-fill-mode: forwards;
+        animation-timing-function: ease-in-out;
+        margin: 0;
+        display: grid;
+        place-content: center;
+        grid-auto-flow: column;
+        gap: 30px;
+        background: pink;
+        position: relative;
+        width: 65%;
+        background: rgba(255, 255, 255, 0.25);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        box-shadow: 0 2px 12px 0 rgba(31, 38, 135, 0.57);
+        transition: all 0.3s ease 0s;
+        z-index: 10;
+        /* ------------------------------------ */
+        margin: 0px 0px 0px 15px;
+        /* ------------------------------------ */
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        border-radius: 0.2rem;
+        color: #fff;
+        --g: 4px;
+        --b: 4px;
+        --c: #5f39393f;
+        padding: calc(var(--g) + var(--b));
+        --_c: #0000 0 25%, var(--c) 0 50%;
+        --_g1: repeating-linear-gradient(90deg ,var(--_c)) repeat-x;
+        --_g2: repeating-linear-gradient(180deg,var(--_c)) repeat-y;
+        background: var(--_g1) var(--_p, 25%) 0 ,var(--_g2) 0 var(--_p, 125%), var(--_g1) var(--_p, 125%) 100%,var(--_g2) 100% var(--_p, 25%);
+        background-size: 200% var(--b),var(--b) 200%;
+        cursor: pointer;
+        filter: grayscale(50%);
+        transition: .3s;
+        /* ------------------------- */
+        width: 95%;
+        /* ------------------------- */
+        text-align: center;
+        opacity: 1;
+        transform: translateY(20px);
+    }
+
+
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 1.4rem;
+    }
+
+    .portal-section p {
+        font-size: 0.8rem;
+        color: black;
+        line-height: 20px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 0.8rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 20px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+    .portal-unordered-list-about a {
+        font-size: 1.2rem;
+        transition: font-size 0.3s ease 0s;
+    }
+
+}
+@media (max-width: 275px) {
+    .portal-section h2 {
+        position: relative;
+        display: inline-block;
+        font-size: 1.4rem;
+    }
+
+    .portal-section p {
+        font-size: 0.9rem;
+        color: black;
+        line-height: 15px;
+    }
+
+
+    .portal-unordered-list-about li {
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        padding: 4px 0px 4px 0px;
+        font-size: 0.8rem;
+        color: #333;
+        /* ---------------------------- */
+        opacity: 0.7;
+        /* ---------------------------- */
+        color: black;
+        letter-spacing: 0.1rem;
+        line-height: 12px;
+        text-shadow: 3px 2px 0px rgba(136, 136, 136, 0.6);
+    }
+}

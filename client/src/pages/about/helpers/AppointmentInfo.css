@@ -1,0 +1,119 @@
+/* Set box-sizing and margin to 0 for all elements */
+
+
+/* Responsive font sizes */
+@media (max-width: 360px) {
+    html {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 240px) {
+    html {
+        font-size: 0.75em;
+    }
+}
+
+/* Apply border effects from foresight-square and #appointment-form-article styles to appointment-info */
+.appointment-info {
+    position: relative;
+    width: 70%;
+    margin: 0 auto; /* Center the appointment info */
+    padding: 20px;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    display: grid;
+    grid-gap: 1.25em;
+    z-index: 1;
+    grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+    border: solid 0 transparent;
+    padding: calc(1.25em + 6px) 0.5em 0.5em calc(1.25em + 6px);
+    background: rgba(143, 0, 72, 0.7) padding-box;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.appointment-info::before {
+    position: absolute;
+    top: 0;
+    padding: 10px 10px 10px 10px;
+
+    left: 0;
+    border: inherit;
+    border-width: 1.25em 0 0 1.25em;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 0 6px rgba(143, 0, 72, 0.7);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    content: "";
+}
+
+.appointment-info::after {
+    position: absolute;
+    top: 26px;
+    left: 26px;
+    width: calc(100% - 26px);
+    height: calc(100% - 26px);
+    box-shadow: inset 0 0 0 6px rgba(143, 0, 72, 0.7);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(25px);
+    z-index: 2;
+    box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+    border: 1.5px solid rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+#appointment-form-article section {
+    color: white;
+    padding: 15px 15px 0px 0px;
+}
+#appointment-form-article {
+
+
+}
+#appointment-form-article:nth-child(2) {
+
+}
+#appointment-form-article::before {
+
+  
+  
+}
+#appointment-form-article::after {
+
+
+}
+.appointment-form {
+    position: relative;
+    padding: 20px 0px 20px 20px;
+    z-index: 10;
+  }
+
+/* Adjustments for smaller screens */
+@media (max-width: 450px) {
+
+    #appointment-form-article section {
+        font-size: 0.9rem;
+
+    }
+    .appointment-info::before {
+        width: 95%;
+        height: 99.3%;
+    }
+}
+
+@media (max-width: 240px) {
+    .appointment-info {
+        width: 90vw; /* Adjust width for smaller screens */
+    }
+    #appointment-form-article section {
+        font-size: 0.9rem;
+
+    }
+}

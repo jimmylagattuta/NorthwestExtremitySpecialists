@@ -1,0 +1,494 @@
+*, ::before {
+    box-sizing: inherit;
+    margin: 0;
+}
+
+
+@media (max-width: 360px) {
+    html {
+        font-size: 1em;
+    }
+}
+@media (max-width: 240px) {
+    html {
+        font-size: 0.75em;
+    }
+}
+#form-div a {
+    margin: 6px 0px 6px 0px;
+    padding: 0px 10px 0px 10px;
+}
+.alert-form-foresight {
+    display: flex;
+    text-align: start;
+    font-size: 0.9rem;
+    margin: 0px 0px 4px 0px;
+    padding: 0px 0px 0px 0px;
+}
+.foresight-square {
+    box-sizing: border-box;
+    display: grid;
+    grid-gap: 1.25em;
+    grid-template-columns: repeat(auto-fit, minmax(14em, 1fr));
+
+}
+.form-group-foresight {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    align-items: center;
+}
+.foresight-subheader {
+    width: 170px;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+}
+h4.foresight-subheader {
+    font-size: 1rem;
+}
+h3.foresight-subheader {
+    font-size: 0.8rem;
+}
+.header-button-yellow-form-foresight {
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    z-index: 10;
+    box-shadow: 0.5px 0.5px 2px white;
+    border-radius: 0px;
+    margin: 0px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+    background-color: white;
+
+    border-style: solid;
+    border-color: var(--violet);
+    border-width: 2px;
+}
+
+.glass-buttons-foresight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 37.8125em) {
+      body {
+          --ang: 85deg ;
+    }
+  }
+  
+  #foresight-article {
+      --c: rgba(143, 0, 72, 0.7);
+      --s0: calc(1.25em + 6px);
+      --s1: calc(1.25em + 6px + 0.5em);
+    place-self: center;
+    position: relative;
+    width: 28em;
+    height: 32em;
+    border: solid 0 transparent;
+    border-width: 0 var(--s0) var(--s0) 0;
+    padding: var(--s1) 0.5em 0.5em var(--s1);
+    background: var(--c) padding-box;
+
+}
+#foresight-article:nth-child(2) {
+    --c: #b4ff7d;
+    filter: invert(1);
+}
+#foresight-article::before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: inherit;
+    border-width: 1.25em 0 0 1.25em;
+    width: 28em;
+    height: 32em;
+
+
+    box-shadow: inset 0 0 0 6px var(--c);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    content: "";
+    
+    
+    
+    
+  }
+  #foresight-article::after {
+    position: absolute;
+    top: 26px;
+    left: 26px;
+
+    width: 26em;
+    height: 30em;
+
+
+    box-shadow: inset 0 0 0 6px var(--c);
+    mix-blend-mode: difference;
+    pointer-events: none;
+    content: "";
+    background-color: rgba(255, 255, 255, 0.06);
+	-webkit-backdrop-filter: blur(25px);
+	backdrop-filter: blur(25px);
+    z-index: 2;
+	-webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+	box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+	border: 1.5px solid rgba(255, 255, 255, 0.06);
+
+  }
+
+  .foresight-form {
+    position: relative;
+    padding: 0px 0px 0px 20px;
+    z-index: 10;
+  }
+  
+  h3 {
+    font-size: 1.5em;
+    font-weight: 900;
+    line-height: 1.75;
+  }
+.mobile-change-to-row {
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-height: 650px) and (min-width: 450px) {   
+    h4.foresight-subheader {
+        font-size: 0.7rem;
+    }
+    .foresight-subheader {
+        width: 100px;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+    }
+    .glass-buttons-foresight {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+
+    }
+    .form-group-foresight {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 6px;
+    }
+  #foresight-article {
+    --c: rgba(143, 0, 72, 0.7);
+    --s0: calc(1.25em + 6px);
+    --s1: calc(1.25em + 6px + 0.5em);
+    place-self: center;
+    position: absolute;
+    width: 95vw;
+    height: 18em;
+    border: solid 0 transparent;
+    border-width: 0 var(--s0) var(--s0) 0;
+    padding: var(--s1) 0.5em 0.5em var(--s1);
+    background: var(--c) padding-box;
+    top: 102px;
+    }
+    #foresight-article::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: inherit;
+        border-width: 1.25em 0 0 1.25em;
+        width: 95vw;
+        height: 32em;
+    
+    
+        box-shadow: inset 0 0 0 6px var(--c);
+        mix-blend-mode: difference;
+        pointer-events: none;
+        content: "";
+        
+        
+        
+        
+      }
+      #foresight-article::after {
+        position: absolute;
+        top: 26px;
+        left: 26px;
+    
+        width: 91vw;
+        height: 30em;
+    
+    
+        box-shadow: inset 0 0 0 6px var(--c);
+        mix-blend-mode: difference;
+        pointer-events: none;
+        content: "";
+        background-color: rgba(255, 255, 255, 0.06);
+        -webkit-backdrop-filter: blur(25px);
+        backdrop-filter: blur(25px);
+        z-index: 2;
+        -webkit-box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 25px 23px rgba(0, 0, 0, 0.15);
+        border: 1.5px solid rgba(255, 255, 255, 0.06);
+    
+      }
+    .foresight-square {
+        position: fixed;
+        padding: 0.5em;
+        top: 0;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1000; /* Ensure it sits above other content */
+        
+    }
+    #form-div a {
+        margin: 3px 10px 3px 10px;
+        padding: 0px 10px 0px 10px;
+        font-size: 0.8rem;
+        width: 40%;
+    }
+    .mobile-change-to-row {
+        display: flex;
+        flex-direction: row;
+    }
+    .alert-form-foresight {
+        display: flex;
+        text-align: start;
+        font-size: 0.7rem;
+        margin: 0px 0px 4px 0px;
+        padding: 0px 0px 0px 0px;
+    }
+}
+@media (max-height: 650px) {   
+    #form-div a {
+        margin: 3px 5px 3px 5px;
+        padding: 0px 5px 0px 5px;
+        font-size: 0.4rem;
+        width: 35%;
+    }
+
+}
+@media (max-height: 670px) {   
+
+}
+@media (max-width: 450px) {
+    .text-and-close {
+        display: flex;
+        flex-direction: row;
+    }
+    #foresight-article {
+        width: 95vw;
+        height: 540px;
+    }
+    #foresight-article::before {
+        width: 95vw;
+        height: 540px;
+    }
+    #foresight-article::after {
+        left: 16px;
+        width: 89vw;
+        height: 518px;
+        top: 16px;
+    }
+    #form-div a {
+        margin: 2px 10px 5px 10px;
+        padding: 0px 5px 0px 5px;
+        font-size: 0.6rem;
+        width: 100%;
+    }
+    .form-group-foresight {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 0px 5px 0px;
+    }
+    h4.foresight-subheader {
+        font-size: 0.8rem;
+    }
+    .alert-form-foresight {
+        display: flex;
+        text-align: start;
+        font-size: 0.7rem;
+        margin: 0px 0px 4px 5px;
+        padding: 0px 5px 0px 5px;
+        width: 80%;
+    }
+    
+    .close-button {
+        position: absolute;
+        top: 0px;
+        right: -25px;
+        cursor: pointer;
+        color: white;
+        z-index: 10;
+        font-size: 1.5rem;
+        opacity: 70%;
+    }
+}
+@media (max-width: 420px) {
+    .alert-form-foresight {
+        display: flex;
+        text-align: start;
+        font-size: 0.7rem;
+        margin: 0px 0px 4px 0px;
+        padding: 0px 10px 0px 0px;
+    }
+    .close-button {
+        position: absolute;
+        top: 0px;
+        right: -15px;
+        cursor: pointer;
+        color: white;
+        z-index: 10;
+        font-size: 1.5rem;
+        opacity: 70%;
+    }
+    .form-group-foresight {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+        align-items: center;
+        margin: 20px 0px 5px 0px;
+    }
+}   
+@media (max-width: 350px) {
+    .form-group-foresight {
+        display: flex;
+        flex-direction: row;
+        text-align: left;
+        justify-content: space-between;
+        align-items: center;
+        margin: 15px 0px 5px 0px;
+    }
+    .alert-form-foresight {
+        display: flex;
+        text-align: start;
+        font-size: 0.7rem;
+        margin: 0px 0px 4px 0px;
+        padding: 0px 10px 0px 0px;
+    }
+    .close-button {
+        position: absolute;
+        top: 0px;
+        right: -15px;
+        cursor: pointer;
+        color: white;
+        z-index: 10;
+        font-size: 1.5rem;
+        opacity: 70%;
+    }
+}   
+@media (max-width: 240px) {
+    .mobile-change-to-row {
+        display: flex;
+        flex-direction: row;
+    }
+    #form-div {
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: 0;
+
+    }
+    #form-div a {
+        margin: 0px 10px 5px 10px;
+        padding: 0px 5px 0px 5px;
+        font-size: 0.4rem;
+        width: 35%;
+    }
+    .foresight-square {
+        grid-template-columns: 1fr; /* Set the column to occupy the full width */
+        padding: 5px 0px 0px 5px;
+        width: 60%; /* Make it take full width */
+        height: 287px; /* Make it take full height of the viewport */
+        margin: 0; /* Remove any margin */
+        align-self: flex-start;
+    }
+
+    .foresight-form {
+        position: relative;
+        padding: 20px 0px 0px 20px;
+        z-index: 10;
+    }
+    .form-group-foresight {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+    h4.foresight-subheader {
+        font-size: 0.5rem;
+        margin-right: 5px;
+    }
+    h3.foresight-subheader {
+        font-size: 0.4rem;
+    }
+    .foresight-subheader {
+        width: 100%;
+        padding: 0px 0px 0px 0px;
+        margin: 0px 0px 0px 0px;
+    }
+    .alert-form-foresight {
+        display: flex;
+        text-align: start;
+        font-size: 0.5rem;
+        margin: 4px 4px 4px 4px;
+        padding: 0px 5px 0px 0px;
+    }
+    .glass-buttons-foresight {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+    }
+    .close-button {
+        position: absolute;
+        top: 20px;
+        right: -10px;
+        cursor: pointer;
+        color: white;
+        z-index: 10;
+        font-size: 1rem;
+        opacity: 70%;
+    }
+    #foresight-article {
+        width: 203px;
+        height: 205px;
+        border-width: 0;
+        padding: 0;
+        top: 40px;
+        left: 8px;
+    }
+
+    #foresight-article::before, #foresight-article::after {
+        width: 200px;
+        height: 201px;
+        top: unset;
+        left: unset;
+        top: 14px;
+        left: 12px;
+    }
+    #foresight-article::before {
+        position: fixed;
+        left: 20px;
+        /* bottom: 0px; */
+        top: 94px;
+        border: inherit;
+        border-width: 0.5em 0 0 0.5em;
+        width: 206px;
+        height: 206px;
+        z-index: 10;
+        box-shadow: inset 0 0 0 2px var(--c);
+        mix-blend-mode: difference;
+        pointer-events: none;
+        content: "";
+    }
+}

@@ -1,0 +1,626 @@
+/* AboutUsComponent styles */
+.about-container {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.about-container-top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px 100px 100px 100px;
+}
+.about-title {
+    padding: 0px 0px 0px 0px;
+    font-size: 3.2rem;
+    width: 65vw;
+    text-align: center;
+    font-weight: 600;
+    line-height: 50px;
+}
+.about-title-right {
+    text-align: left;
+    margin: 0px;
+    padding: 5px 0px 0px 0px;
+    font-weight: 400;
+    border-bottom: 1px solid rgb(143, 0, 72);
+    padding-bottom: 15px;
+    color: white;
+    font-size: 3rem;
+    width: 75%;
+    line-height: 50px;
+}
+.about-bar {
+    padding: 0px;
+    margin: 0px;
+}
+.about-container-bottom {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+.about-container-bottom-left {
+    display: flex;
+    flex: 1;
+    background-image: url(https://i.imgur.com/AzYkCf0.webp);
+    background-size: cover;
+    border-bottom: 4px solid rgb(74, 1, 37);
+
+    height: 100vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+.about-container-bottom-right {
+    display: flex;
+    flex: 1;
+    background-color: #232323;
+    height: 100vh;
+    width: 100%;
+    flex-direction: column;
+    padding: 4px 0px 0px 0px;
+    justify-content: center;
+    align-items: center;
+}
+.about-right-button {
+    width: 75%;
+    padding: 20px 0px 20px 0px;
+}
+.about-description-right {
+    text-align: left;
+    margin: 0px;
+    padding: 20px 0px 0px 0px;
+    font-weight: 400;
+    color: white;
+    font-size: 1.2rem;
+    width: 77%;
+
+}
+.about-description {
+    text-align: center;
+    margin: 0px;
+    padding: 20px 0px 0px 0px;
+    font-weight: 400;
+    color: black;
+    font-size: 1.2rem;
+    width: 75%;
+    border-bottom: 1px solid black;
+    padding-bottom: 15px;
+
+}
+.header-button-white,
+.header-button-white:active {
+    background-color: var(--white);
+    color: var(--black);
+    align-self: flex-start;
+    font-size: 1.2rem;
+}
+@keyframes growAndShrink {
+    0%, 100% {
+      transform: scale(0.8); /* Original size */
+    }
+    10%, 90% { /* Adjusted for quick growth and longer stay at grown size */
+      transform: scale(1.05); /* Grow slightly more than original size */
+    }
+}
+
+.animate-grow {
+    display: inline-block; /* Required for transform to work on inline elements like span */
+    animation: growAndShrink 6s infinite; /* Apply the animation */
+    color: white;
+    text-decoration-line: underline;
+    text-decoration-color: rgb(240, 112, 176);
+    margin-left: 3px;
+}
+.animate-grow:hover {
+    border: 1px solid rgb(143, 0, 72);
+}
+.animate-grow:active {
+    transform: scale(0.95); /* Original size */
+}
+
+@media (max-width: 1030px) {
+    .about-container {
+
+    }
+    .about-container-top {
+        padding: 50px 50px 50px 50px;
+    }
+    .about-container-bottom {
+
+    }
+    .about-container-bottom-right {
+        display: flex;
+        flex: 1;
+        background-color: #232323;
+        padding: 4px 0px 0px 0px;
+        height: 75vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-container-bottom-left {
+        display: flex;
+        flex: 1;
+        background-image: url(https://i.imgur.com/AzYkCf0.webp);
+        background-size: cover;
+        padding: 0px 0px 0px 0px;
+        height: 75vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-title {
+        font-size: 1.5rem;
+        width: 60vw;
+        line-height: 25px;
+        margin: 0px;
+    }
+    .about-description {
+        padding: 15px 0px 25px 0px;
+        font-size: 1.2rem;
+        width: 90%;
+        line-height: 25px;
+    }
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 1rem;
+        width: 95%;
+    }
+    .about-title-right {
+        text-align: center;
+        margin: 0px;
+        padding: 0px 0px 15px 0px;
+        font-weight: 400;
+        border-bottom: 1px solid rgb(143, 0, 72);
+        color: white;
+        font-size: 1.8rem;
+        width: 85%;
+        line-height: 20px;
+    }
+    .about-right-button {
+        width: unset;
+        font-size: 0.7rem;
+        margin: 10px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        
+    }
+    .about-right-button .btn {
+        
+        font-size: 1rem;
+        padding: 0px 5px 0px 5px;
+        margin: 0px 0px 0px 0px;
+
+    }
+    .header-button-white,
+    .header-button-white:active {
+
+    }
+}
+@media (max-width: 1030px) and (min-height: 1300px) {
+    .about-container-bottom-left {
+        display: flex;
+        flex: 1;
+        background-image: url(https://i.imgur.com/AzYkCf0.webp);
+        background-size: cover;
+        border-bottom: 4px solid rgb(74, 1, 37);
+    
+        height: 50vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-container-bottom-right {
+        display: flex;
+        flex: 1;
+        background-color: #232323;
+        height: 50vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+@media (max-width: 940px) {
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 0.6rem;
+        width: 95%;
+    }
+}
+@media (max-width: 815px) {
+    .about-container {
+
+    }
+    .about-container-top {
+        padding: 30px 20px 30px 20px;
+    }
+    .about-container-bottom {
+
+    }
+    .about-container-bottom-right {
+        display: flex;
+        flex: 1;
+        background-color: #232323;
+        padding: 0px 0px 0px 0px;
+        height: 35vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-container-bottom-left {
+        display: flex;
+        flex: 1;
+        background-image: url(https://i.imgur.com/AzYkCf0.webp);
+        background-size: cover;
+        padding: 0px 0px 0px 0px;
+        height: 35vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-title {
+        font-size: 1.5rem;
+        width: 70vw;
+        line-height: 25px;
+        margin: 0px;
+    }
+    .about-description {
+        padding: 15px 0px 25px 0px;
+        font-size: 0.7rem;
+        width: 90%;
+        line-height: 16px;
+    }
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 0.5rem;
+        width: 75%;
+    }
+    .about-title-right {
+        text-align: center;
+        margin: 0px;
+        padding: 0px 0px 10px 0px;
+        font-weight: 400;
+        border-bottom: 1px solid rgb(143, 0, 72);
+        color: white;
+        font-size: 1.5rem;
+        width: 85%;
+        line-height: 20px;
+    }
+    .about-right-button {
+        width: unset;
+        font-size: 0.7rem;
+        margin: 10px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        
+    }
+    .about-right-button .btn {
+        
+        font-size: 0.8rem;
+        padding: 0px 5px 0px 5px;
+        margin: 0px 0px 0px 0px;
+
+    }
+    .header-button-white,
+    .header-button-white:active {
+
+    }
+}
+@media (max-width: 740px) {
+    .about-container {
+
+    }
+    .about-container-top {
+        padding: 20px 20px 20px 20px;
+    }
+    .about-container-bottom {
+
+    }
+    .about-container-bottom-right {
+        display: flex;
+        flex: 1;
+        background-color: #232323;
+        padding: 4px 0px 0px 0px;
+        height: 75vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-container-bottom-left {
+        display: flex;
+        flex: 1;
+        background-image: url(https://i.imgur.com/AzYkCf0.webp);
+        background-size: cover;
+        padding: 0px 0px 0px 0px;
+        height: 75vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-title {
+        font-size: 1.1rem;
+        width: 50vw;
+        line-height: 25px;
+        margin: 0px;
+    }
+    .about-description {
+        padding: 15px 0px 25px 0px;
+        font-size: 0.7rem;
+        width: 90%;
+        line-height: 16px;
+    }
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 0.6rem;
+        width: 95%;
+    }
+    .about-title-right {
+        text-align: center;
+        margin: 0px;
+        padding: 0px 0px 10px 0px;
+        font-weight: 400;
+        border-bottom: 1px solid rgb(143, 0, 72);
+        color: white;
+        font-size: 1.2rem;
+        width: 85%;
+        line-height: 20px;
+    }
+    .about-right-button {
+        width: unset;
+        font-size: 0.7rem;
+        margin: 10px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        
+    }
+    .about-right-button .btn {
+        
+        font-size: 0.8rem;
+        padding: 0px 5px 0px 5px;
+        margin: 0px 0px 0px 0px;
+
+    }
+    .header-button-white,
+    .header-button-white:active {
+
+    }
+}
+
+@media (max-width: 740px) {
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 0.5rem;
+        width: 95%;
+    }
+}
+
+@media (max-width: 450px) {
+    .about-container {
+
+    }
+    .about-container-top {
+        padding: 20px 20px 20px 20px;
+    }
+    .about-container-bottom {
+
+    }
+    .about-container-bottom-right {
+        display: flex;
+        flex: 1;
+        background-color: #232323;
+        padding: 4px 0px 0px 0px;
+        height: 54vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-container-bottom-left {
+        display: flex;
+        flex: 1;
+        background-image: url(https://i.imgur.com/AzYkCf0.webp);
+        background-size: cover;
+        padding: 0px 0px 0px 0px;
+        height: 54vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-title {
+        font-size: 1.1rem;
+        width: 50vw;
+        line-height: 25px;
+        margin: 0px;
+    }
+    .about-description {
+        padding: 15px 0px 25px 0px;
+        font-size: 0.8rem;
+        width: 90%;
+        line-height: 16px;
+    }
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 0.5rem;
+        width: 95%;
+    }
+    .about-title-right {
+        text-align: center;
+        margin: 0px;
+        padding: 0px 0px 10px 0px;
+        font-weight: 400;
+        border-bottom: 1px solid rgb(143, 0, 72);
+        color: white;
+        font-size: 1.2rem;
+        width: 85%;
+        line-height: 20px;
+    }
+    .about-right-button {
+        width: unset;
+        font-size: 0.7rem;
+        margin: 10px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
+        
+    }
+    .about-right-button .btn {
+        
+        font-size: 0.8rem;
+        padding: 0px 5px 0px 5px;
+        margin: 0px 0px 0px 0px;
+
+    }
+    .header-button-white,
+    .header-button-white:active {
+
+    }
+}
+
+@media (max-width: 380px) {
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 0.4rem;
+        width: 90%;
+    }
+    
+}
+@media (max-width: 350px) {
+    .about-container {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    .about-container-top {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 10px 8px 10px;
+    }
+    .about-container-bottom {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        width: 100%;
+    }
+    .about-container-bottom-right {
+        display: flex;
+        flex: 1;
+        background-color: #232323;
+        height: 100vh;
+        width: 100%;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0px 0px 10px 0px;
+
+        align-items: center;
+    }
+    .about-container-bottom-left {
+        display: flex;
+        flex: 1 1;
+        background-image: url(https://i.imgur.com/AzYkCf0.webp);
+        background-size: cover;
+        height: 30vh;
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        padding: 60vw 0px 0px 0px;
+    }
+    .about-title {
+        padding: 2px 0px 2px 0px;
+        border-top: 0.1px solid black;
+        margin: 0px;
+        font-size: 0.6rem;
+        width: 100%;
+        text-align: center;
+        font-weight: 600;
+        line-height: 10px;
+        border-bottom: ridge;
+
+    }
+    .about-description {
+        text-align: center;
+        margin: 0px;
+        padding: 2px 0px 5px 0px;
+        font-weight: 400;
+        color: black;
+        font-size: 0.4rem;
+        width: 100%;
+        border-bottom: 0.1px solid black;
+        line-height: 8px;
+    }
+    .about-description-right {
+        text-align: left;
+        margin: 0px;
+        padding: 10px 0px 0px 0px;
+        font-weight: 400;
+        color: white;
+        font-size: 0.4rem;
+        width: 80%;
+    }
+    .about-title-right {
+        text-align: center;
+        margin: 0px;
+        padding: 5px 0px 0px 0px;
+        font-weight: 400;
+        border-bottom: 1px solid rgb(143, 0, 72);
+        color: white;
+        font-size: 1rem;
+        width: 42%;
+        line-height: unset;
+
+    }
+    .about-right-button {
+        width: unset;
+        padding: 15px 0px 5px 0px;
+        font-size: 0.6rem;
+        align-self: center;
+    }
+    .header-button-white,
+    .header-button-white:active {
+        background-color: var(--white);
+        padding:  5px 10px 5px 10px;
+        color: var(--black);
+        align-self: flex-start;
+    }
+}

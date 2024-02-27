@@ -1,0 +1,382 @@
+#form-div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex;
+    position: fixed;
+    bottom: 0;
+    /* width: 400px; */
+    /* height: max-content; */
+    right: 0;
+
+    z-index: 2;
+    padding: 0px;
+    margin: 50px;
+    /* border-style: solid; */
+    /* border-color: black; */
+    /* border-width: 1px; */
+    /* Update background to include animation */
+
+    /* background: linear-gradient(0deg, #000, #272727); */
+    /* width: 300px; height: 200px; */
+
+    /* box-shadow: 10px 10px 42px 0 rgba(0,0,0,0.75); */
+}
+
+
+/* Apply animation to #form-div */
+/* #form-div:before,
+#form-div:after {
+    border-radius: 10px;
+    mix-blend-mode: normal;
+    z-index: -2;
+    content: '';
+    width: calc(100% + (16px * 2));
+    height: calc(100% + (20px * 2));
+    position: absolute;
+    display: block;
+    animation:  20s linear infinite;
+    transform: translateX(-16px) translateY(-20px);
+
+
+    
+} */
+
+/* Rest of your existing code for #form-div::after and #form-div::before remains unchanged */
+
+#form-div::after,
+#form-div::before {
+    /* mix-blend-mode: normal;
+    z-index: -2;
+    content: '';
+    width: calc(100% + (16px * 2));
+    height: calc(100% + (18px * 2));
+    position: absolute;
+    display: block;
+    animation: borderTopLeftCorner 2s ease-in-out infinite;
+    transform: translateX(-16px) translateY(-20px);
+    background-size: cover; */
+    
+}
+
+#form-div::after {
+    /* background-color: rgba(203, 202, 202, 0.5);
+    animation: borderShift 10s ease infinite;
+    animation-delay: -5s;
+    clip-path: polygon(
+                    0 0,
+                    calc(100% - (5.3333333333px)) calc(0% + (5.3333333333px)),
+                    100% 100%,
+                    calc(0% + (5.3333333333px)) calc(100% - (5.3333333333px))
+                ); */
+}
+
+#form-div::before {
+    /* background-color: rgba(143, 0, 72, 0.3); */
+    /* background-color: rgba(203, 202, 202, 0.5);
+
+    clip-path: polygon(
+                    calc(0% + (5.3333333333px)) calc(0% + (5.3333333333px)),
+                    100% 0,
+                    calc(100% - (5.3333333333px)) calc(100% - (5.3333333333px)),
+                    0 100%
+                ); */
+}
+
+
+@keyframes steam {
+	0% {
+		background-position: 0 0;
+	}
+	50% {
+		background-position: 400% 0;
+	}
+	100% {
+		background-position: 0 0;
+	}
+}
+
+
+
+
+
+
+
+
+@keyframes growAndShrinkUpward {
+    0%, 100% {
+        clip-path: polygon(0 0, 1% 100%, 40% 100%, 60% 100%, 99% 100%, 99% 0);
+/* 
+        ^ Y
+        |
+     1% |          (1%, 100%)      (40%, 100%)      (60%, 100%)      (99%, 100%)
+        |_______________*______________*______________*______________*
+        |             /           \      |      /           \      |
+     0% |           /             \     |     /             \     |
+        |         /               \    |    /               \    |
+        |_______*_________________*___*___*_________________*___*__________________> X
+        (0%, 0%)        (1%, 0%)      (40%, 0%)        (60%, 0%)      (99%, 0%) */
+     
+        transform: translate(0, 0) rotate(-1deg);
+    }
+    25% {
+        /* clip-path: polygon(1% 0, 0% 100%, 40% 100%, 60% 100%, 100% 100%, 100% 0); */
+        transform: translate(-10px, 0px) rotate(0deg);
+    }
+    50% {
+        clip-path: polygon(2% 0, 0% 100%, 40% 100%, 60% 100%, 100% 100%, 99% 0);
+        transform: translate(-10px, 5px) rotate(1deg);
+    }
+    75% {
+        clip-path: polygon(1% 0, 0% 100%, 40% 100%, 60% 100%, 98% 100%, 99% 0);
+        transform: translate(10px, -0px) rotate(0deg);
+    }
+    100% {
+        /* clip-path: polygon(0 0, 1% 100%, 40% 100%, 60% 100%, 99% 100%, 100% 0); */
+        transform: translate(0, 0) rotate(-1deg);
+    }
+}
+@keyframes growAndShrinkDownward {
+    0%, 100% {
+        clip-path: polygon(0 0, 1% 100%, 40% 100%, 60% 100%, 99% 100%, 99% 0);
+/* 
+        ^ Y
+        |
+     1% |          (1%, 100%)      (40%, 100%)      (60%, 100%)      (99%, 100%)
+        |_______________*______________*______________*______________*
+        |             /           \      |      /           \      |
+     0% |           /             \     |     /             \     |
+        |         /               \    |    /               \    |
+        |_______*_________________*___*___*_________________*___*__________________> X
+        (0%, 0%)        (1%, 0%)      (40%, 0%)        (60%, 0%)      (99%, 0%) */
+     
+        transform: translate(0, 0) rotate(-3deg);
+    }
+    25% {
+        /* clip-path: polygon(1% 0, 0% 100%, 40% 100%, 60% 100%, 100% 100%, 100% 0); */
+        transform: translate(-10px, 0px) rotate(0deg);
+    }
+    50% {
+        clip-path: polygon(2% 0, 0% 100%, 40% 100%, 60% 100%, 100% 100%, 99% 0);
+        transform: translate(-10px, 5px) rotate(1deg);
+    }
+    75% {
+        clip-path: polygon(1% 0, 0% 100%, 40% 100%, 60% 100%, 98% 100%, 99% 0);
+        transform: translate(10px, -0px) rotate(0deg);
+    }
+    100% {
+        /* clip-path: polygon(0 0, 1% 100%, 40% 100%, 60% 100%, 99% 100%, 100% 0); */
+        transform: translate(0, 0) rotate(-3deg);
+    }
+}
+.form-background {
+    position: relative;
+    background-color: rgba(245, 245, 245, 1);
+}
+.form-background::before,
+.form-background::after {
+    border: white;
+    content: '';
+    display: none;
+    position: absolute;
+	background: linear-gradient(180deg, #505050, #303030);
+	-webkit-backdrop-filter: blur(15px);
+    border: solid rgba(247, 9, 9, 0.5) 1px;
+	backdrop-filter: blur(15px);
+    z-index: -3;
+    width: 101%;
+    height: 101%; /* Increase the height to make the triangles thicker */
+    animation-duration: 6s;
+    animation-timing-function: ease-in-out;
+    background: transparent;
+
+    background-size: 400%;
+    animation: steam 20s linear infinite;
+}
+
+
+.form-background::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(180deg, #505050, #303030); /* Charcoal gradient */
+    background-size: 300% 300%;
+    /* animation: borderShift 10s ease infinite; */
+    border-radius: 5px; /* Adjust to match the border-radius of .form-background if it has one */
+    z-index: -1;
+    opacity: 50%;
+}
+.form-background::after {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: -1px;
+    right: -1px;
+    bottom: -1px;
+    background: linear-gradient(180deg, #505050, #303030); /* Charcoal gradient */
+    background-size: 300% 300%;
+    /* animation: borderShift 10s ease infinite; */
+    border-radius: 5px; /* Adjust to match the border-radius of .form-background if it has one */
+    z-index: -3;
+    opacity: 50%;
+}
+@keyframes borderShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.form-background::after {
+    animation: growAndShrinkDownward 30s linear infinite;
+    bottom: -5px; /* Adjust the positioning to maintain the same level of flatness */
+    left: 0;
+    z-index: -1;
+    clip-path: polygon(0 0, 20% 100%, 40% 100%, 60% 100%, 100% 100%, 100% 0);
+}
+.form-groups {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    justify-content: flex-start;
+    background-image: linear-gradient(to right top, rgba(76, 216, 255, 0.1), rgba(75, 73, 73, 0.7)), url(https://i.imgur.com/FEy4bpN.webp);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    clip-path: polygon( 0 0, /* Top left */ 100% 0, /* Top right */ 100% 44%, /* Right side, starting to bend */ 0% 100%, /* Bottom center, creating the bend */ 0 100% /* Bottom left */ );
+    /* interesting background effect */
+    /* clip-path: circle(100% at 10% 0); */
+    clip-path: ellipse(89% 105% at 21% 0%);
+    display: -ms-grid;
+    display: grid;
+
+
+    padding: 5px 0;
+    -ms-grid-columns: auto auto;
+    grid-template-columns: auto auto;
+    background-color: rgba(255, 255, 255, 0.06);
+    -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(20px);
+
+    bottom: 0;
+    border-radius: 0 0 8px 8px;
+    width: 99%;
+
+
+
+
+}
+
+#form-div a {
+    color: white;
+    text-decoration-line: none;
+    font-size: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0px 11px 10px 20px;
+    padding: 0px 10px 0px 10px;
+    background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent white for the glass effect */
+    backdrop-filter: blur(0.01px); /* Blur effect for the glass look */
+    border: none;
+}
+#form-div a:hover {
+    transform: scale(1.1);
+    background-color: unset;
+    backdrop-filter: unset;
+    color: white;
+}
+#form-div a:active {
+    transform: scale(1);
+    transition: transform 0.2s ease-in-out; /* Adjust the duration here */
+
+}
+.form-description-download {
+    padding: 0px 5px 0px 5px;
+    margin: 0px 0px 15px 0px;
+    width: 80%;
+    color: black;
+    text-transform: none;
+    text-shadow: white 1px 1px 6px;
+}
+.header-button-yellow-form {
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    z-index: 10;
+    box-shadow: 0.5px 0.5px 2px white;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+    background-color: white;
+    border-style: solid;
+    border-color: var(--violet);
+    border-width: 2px;
+}
+.form-headers-download {
+    margin: 0px 0px 10px 10px;
+    padding: 15px 5px 15px 5px;
+    align-items: center;
+    justify-items: center;
+    text-align: center;
+    width: 100%;
+    font-size: 0.8rem;
+    color: black;
+    text-shadow: 2px 2px 4px white;
+    text-transform: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    -webkit-backdrop-filter: blur(0.01px);
+    backdrop-filter: blur(0.5px);
+}
+
+.header-button-yellow-form-download {
+    font-size: 0.9rem;
+    font-family: sans-serif;
+    z-index: 10;
+    box-shadow: 0.5px 0.5px 2px white;
+    border-radius: 0px;
+    margin: 0px;
+    padding: 0px 0px 0px 0px;
+}
+
+
+.close-button {
+    position: absolute;
+    top: 0px;
+    right: -20px;
+    cursor: pointer;
+    color: white;
+    z-index: 10;
+    font-size: 1.5rem;
+    opacity: 70%;
+}
+
+.close-button:hover {
+    opacity: 100%;
+}
+
+.mobile-menu-button-navbar .fa-times {
+    opacity: 70%;
+}
+
+#animate-bars:hover {
+    opacity: 100%;
+}
+
+#animate-bars:active {
+    transform: scale(0.9);
+}
+
+.close-button:active {
+    transform: scale(0.9);
+}
+

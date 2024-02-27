@@ -1,0 +1,28 @@
+.slide {
+    height: 100%;
+    width: 100%;
+}
+
+.slide:not(.first-slide) .show {
+    animation: fade 1.5s ease-in-out;
+}
+
+.show {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.carousel-img {
+    /* Apply the animation named 'fadeIn' */
+    animation: fadeIn 1s ease-in forwards;
+    /* Set the initial opacity to 0 to start with a fully transparent element */
+    /* opacity: 0; */
+    /* Set the dimensions to fill the parent container */
+    height: 100%;
+    width: 100%;
+    background-color: var(--violet);
+  }

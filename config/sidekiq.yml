@@ -1,0 +1,17 @@
+development:
+  :concurrency: 1
+  :url: redis://localhost:6379/0
+
+production:
+  :concurrency: 1
+  :url: <%= ENV['REDIS_URL'] %>
+
+
+# stopeed at 4:00 and changed to just sidekiq
+
+# config/sidekiq.yml
+# :schedule:
+#   monthly_job:
+#     cron: "*/30 * * * *"
+#     class: "MonthlyJob"
+#     queue: default
