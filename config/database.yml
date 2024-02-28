@@ -5,27 +5,27 @@ default: &default
 
 development:
   <<: *default
-  database: defaultcompanydatabase
-  username: defaultcompanyadmin@defaultcompanyserver
+  database: northwestextremityspecialistsdatabase
+  username: northwestextremityspecialistsadmin@northwestextremityspecialistsserver
   password: <%= ENV["REACT_APP_DATABASE_PASSWORD"] %>
-  host: defaultcompanyserver.postgres.database.azure.com
+  host: northwestextremityspecialistsserver.postgres.database.azure.com
   port: 5432
   sslmode: require
 
 test:
   <<: *default
-  database: defaultcompanydatabase
-  username: defaultcompanyadmin@defaultcompanyserver
+  database: northwestextremityspecialistsdatabase
+  username: northwestextremityspecialistsadmin@northwestextremityspecialistsserver
   password: <%= ENV["REACT_APP_DATABASE_PASSWORD"] %>
-  host: defaultcompanyserver.postgres.database.azure.com
+  host: northwestextremityspecialistsserver.postgres.database.azure.com
   port: 5432
   sslmode: require
 
 production:
   <<: *default
-  database: defaultcompanydatabase
-  username: defaultcompanyadmin@defaultcompanyserver
+  database: northwestextremityspecialistsdatabase
+  username: northwestextremityspecialistsadmin@northwestextremityspecialistsserver
   password: <%= ENV["REACT_APP_DATABASE_PASSWORD"] %>
-  host: defaultcompanyserver.postgres.database.azure.com
+  host: northwestextremityspecialistsserver.postgres.database.azure.com
   port: 5432
   sslmode: require

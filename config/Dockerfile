@@ -1,6 +1,7 @@
-# docker build -t default-company .
-# docker tag default-company:latest jimmylagattuta/default-company:latest
-# docker push jimmylagattuta/default-company:latest
+# az webapp log tail --name NorthwestExtremitySpecialsts --resource-group Northwest_Extremity_Specialsts_Resource_Group
+# docker build -t northwest-extremity-specialists .
+# docker tag default-company:latest jimmylagattuta/northwest-extremity-specialists:latest
+# docker push jimmylagattuta/northwest-extremity-specialists:latest
 
 # Use the official Ruby image as a base image
 FROM ruby:3.2.2
