@@ -10,7 +10,8 @@
     /* Add your styles for the top section */
   }
 .navbar-div {
-  background-color: rgb(143, 0, 72);
+  background-color: #004170;
+  ;
 }
 .navbar-container {
   display: flex;

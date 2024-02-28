@@ -82,11 +82,11 @@ const Navbar = () => {
                         <div className='logo-and-title'>
                             <img
                                 src='https://i.imgur.com/QuXDpPX.webp'
-                                alt='Default Company'
+                                alt='Northwest Extremity Specialists'
                                 className='navbar-logo'
                             />
                             <div>
-                                <h2 className="animate-charcter">Default Company </h2>
+                                <h2 className="animate-charcter">Northwest Extremity Specialists </h2>
                             </div>
                         </div>
                     </Link>
