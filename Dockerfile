@@ -1,7 +1,7 @@
-# az webapp log tail --name RiversideOrthos --resource-group Riverside_Resource_Group
-# docker build -t riverside-orthopaedics .
-# docker tag riverside-orthopaedics:latest jimmylagattuta/riverside-orthopaedics:latest
-# docker push jimmylagattuta/riverside-orthopaedics:latest
+# az webapp log tail --name DefaultCompany --resource-group Default_Company_Resource_Group
+# docker build -t default-company .
+# docker tag default-company:latest jimmylagattuta/default-company:latest
+# docker push jimmylagattuta/default-company:latest
 
 # myapp-postgres-server
 # postgres

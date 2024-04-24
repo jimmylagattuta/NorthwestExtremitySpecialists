@@ -58,8 +58,8 @@ function RequestAppointmentForm(props) {
     
     const url =
       process.env.NODE_ENV === 'production'
-        ? 'https://www.orthoriverside.com/api/v1/pull_google_places_cache'
-        : 'https://www.orthoriverside.com/api/v1/pull_google_places_cache';
+        ? 'localhost:3000.com/api/v1/pull_google_places_cache'
+        : 'localhost:3000.com/api/v1/pull_google_places_cache';
 
 
     const headers = {
@@ -148,7 +148,7 @@ function RequestAppointmentForm(props) {
       selectedProvider: selectedProvider
     };
     try {
-      const response = await fetch('https://www.orthoriverside.com/api/v1/send-email', {
+      const response = await fetch('localhost:3000.com/api/v1/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -582,7 +582,7 @@ function RequestAppointmentForm(props) {
                                 </div>
                               </div>
                               <div style={{ display: isOpenLocationDropdown ? 'flex' : 'none', flexDirection: 'column' }}>
-                                {['East Los Angeles', 'Wilshire', 'Santa Fe Springs', 'Tarzana', 'Encino', 'Valencia', 'Montebello', 'Glendale'].map((location, index) => (
+                                {['Cityville', 'Metropolis', 'Springfield', 'Laketown', 'Hilldale', 'Rivercity', 'Greenville', 'Eastwood'].map((location, index) => (
                                   <div
                                     key={index}
                                     onClick={() => setSelectedLocation(location)}

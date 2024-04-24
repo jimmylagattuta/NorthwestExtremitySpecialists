@@ -102,11 +102,11 @@ const Navbar = () => {
                         <div className='logo-and-title'>
                             <img
                                 src='https://i.imgur.com/1M8ZlnK.webp'
-                                alt='Riverside Orthopaedics Associates'
+                                alt='Default Company'
                                 className='navbar-logo'
                             />
                             <div>
-                                <h2 className="animate-charcter">Orthopaedic Associates Of Riverside</h2>
+                                <h2 className="animate-charcter">Company Default</h2>
                             </div>
                         </div>
                     </Link>

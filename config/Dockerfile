@@ -1,6 +1,6 @@
-# docker build -t riverside-orthopaedics .
-# docker tag riverside-orthopaedics:latest jimmylagattuta/riverside-orthopaedics:latest
-# docker push jimmylagattuta/riverside-orthopaedics:latest
+# docker build -t default-company-orthopaedics .
+# docker tag default-company-orthopaedics:latest jimmylagattuta/default-company-orthopaedics:latest
+# docker push jimmylagattuta/default-company-orthopaedics:latest
 
 # Use the official Ruby image as a base image
 FROM ruby:3.2.2

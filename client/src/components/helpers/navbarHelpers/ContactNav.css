@@ -59,7 +59,7 @@
     margin: 0px 30px 0px 10px;
 }
 
-.riverside-call-directions {
+.default-company-call-directions {
     display: flex;
     flex-direction: row;
     margin: 10px 0px 10px 0px;
@@ -115,10 +115,10 @@
   @media (max-width: 1400px) {
     .nav-button {
       align-self: center;
-      background-color: rgb(143, 0, 72);
+      background-color: rgb(0 64 143 / 35%);
       z-index: 8;
     }
-    .riverside-call-directions {
+    .default-company-call-directions {
       margin: 25px 0px 25px 0px;
     }
 
@@ -139,10 +139,10 @@
   @media (max-width: 1050px) {
     .nav-button {
       align-self: center;
-      background-color: rgb(143, 0, 72);
+      background-color: rgb(0 64 143 / 35%);
       z-index: 8;
     }
-    .riverside-call-directions {
+    .default-company-call-directions {
       margin: 15px 0px 15px 0px;
     }
 
@@ -211,10 +211,10 @@
     .contact-nav-menu {
       position: absolute;
       z-index: 8;
-      background-color: rgb(143, 0, 72);
+      background-color: rgb(0 64 143 / 35%);
   
     }
-    .riverside-call-directions {
+    .default-company-call-directions {
       min-width: 165px;
       justify-content: space-between;
     }
@@ -287,10 +287,10 @@
   .contact-nav-menu {
     position: absolute;
     z-index: 8;
-    background-color: rgb(143, 0, 72);
+    background-color: rgb(0 64 143 / 35%);
 
   }
-  .riverside-call-directions {
+  .default-company-call-directions {
     min-width: 125px;
     justify-content: space-between;
   }
@@ -335,7 +335,7 @@
   #nav-map {
     font-size: 0.7rem;
   }
-  .riverside-call-directions {
+  .default-company-call-directions {
     min-width: 105px;
   }
 

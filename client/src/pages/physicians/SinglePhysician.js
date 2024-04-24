@@ -11,15 +11,13 @@ const SinglePhysician = () => {
     });
     // console.log('physician', physician);
     const doctors = [
-        'Michael J. Hejna',
-        'Scott A. Seymour',
-        'Erling Ho',
-        'Nicolas S. Anderson',
-        'Samantha Adamczyk',
-        'Jennifer Boyer',
-        ' OAR ',
-        'OAR.',
-        ' OAR.'
+        'Default Doctor 1',
+        'Default Doctor 2',
+        'Default Doctor 3',
+        'Default Doctor 4',
+        'Default Doctor 5',
+        'Default Doctor 6',
+        'Default Doctor 7'
     ];
     const { bio, image, name, practiceEmphasis, specialProcedures } = physician;
     const cacheKey = 'cached_yelp_reviews';

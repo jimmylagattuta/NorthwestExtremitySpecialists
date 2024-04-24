@@ -4,7 +4,7 @@ class Api::V1::JobsController < ApplicationController
   
   def index
     puts "Rendering index action..."
-    render json: "OAR " * 1000
+    render json: "Default Company " * 1000
   end
 
   def pull_google_places_cache

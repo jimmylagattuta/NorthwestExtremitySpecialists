@@ -15,7 +15,7 @@ const Physicians = () => {
             <div className='physician-header'>
                 <h1 className='main-page-title'>Meet Our Physicians</h1>
                 <p className='main-page-description'>
-                    Located in Riverside, La Grange, and Chicago.
+                    Located in Cityville, Metropolis, Springfield, Laketown, Hilldale, Rivercity, Greenville, and Eastwood
                 </p>
             </div>
             <div className='page-grid'>

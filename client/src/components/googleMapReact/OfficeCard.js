@@ -23,7 +23,7 @@ const InfoWindow = ({ place, handleInfoWindowClose }) => {
                         Hours of Operation
                     </h2>
                     <div className='info-window-text-cards'>
-                        {place.city === 'Montebello' ? 'Mon, Tue, Thu, Fri' : (place.city === 'Glendale' ? 'Mon, Tue, Wed, Fri' : 'Monday - Friday')}
+                        {place.city === 'Eastville' ? 'Mon, Tue, Thu, Fri' : (place.city === 'Rivercity' ? 'Mon, Tue, Wed, Fri' : 'Monday - Friday')}
                     </div>
                     <div className='info-window-text-cards'>8AM-5PM</div>
                     <div className='info-window-icons-cards'>

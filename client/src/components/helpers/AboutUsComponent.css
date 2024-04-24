@@ -26,7 +26,7 @@
     margin: 0px;
     padding: 5px 0px 0px 0px;
     font-weight: 400;
-    border-bottom: 1px solid rgb(143, 0, 72);
+    border-bottom: 1px solid rgb(0, 64, 143 / 35%);
     padding-bottom: 15px;
     color: white;
     font-size: 3rem;
@@ -120,7 +120,7 @@
     margin-left: 3px;
 }
 .animate-grow:hover {
-    border: 1px solid rgb(143, 0, 72);
+    border: 1px solid rgb(0, 64, 143 / 35%);
 }
 .animate-grow:active {
     transform: scale(0.95); /* Original size */
@@ -188,7 +188,7 @@
         margin: 0px;
         padding: 0px 0px 15px 0px;
         font-weight: 400;
-        border-bottom: 1px solid rgb(143, 0, 72);
+        border-bottom: 1px solid rgb(0, 64, 143 / 35%);
         color: white;
         font-size: 1.8rem;
         width: 85%;
@@ -306,7 +306,7 @@
         margin: 0px;
         padding: 0px 0px 10px 0px;
         font-weight: 400;
-        border-bottom: 1px solid rgb(143, 0, 72);
+        border-bottom: 1px solid rgb(0, 64, 143 / 35%);
         color: white;
         font-size: 1.5rem;
         width: 85%;
@@ -389,7 +389,7 @@
         margin: 0px;
         padding: 0px 0px 10px 0px;
         font-weight: 400;
-        border-bottom: 1px solid rgb(143, 0, 72);
+        border-bottom: 1px solid rgb(0, 64, 143 / 35%);
         color: white;
         font-size: 1.2rem;
         width: 85%;
@@ -488,7 +488,7 @@
         margin: 0px;
         padding: 0px 0px 10px 0px;
         font-weight: 400;
-        border-bottom: 1px solid rgb(143, 0, 72);
+        border-bottom: 1px solid rgb(0, 64, 143 / 35%);
         color: white;
         font-size: 1.2rem;
         width: 85%;
@@ -610,7 +610,7 @@
         margin: 0px;
         padding: 5px 0px 0px 0px;
         font-weight: 400;
-        border-bottom: 1px solid rgb(143, 0, 72);
+        border-bottom: 1px solid rgb(0, 64, 143 / 35%);
         color: white;
         font-size: 1rem;
         width: 42%;

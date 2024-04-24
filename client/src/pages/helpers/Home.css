@@ -12,7 +12,7 @@
     z-index: 1;
 }
 .home-banner:after {
-    background: rgba(143, 0, 72, 0.2);
+    background: rgb(0, 64, 143 / 20%);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(0.5px);
     -webkit-backdrop-filter: blur(0.1px);

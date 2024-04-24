@@ -16,15 +16,13 @@ const CompanyReviewsPage = () => {
     };
 
     const doctors = [
-        'Michael J. Hejna',
-        'Scott A. Seymour',
-        'Erling Ho',
-        'Nicolas S. Anderson',
-        'Samantha Adamczyk',
-        'Jennifer Boyer',
-        'OAR ',
-        'OAR.',
-        ' OAR.'
+        'Default Doctor 1',
+        'Default Doctor 2',
+        'Default Doctor 3',
+        'Default Doctor 4',
+        'Default Doctor 5',
+        'Default Doctor 6',
+        'Default Doctor 7'
     ];
 
     const isDoctor = (name, doctors) => {
@@ -88,8 +86,8 @@ const CompanyReviewsPage = () => {
 
       const fetchReviews = () => {
         const url = process.env.NODE_ENV === 'production'
-            ? 'https://www.orthoriverside.com/api/v1/pull_google_places_cache'
-            : 'https://www.orthoriverside.com/api/v1/pull_google_places_cache';
+            ? 'localhost:3001/api/v1/pull_google_places_cache'
+            : 'localhost:3001/api/v1/pull_google_places_cache';
     
         const headers = {
             'Content-Type': 'application/json',
@@ -195,7 +193,7 @@ const CompanyReviewsPage = () => {
                 <p className='review-paragraph'>{item.text}</p>
               </div>
               <div className='google-link'>
-                <a aria-label="Link to Google for Google API reviews for Orthopadic Associates of Riverside." href={item.author_url} target="_blank" rel="noopener noreferrer">
+                <a aria-label="Link to Google for Google API reviews for Company Default." href={item.author_url} target="_blank" rel="noopener noreferrer">
                   <i style={{ color: 'white' }} className="fab fa-google fa-lg"></i>
                 </a>
               </div>

@@ -41,7 +41,7 @@ const Home = () => {
         return <p>Loading map...</p>;
     };
     const handleRequestAppointmentClick = () => {
-        window.open('https://oar.myezyaccess.com/Patient/Main.aspx?AspxAutoDetectCookieSupport=1', '_blank');
+        window.open('https://default-company.myezyaccess.com/Patient/Main.aspx?AspxAutoDetectCookieSupport=1', '_blank');
     };
     return (
         <main style={{ overflowX: 'hidden', maxWidth: '100%' }} className='main-content'>

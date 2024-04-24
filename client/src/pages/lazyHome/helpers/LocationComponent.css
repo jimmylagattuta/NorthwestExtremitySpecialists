@@ -1,6 +1,6 @@
 .location-icon-container {
     /* padding: 40px 0 0 0; */
-    color: rgb(143, 0, 72);
+    color: rgb(0, 64, 143 / 35%);
     text-align: center;
     display: flex;
     justify-content: space-around;
@@ -24,7 +24,7 @@
 }
 .home-locations {
     /* background: url(https://i.imgur.com/pP2cSdc.webp) 0 0 no-repeat; */
-    border-bottom: solid 5px rgb(143, 0, 72);
+    border-bottom: solid 5px rgb(0, 64, 143 / 35%);
 }
 .location-icon-container .fas {
     padding: 6px;   
@@ -39,7 +39,7 @@
     line-height: 60px;
 }
 .location-icon-container {
-    color: rgb(143, 0, 72);
+    color: rgb(0, 64, 143 / 35%);
     text-align: center;
     display: flex;
     justify-content: space-around;
@@ -55,7 +55,7 @@
         font-size: 1.3rem;
     }
     .home-locations {
-        border-bottom: solid 5px rgb(143, 0, 72);
+        border-bottom: solid 5px rgb(0, 64, 143 / 35%);
     }
     .location-icon-container .fas {
         padding: 6px;   

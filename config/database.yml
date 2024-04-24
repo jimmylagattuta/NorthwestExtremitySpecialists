@@ -5,27 +5,27 @@ default: &default
 
 development:
   <<: *default
-  database: orthosriversidedatabase
-  username: riversideadmin@orthosriversideserver
+  database: orthosdefaultcompanydatabase
+  username: defaultcompanyadmin@orthosdefaultcompanyserver
   password: <%= ENV["REACT_APP_DATABASE_PASSWORD"] %>
-  host: orthosriversideserver.postgres.database.azure.com
+  host: orthosdefaultcompanyserver.postgres.database.azure.com
   port: 5432
   sslmode: require
 
 test:
   <<: *default
-  database: orthosriversidedatabase
-  username: riversideadmin@orthosriversideserver
+  database: orthosdefaultcompanydatabase
+  username: defaultcompanyadmin@orthosdefaultcompanyserver
   password: <%= ENV["REACT_APP_DATABASE_PASSWORD"] %>
-  host: orthosriversideserver.postgres.database.azure.com
+  host: orthosdefaultcompanyserver.postgres.database.azure.com
   port: 5432
   sslmode: require
 
 production:
   <<: *default
-  database: orthosriversidedatabase
-  username: riversideadmin@orthosriversideserver
+  database: orthosdefaultcompanydatabase
+  username: defaultcompanyadmin@orthosdefaultcompanyserver
   password: <%= ENV["REACT_APP_DATABASE_PASSWORD"] %>
-  host: orthosriversideserver.postgres.database.azure.com
+  host: orthosdefaultcompanyserver.postgres.database.azure.com
   port: 5432
   sslmode: require

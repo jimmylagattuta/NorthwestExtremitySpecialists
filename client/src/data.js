@@ -30,82 +30,64 @@ export const products = [
 ];
 export const physicians = [
     {
-        name: 'Michael J. Hejna',
+        name: 'Doctor 1',
         bio: [
-            "Michael J. Hejna, MD, PhD, is a distinguished board-certified orthopedic surgeon whose expertise and dedication have left an indelible mark on the field of orthopedics. Dr. Hejna's educational journey commenced at Rush Medical College in Chicago, Illinois, where he laid the foundation for his illustrious career. His commitment to excellence in patient care is evident in the extensive training he underwent, beginning with a general surgery internship at Rush-Presbyterian St. Luke’s Medical Center, also in Chicago. This was followed by a comprehensive orthopedic surgery residency and fellowships in orthopedic surgery and adult reconstruction/cartilage transplantation, both at Rush-Presbyterian St. Luke’s Medical Center and the University of Toronto's Mount Sinai Hospital in Toronto, Canada.",
-            "Dr. Hejna's professional affiliations underscore his commitment to staying at the forefront of orthopedic advancements. He is a proud member of esteemed organizations such as the American Academy of Orthopaedic Surgeons, the American Medical Association, and the American College of Surgeons, where he holds the position of Associate Fellow. His international engagement includes membership in the International Cartilage Repair Society, reflecting a global perspective on orthopedic innovation. Additionally, Dr. Hejna is an active participant in medical associations at the state and local levels, including the Illinois State Medical Association and the Chicago Medical Society.",
-            "Beyond his academic and professional pursuits, Dr. Hejna is actively involved in the medical community through his hospital affiliations. He extends his expertise to MacNeal Hospital and Adventist LaGrange Memorial Hospital, contributing to the delivery of high-quality orthopedic care to patients in these healthcare institutions. Dr. Hejna's comprehensive education, extensive training, and active involvement in professional networks and hospitals make him a respected and trusted figure in the field of orthopedic surgery."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+            "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris."
         ],
-        image: 'https://i.imgur.com/vaz9vKa.webp',
-        imageMedium: 'https://i.imgur.com/vaz9vKa.webp'
-
+        image: 'https://imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://imgur.com/7FwA1eX.jpg'
     },
     {
-        name: 'Scott A. Seymour',
+        name: 'Doctor 2',
         bio: [
-            "Scott A. Seymour, MD, stands as a distinguished board-certified orthopedic surgeon with a rich educational and professional background that underscores his commitment to advancing orthopedic care. Dr. Seymour commenced his medical education at the University of Illinois in Chicago, where he laid the groundwork for his future contributions to the field. His journey continued with a general surgery internship and orthopedic surgery residency at Loyola University Medical Center in Chicago, Illinois, solidifying his expertise in surgical disciplines.",
-            "To further refine his skills, Dr. Seymour pursued a fellowship in adult reconstructive surgery and joint replacement at the University of Connecticut Health Sciences in Farmington, Connecticut. This additional training expanded his knowledge and proficiency, especially in the intricacies of joint replacement surgeries. Dr. Seymour's commitment to staying at the forefront of orthopedic advancements is evident in his active involvement in professional organizations. He is a member of prestigious groups such as the American Academy of Orthopaedic Surgeons, the American Association of Hip and Knee Surgeons, the Mid-America Orthopaedic Association, and the Clinical Orthopaedic Society, demonstrating his dedication to ongoing learning and collaboration.",
-            "In alignment with his commitment to patient care, Dr. Seymour is affiliated with several hospitals, including MacNeal Hospital, Amita LaGrange Hospital, Amita Hinsdale Hospital, and Hinsdale Surgical Center. This broad network of affiliations highlights his accessibility and contributions to orthopedic care across different healthcare institutions. Dr. Seymour's clinical interests encompass a wide range of orthopedic procedures, including total knee replacement, partial knee replacement, total hip replacement, and Mako robotic-assisted joint replacement. Additionally, he emphasizes non-operative management of arthritis, showcasing a holistic approach to patient well-being and comprehensive orthopedic care."
+            "Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.",
+            "Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat.",
+            "Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci."
         ],
-        image: 'https://i.imgur.com/MQlHYDp.webp',
-        imageMedium: 'https://i.imgur.com/MQlHYDp.webp'
-
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
     },
     {
-        name: 'Erling Ho',
+        name: 'Doctor 3',
         bio: [
-            "Erling Ho, MD, is a highly regarded board-certified orthopedic surgeon, bringing a wealth of expertise to the field. Dr. Ho's educational journey commenced at the prestigious Harvard Medical School in Boston, Massachusetts, a testament to his commitment to excellence in medical training. Building on this foundation, he completed a general surgery internship and orthopedic surgery residency at the University of Chicago Hospitals in Chicago, Illinois, honing his skills in both surgical disciplines.",
-            "Dr. Ho's commitment to delivering exceptional orthopedic care is reflected in his certification by the American Board of Orthopaedic Surgery and his licensure in the state of Illinois. His professional achievements extend beyond the academic realm, as evidenced by his recognition as a top doctor by reputable publications. Dr. Ho has been honored multiple times, including being named Chicago Magazine's Top Doctor in 2018 and 2020, as well as receiving West Suburban Living Top Doctor accolades in 2014 and 2017. His consistent inclusion in Castle Connoly's Top Doctors from 2014 to 2020 further attests to his sustained excellence in the field.",
-            "In addition to his academic and professional achievements, Dr. Ho maintains active affiliations with prominent healthcare institutions, including MacNeal Hospital in Berwyn, Adventist LaGrange Memorial Hospital in LaGrange, and Hinsdale Surgical Center in Hinsdale. These affiliations underscore his dedication to providing comprehensive orthopedic care to patients in diverse medical settings. Dr. Ho's special interests encompass general orthopedic surgery, arthroscopic shoulder and knee surgery, as well as expertise in treating sports injuries and work-related orthopedic issues. His multifaceted approach to orthopedics and consistent recognition within the medical community underscore Dr. Ho's commitment to delivering outstanding patient care."
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.",
+            "Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.",
+            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum."
         ],
-        image: 'https://i.imgur.com/4q4QhiG.webp',
-        imageMedium: 'https://i.imgur.com/4q4QhiG.webp'
-
+        image: 'https://imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://imgur.com/7FwA1eX.jpg'
     },
     {
-        name: 'Nicolas S. Anderson',
+        name: 'Doctor 4',
         bio: [
-            "Nicolas S. Anderson, DPM, is a distinguished board-certified podiatrist and foot and ankle surgeon, with a strong foundation in podiatric medicine and surgery. Dr. Anderson's educational journey began at the Scholl College of Podiatric Medicine at Rosalind Franklin University in Chicago, Illinois, where he acquired the specialized knowledge and skills necessary for his role as a podiatric healthcare professional. Building on his academic achievements, Dr. Anderson completed a podiatric surgical residency at St. Joseph Hospital in Chicago, further refining his expertise in surgical interventions for foot and ankle conditions.",
-            "Deeply committed to advancing his field, Dr. Anderson is an active member of professional organizations that represent the forefront of podiatric medicine and surgery. His affiliations include the American Podiatric Medical Association, the American College of Foot and Ankle Surgeons, and the Illinois Podiatric Medical Association. These memberships underscore his dedication to staying abreast of the latest advancements in podiatric care and surgical techniques.",
-            "In addition to his commitment to professional growth, Dr. Anderson extends his expertise to several healthcare institutions. He is affiliated with MacNeal Hospital, Adventist LaGrange Memorial Hospital, and Hinsdale Surgical Center, where he contributes to the provision of comprehensive foot and ankle care. Dr. Anderson's focus on hospital affiliations emphasizes his commitment to accessible and high-quality podiatric services across different healthcare settings. His comprehensive training, active professional engagement, and hospital affiliations collectively establish Dr. Anderson as a prominent figure in the field of podiatry, dedicated to the well-being of his patients."
+            "Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.",
+            "Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.",
+            "Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc."
         ],
-        image: 'https://i.imgur.com/iaQhSIs.webp',
-        imageMedium: 'https://i.imgur.com/iaQhSIs.webp'
-
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
     },
     {
-        name: 'Samantha Adamczyk',
+        name: 'Doctor 5',
         bio: [
-            "Samantha Adamczyk, PA-C, is a certified physician assistant who earned her Bachelor of Science degree in Kinesiology at the University of Illinois Champaign-Urbana in 2008. She then attended Midwestern University in Downers Grove, Illinois, where she obtained a Master of Medical Science in Physician Assistant Studies in 2010.",
-            "Samantha is NCCPA Board Certified and has been working with Dr. Scott Seymour since the fall of 2010. She loves working with patients, finding it a wonderful feeling to be able to make people feel better and get them back to the activities they love.",
-            "Samantha and her husband welcomed a baby girl in 2014.",
-            "In her spare time, Samantha enjoys yoga, gardening, and exploring new hiking trails with her family. She is passionate about promoting wellness and often volunteers at local health fairs to provide education on preventive care.",
-            "Samantha's compassionate approach to patient care and her dedication to staying current with medical advancements make her a valued member of the healthcare team. Her ability to connect with patients and provide personalized care sets her apart in the field of orthopedics."
+            "Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Hendrerit mauris. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.",
+            "Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus.",
+            "Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl."
         ],
-        image: 'https://i.imgur.com/HaWFXTA.jpg',
-        imageMedium: 'https://i.imgur.com/HaWFXTA.jpg'
-    },    
-    {
-        name: 'Jennifer Boyer',
-        bio: [
-            "Jennifer Boyer, PA-C, is a certified physician assistant who graduated Summa Cum Laude from Benedictine University in Lisle, Illinois, with a Bachelor of Science degree in Biology in 2011. She then attended Midwestern University in Downers Grove, Illinois, where she earned a Master of Medical Science in Physician Assistant Studies in 2013.",
-            "Jennifer is NCCPA Board Certified and began working with Dr. Erling Ho in the summer of 2014. She is described as caring, dedicated, and extremely hardworking, committed to providing exceptional care to all patients. Dr. Ho has expressed that it is a pleasure to have her on the team.",
-            "In her free time, Jennifer enjoys hiking, reading, and volunteering at local community events. She is passionate about promoting health education and often participates in outreach programs to raise awareness about preventive care.",
-            "Jennifer's patients appreciate her warm demeanor and thorough approach to patient care. She is known for her attention to detail and ability to communicate complex medical information in an easily understandable manner.",
-            "With a strong background in biology and a passion for helping others, Jennifer is a valuable asset to the orthopedic team. Her dedication to patient well-being and professional growth make her a respected member of the medical community."
-        ],
-        image: 'https://i.imgur.com/LcRcBs1.jpg',
-        imageMedium: 'https://i.imgur.com/LcRcBs1.jpg'
+        image: 'https://imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://imgur.com/7FwA1eX.jpg'
     }
-    
 ];
+
 export const services = [
     {
         image: 'https://i.imgur.com/2Q4xrFD.webp',
         name: 'Physical Therapy',
         firstTitle: 'Physical Therapy',
         description: [
-            "The Orthopaedic Associates of Riverside physical and occupational therapists are committed to providing quality care and service to our patients. Our goal is to provide exceptional, comprehensive, and progressive patient centered rehabilitation. Our facility is located adjacent to our medical office, allowing our qualified staff to work directly with your medical provider to establish and adapt your treatment plan according to your needs."
+            "The Company Default physical and occupational therapists are committed to providing quality care and service to our patients. Our goal is to provide exceptional, comprehensive, and progressive patient centered rehabilitation. Our facility is located adjacent to our medical office, allowing our qualified staff to work directly with your medical provider to establish and adapt your treatment plan according to your needs."
         ],
         secondTitle: 'In Depth Look',
         descriptionTwo: [
@@ -149,7 +131,7 @@ export const services = [
         name: 'Joint Replacement',
         firstTitle: 'Joint Replacement',
         description: [
-            'The physicians of Orthopedic Associates of Riverside have extensive experience and expertise in joint replacement and reconstruction for painful joint problems due to arthritic or inflammatory conditions. Our orthopedic surgeons apply state of the art techniques in the replacement and reconstruction of the knee, hip, elbow, shoulder, and ankle, as well as the small joints of the hands and feet. Our physicians work with a team of nurses, physician assistants, and therapists in order to eliminate pain and restore full function.',
+            'The physicians of Default Company have extensive experience and expertise in joint replacement and reconstruction for painful joint problems due to arthritic or inflammatory conditions. Our orthopedic surgeons apply state of the art techniques in the replacement and reconstruction of the knee, hip, elbow, shoulder, and ankle, as well as the small joints of the hands and feet. Our physicians work with a team of nurses, physician assistants, and therapists in order to eliminate pain and restore full function.',
         ],
         secondTitle: 'Describing Restoration and Restoration',
         descriptionTwo: [
@@ -173,7 +155,7 @@ export const services = [
         name: 'Foot and Ankle',
         firstTitle: 'Foot & Ankle Specialsists',
         description: [
-            'The physicians at Orthopedic Associates of Riverside treat a variety of foot and ankle injuries and conditions, including those related to trauma, fractures, arthritis, plantar fasciitis, sports injuries, infections, and bunions. Some of the services provided include diabetic footcare, fracture care, ligament tendon repair, bunion correction, as well as forefoot, midfoot, and hindfoot reconstructions and ankle replacements.',
+            'The physicians at Default Company treat a variety of foot and ankle injuries and conditions, including those related to trauma, fractures, arthritis, plantar fasciitis, sports injuries, infections, and bunions. Some of the services provided include diabetic footcare, fracture care, ligament tendon repair, bunion correction, as well as forefoot, midfoot, and hindfoot reconstructions and ankle replacements.',
         ],
         secondTitle: 'Looking Closer at the Foot and Ankle',
         descriptionTwo: [
@@ -182,8 +164,8 @@ export const services = [
         thirdTitle: 'Treatment of Foot and Ankle Injuries',
         descriptionThree: [
             'We use our feet and ankles any time we walk, stand up or participate in nearly any sport. That’s why having a foot or ankle injury can be very debilitating to your everyday life. You even need properly functioning feet and ankles to drive safely, and giving up the keys is not a pleasant prospect!',
-            "Orthopedic Associates of Riverside's Doctors can help you identify problems in your feet and ankles, and work with you on preventing new or further injuries. We may suggest you get ergonomically correct shoes or socks to help you walk more naturally. We may also give you advice on what types of physical activities may be aggravating an existing condition.",
-            'A common cause of foot and ankle injuries is running on overly flat or overly uneven terrain without the proper foot support. If the idea of not being able to run any more is not a comforting prospect for you, then you should definitely come see us to correct any pain or inflammation in a your feet or ankles before they lead to more serious damage. Orthopedic Associates of Riverside may also suggest you switch to exercises or machines at the gym that put less pressure on your lower joints, such as swimming or using the elliptical instead of the treadmill.',
+            "Default Company's Doctors can help you identify problems in your feet and ankles, and work with you on preventing new or further injuries. We may suggest you get ergonomically correct shoes or socks to help you walk more naturally. We may also give you advice on what types of physical activities may be aggravating an existing condition.",
+            'A common cause of foot and ankle injuries is running on overly flat or overly uneven terrain without the proper foot support. If the idea of not being able to run any more is not a comforting prospect for you, then you should definitely come see us to correct any pain or inflammation in a your feet or ankles before they lead to more serious damage. Default Company may also suggest you switch to exercises or machines at the gym that put less pressure on your lower joints, such as swimming or using the elliptical instead of the treadmill.',
         ],
         fourthTitle: 'Prevention of Foot and Ankle Injuries',
         descriptionFour: [
@@ -222,7 +204,7 @@ export const services = [
         name: "Hand and Wrist",
         firstTitle: "Hand and Wrist Specialists",
         description: [
-            "The physicians at Orthopedic Associates of Riverside provide expert care for a wide range of hand and wrist conditions, including fractures, arthritis, ligament injuries, and nerve disorders. Our comprehensive services cover both non-operative management and advanced surgical interventions, aiming to alleviate pain and restore optimal function to these intricate and essential upper extremity structures."
+            "The physicians at Default Company provide expert care for a wide range of hand and wrist conditions, including fractures, arthritis, ligament injuries, and nerve disorders. Our comprehensive services cover both non-operative management and advanced surgical interventions, aiming to alleviate pain and restore optimal function to these intricate and essential upper extremity structures."
         ],
         secondTitle: "Examining Hand and Wrist Health",
         descriptionTwo: [
@@ -245,7 +227,7 @@ export const services = [
         name: "Spine",
         firstTitle: "Spine Specialists",
         description: [
-            "The physicians at Orthopedic Associates of Riverside specialize in comprehensive spine care, addressing a wide range of conditions that affect the spinal column. From degenerative disorders and herniated discs to spinal fractures and scoliosis, our team provides expert diagnosis and personalized treatment plans to alleviate pain and improve spinal function.",
+            "The physicians at Default Company specialize in comprehensive spine care, addressing a wide range of conditions that affect the spinal column. From degenerative disorders and herniated discs to spinal fractures and scoliosis, our team provides expert diagnosis and personalized treatment plans to alleviate pain and improve spinal function.",
             "Spine health is integral to overall well-being, and our specialists are dedicated to providing advanced and compassionate care. Accurate diagnosis, often involving imaging studies, allows us to tailor treatment approaches, including both non-operative management and surgical interventions. Our goal is to empower patients with the knowledge and tools they need to make informed decisions about their spinal health."
         ],
         secondTitle: "Examining Spine Health",
@@ -293,7 +275,7 @@ export const services = [
         name: 'Hip',
         firstTitle: 'Hip Injury Specialists',
         description: [
-            'The physicians at Orthopedic Associates of Riverside specialize in the diagnosis and treatment of a variety of hip injuries and conditions. Whether the condition is the result of wear and tear of the hip, a sports injury or traumatic condition, our Orthopedic Doctors apply the latest techniques to return our patients to their active lifestyles. Our surgeons perform an extensive variety of techniques including hip fracture care and hip replacement surgery.',
+            'The physicians at Default Company specialize in the diagnosis and treatment of a variety of hip injuries and conditions. Whether the condition is the result of wear and tear of the hip, a sports injury or traumatic condition, our Orthopedic Doctors apply the latest techniques to return our patients to their active lifestyles. Our surgeons perform an extensive variety of techniques including hip fracture care and hip replacement surgery.',
         ],
         secondTitle: 'A Detailed Look',
         descriptionTwo: [
@@ -357,9 +339,9 @@ export const aboutObjOther = [
   
 export const aboutObjPortal = [
     {
-        nameOne: "OAR Patient Portal",
+        nameOne: "Default Company Patient Portal",
         descriptionOne: [
-            "Orthopaedic Associates of Riverside is pleased to introduce the OAR Patient Portal! The Patient Portal is an electronic system that will allow you, our patients, to communicate your medical needs with our office staff and providers through a secure online system at your convenience.",
+            "Company Default is pleased to introduce the Default Company Patient Portal! The Patient Portal is an electronic system that will allow you, our patients, to communicate your medical needs with our office staff and providers through a secure online system at your convenience.",
             "To join the Patient Portal, call the office and provide our staff with your email address then click on the button link above."
         ],
         descriptionOneBullettedList: [
@@ -452,7 +434,7 @@ export const aboutTerms = [
     {
         subtitle: null,
         body: [
-            "Orthopaedic Associates of Riverside's website is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of this practice website constitutes your agreement to all such terms, conditions, and notices.",
+            "Company Default's website is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of this practice website constitutes your agreement to all such terms, conditions, and notices.",
         ],
     },
     {
@@ -563,7 +545,7 @@ export const expertiseBlocks = [
         name: 'Physical Therapy',
         firstTitle: 'Physical Therapy',
         description: [
-            "The Orthopaedic Associates of Riverside physical and occupational therapists are committed to providing quality care and service to our patients. Our goal is to provide exceptional, comprehensive, and progressive patient centered rehabilitation. Our facility is located adjacent to our medical office, allowing our qualified staff to work directly with your medical provider to establish and adapt your treatment plan according to your needs.",
+            "The Company Default physical and occupational therapists are committed to providing quality care and service to our patients. Our goal is to provide exceptional, comprehensive, and progressive patient centered rehabilitation. Our facility is located adjacent to our medical office, allowing our qualified staff to work directly with your medical provider to establish and adapt your treatment plan according to your needs.",
             "Physical therapy is a fundamental component of rehabilitation, focusing on improving physical function and mobility through exercises and manual techniques. It plays a vital role in enhancing an individual's ability to move and function effectively. Whether recovering from an injury, surgery, or a health condition, physical therapy helps individuals regain strength, flexibility, and overall physical well-being. It is a key element in promoting independence and resilience, guiding individuals towards a more self-reliant and healthier future.",
             "Applying physical therapy in the field of orthopedics is a specialized endeavor, finely tuned to address musculoskeletal challenges with precision and expertise. Orthopedic physical therapists work closely with patients to design tailored treatment plans that optimize recovery from injuries, surgeries, or chronic conditions related to bones, joints, and muscles. Their multifaceted approach encompasses a thorough evaluation, including diagnostic tests and medical history analysis, to create a roadmap for rehabilitation. Through a combination of targeted exercises, manual techniques, and patient education, orthopedic physical therapists help individuals regain strength, flexibility, and function while reducing pain and improving overall musculoskeletal health. With a focus on personalized care and a commitment to patient well-being, orthopedic physical therapy serves as a cornerstone in the journey towards a pain-free, active, and fulfilling life.",
             "Connecting preventive measures to orthopedic physical therapy is a holistic approach to musculoskeletal well-being. By embracing proactive strategies to maintain bone and joint health, individuals can reduce the likelihood of orthopedic issues and potentially minimize the need for intensive treatment. Regular engagement in exercises that target strength, flexibility, and balance forms a solid foundation for musculoskeletal resilience. Orthopedic physical therapists can provide guidance on tailored exercise routines and techniques to prevent injuries and degenerative conditions. Moreover, they can offer valuable insights into proper body mechanics, helping individuals avoid strains and injuries in their daily activities. Routine check-ups with orthopedic specialists, often facilitated through physical therapy clinics, enable early detection and intervention when necessary. By integrating preventive measures with orthopedic physical therapy, individuals can take a proactive stance in preserving their musculoskeletal health and reducing the potential need for extensive treatment."
@@ -596,7 +578,7 @@ export const expertiseBlocks = [
         name: 'Joint Replacement',
         firstTitle: 'Joint Replacement',
         description: [
-            'The physicians of Orthopedic Associates of Riverside have extensive experience and expertise in joint replacement and reconstruction for painful joint problems due to arthritic or inflammatory conditions. Our Chicago orthopedic surgeons apply state of the art techniques in the replacement and reconstruction of the knee, hip, elbow, shoulder, and ankle, as well as the small joints of the hands and feet. Our physicians work with a team of nurses, physician assistants, and therapists in order to eliminate pain and restore full function.',
+            'The physicians of Default Company have extensive experience and expertise in joint replacement and reconstruction for painful joint problems due to arthritic or inflammatory conditions. Our Chicago orthopedic surgeons apply state of the art techniques in the replacement and reconstruction of the knee, hip, elbow, shoulder, and ankle, as well as the small joints of the hands and feet. Our physicians work with a team of nurses, physician assistants, and therapists in order to eliminate pain and restore full function.',
         ],
         secondTitle: 'The value of healthy joints',
         descriptionTwo: [
@@ -622,12 +604,12 @@ export const expertiseBlocks = [
             "Treating conditions including trauma, fractures, arthritis, plantar fasciitis, sports injuries, infections, and bunions."
         ],
         descriptionOne: [
-            'The physicians at Orthopaedic Associates of Riverside treat a variety of foot and ankle injuries and conditions, including those related to trauma, fractures, arthritis, plantar fasciitis, sports injuries, infections, and bunions. Some of the services provided include diabetic footcare, fracture care, ligament tendon repair, bunion correction, as well as forefoot, midfoot, and hindfoot reconstructions and ankle replacements.',
+            'The physicians at Company Default treat a variety of foot and ankle injuries and conditions, including those related to trauma, fractures, arthritis, plantar fasciitis, sports injuries, infections, and bunions. Some of the services provided include diabetic footcare, fracture care, ligament tendon repair, bunion correction, as well as forefoot, midfoot, and hindfoot reconstructions and ankle replacements.',
         ],
         descriptionTwo: [
             'We use our feet and ankles any time we walk, stand up or participate in nearly any sport. That’s why having a foot or ankle injury can be very debilitating to your everyday life. You even need properly functioning feet and ankles to drive safely, and giving up the keys is not a pleasant prospect!',
-            'Riverside’s Orthopedic Doctors can help you identify problems in your feet and ankles, and work with you on preventing new or further injuries. We may suggest you get ergonomically correct shoes or socks to help you walk more naturally. We may also give you advice on what types of physical activities may be aggravating an existing condition.',
-            'A common cause of foot and ankle injuries is running on overly flat or overly uneven terrain without the proper foot support. If the idea of not being able to run any more is not a comforting prospect for you, then you should definitely come see us to correct any pain or inflammation in a your feet or ankles before they lead to more serious damage. Orthopaedic Associates of Riverside may also suggest you switch to exercises or machines at the gym that put less pressure on your lower joints, such as swimming or using the elliptical instead of the treadmill.',
+            'Default Company’s Doctors can help you identify problems in your feet and ankles, and work with you on preventing new or further injuries. We may suggest you get ergonomically correct shoes or socks to help you walk more naturally. We may also give you advice on what types of physical activities may be aggravating an existing condition.',
+            'A common cause of foot and ankle injuries is running on overly flat or overly uneven terrain without the proper foot support. If the idea of not being able to run any more is not a comforting prospect for you, then you should definitely come see us to correct any pain or inflammation in a your feet or ankles before they lead to more serious damage. Company Default may also suggest you switch to exercises or machines at the gym that put less pressure on your lower joints, such as swimming or using the elliptical instead of the treadmill.',
         ],
         link: '/serviceCare',
         imageTwo: 'https://i.imgur.com/GW7GxIh.webp',
@@ -664,7 +646,7 @@ export const expertiseBlocks = [
         name: "Hand and Wrist",
         firstTitle: "Hand and Wrist Specialists",
         description: [
-            "The physicians at Orthopedic Associates of Riverside provide expert care for a wide range of hand and wrist conditions, including fractures, arthritis, ligament injuries, and nerve disorders. Our comprehensive services cover both non-operative management and advanced surgical interventions, aiming to alleviate pain and restore optimal function to these intricate and essential upper extremity structures."
+            "The physicians at Default Company provide expert care for a wide range of hand and wrist conditions, including fractures, arthritis, ligament injuries, and nerve disorders. Our comprehensive services cover both non-operative management and advanced surgical interventions, aiming to alleviate pain and restore optimal function to these intricate and essential upper extremity structures."
         ],
         secondTitle: "Examining Hand and Wrist Health",
         descriptionTwo: [
@@ -690,7 +672,7 @@ export const expertiseBlocks = [
         name: "Spine",
         firstTitle: "Spine Specialists",
         description: [
-            "The physicians at Orthopedic Associates of Riverside specialize in comprehensive spine care, addressing a wide range of conditions that affect the spinal column. From degenerative disorders and herniated discs to spinal fractures and scoliosis, our team provides expert diagnosis and personalized treatment plans to alleviate pain and improve spinal function.",
+            "The physicians at Default Company specialize in comprehensive spine care, addressing a wide range of conditions that affect the spinal column. From degenerative disorders and herniated discs to spinal fractures and scoliosis, our team provides expert diagnosis and personalized treatment plans to alleviate pain and improve spinal function.",
             "Spine health is integral to overall well-being, and our specialists are dedicated to providing advanced and compassionate care. Accurate diagnosis, often involving imaging studies, allows us to tailor treatment approaches, including both non-operative management and surgical interventions. Our goal is to empower patients with the knowledge and tools they need to make informed decisions about their spinal health."
         ],
         secondTitle: "Examining Spine Health",
@@ -746,7 +728,7 @@ export const expertiseBlocks = [
         name: 'Hip',
         firstTitle: 'Hip Injury Specialists',
         description: [
-            'The physicians at Orthopedic Associates of Riverside specialize in the diagnosis and treatment of a variety of hip injuries and conditions. Whether the condition is the result of wear and tear of the hip, a sports injury or traumatic condition, our Orthopedic Doctors apply the latest techniques to return our patients to their active lifestyles. Our surgeons perform an extensive variety of techniques including hip fracture care and hip replacement surgery.',
+            'The physicians at Default Company specialize in the diagnosis and treatment of a variety of hip injuries and conditions. Whether the condition is the result of wear and tear of the hip, a sports injury or traumatic condition, our Orthopedic Doctors apply the latest techniques to return our patients to their active lifestyles. Our surgeons perform an extensive variety of techniques including hip fracture care and hip replacement surgery.',
         ],
         secondTitle: 'Hip Fracture',
         descriptionTwo: [
@@ -770,7 +752,7 @@ export const aboutExtra = [
             {
                 subtitle: 'Do you take my insurance?',
                 body: [
-                    'Orthopaedic Associates of Riverside is enrolled with all major insurance plans.',
+                    'Company Default is enrolled with all major insurance plans.',
                 ],
             },
             {
@@ -787,19 +769,19 @@ export const aboutExtra = [
             {
                 subtitle: 'Do you have weekend or evening hours?',
                 body: [
-                    'Orthopaedic Associates of Riverside does have some early evening hours, but does not have weekend hours available.',
+                    'Company Default does have some early evening hours, but does not have weekend hours available.',
                 ],
             },
             {
                 subtitle: 'Do you have parking available?',
                 body: [
-                    "Yes, all of Orthopaedic Associates of Riverside's offices have easily accessible free parking available.",
+                    "Yes, all of Company Default's offices have easily accessible free parking available.",
                 ],
             },
             {
                 subtitle: 'Do you do minimally invasive surgery?',
                 body: [
-                    'Yes, the Physicians at Orthopaedic Associates of Riverside do minimally invasive surgery.',
+                    'Yes, the Physicians at Company Default do minimally invasive surgery.',
                 ],
             },
             {
@@ -848,7 +830,7 @@ export const aboutExtra = [
             {
                 subtitle: 'After Hours Information:',
                 body: [
-                    'Orthopaedic Associates of Riverside offers 24 hour on call services for emergencies involving our patients. To contact the on call physician regarding your emergency call our office and you will be connected to an operator who can page the on call physician. Office appointments cannot be made and medications cannot be prescribed after hours. For life threatening emergencies go to your nearest emergency room or call 911.',
+                    'Company Default offers 24 hour on call services for emergencies involving our patients. To contact the on call physician regarding your emergency call our office and you will be connected to an operator who can page the on call physician. Office appointments cannot be made and medications cannot be prescribed after hours. For life threatening emergencies go to your nearest emergency room or call 911.',
                 ],
             },
             {
@@ -905,9 +887,9 @@ export const aboutExtra = [
         name: 'Patient Education',
         title: 'Patient Education',
         body: [
-            'Using the very latest techniques and tools available, Orthopaedic Associates of Riverside treat patients with the highest quality, most cost-effective, and compassionate care available. Our goal is to exceed our patients’ expectations.',
+            'Using the very latest techniques and tools available, Company Default treat patients with the highest quality, most cost-effective, and compassionate care available. Our goal is to exceed our patients’ expectations.',
             'The aim of this page is to provide some quick links to some of the more widely searched orthopedic surgeries. Please note, someof the links will take you to a new website.',
-            'For more information or to schedule an appointment with Orthopaedic Associates of Riverside, please contact us today.',
+            'For more information or to schedule an appointment with Company Default, please contact us today.',
         ],
         itemOne: {
             subtitle: 'Featured Conditions and Procedures',
@@ -951,7 +933,7 @@ export const aboutExtra = [
         content: [
             {
                 body: [
-                    'The physicians of Orthopaedic Associates of Riverside have been the leading Orthopedic Doctors for injured City of Chicago workers for many years. We frequently treat police officers and firefighters injured in the line of duty and take great pride in our excellent record of restoring injured city workers to full health and function. We provide the same level of excellence in treatment of all injured workers which has resulted in outstanding outcomes.',
+                    'The physicians of Company Default have been the leading Orthopedic Doctors for injured City of Chicago workers for many years. We frequently treat police officers and firefighters injured in the line of duty and take great pride in our excellent record of restoring injured city workers to full health and function. We provide the same level of excellence in treatment of all injured workers which has resulted in outstanding outcomes.',
                     'Independent Medical Evaluation Appointments',
                     'To schedule an independent medical evaluation appointment with our physicians for a work-related injury, simply call the most convenient office location listed on this website and inform the receptionist that you need to be evaluated for a work-related injury or request your appointment online.',
                     'Please bring the following completed form to your appointment:',
@@ -979,7 +961,7 @@ export const aboutExtra = [
                     'An Independent Medical Evaluation (IME) is often required to answer specific medical questions, including relationships of diagnosis to specific injury, accident or illness, further treatment recommendations, extent of permanent impairment or disability, and other information as needed. Our practicing physician consultants possess a broad range of credentials, and board certifications in their respective specialties. We make every effort to schedule and complete the IME as soon as possible. After completion, we process and send a comprehensive report within a 24 hour period.',
                     'We provide emergency surgery and treatment for the most serious work-related injuries and facilitate treatment including occupational therapy and physical therapy for common conditions such as tendonitis, carpal tunnel syndrome, knee pain, and back pain.',
                     'We also offer comprehensive physical and occupational therapy as well as new state of the art non-surgical treatment including Platelet Rich Plasma injections.',
-                    'Orthopaedic Associates of Riverside strive to ensure expeditious scheduling of appointments for injured workers, typically within twenty-four hours. Our physician forms and reports are available within one business day, with quick reports available the day of service. We will complete any employer work status forms at the time of visit.',
+                    'Company Default strive to ensure expeditious scheduling of appointments for injured workers, typically within twenty-four hours. Our physician forms and reports are available within one business day, with quick reports available the day of service. We will complete any employer work status forms at the time of visit.',
                     'Any necessary diagnostic tests will be arranged by our office staff, and we will take care of any required Workers Compensation authorization procedures. We work closely with nurse case managers and will provide any necessary documentation to the injured worker at the time of visit.',
                 ],
             },
@@ -999,17 +981,42 @@ export const aboutExtra = [
 ];
 export const locations = [
     {
-        name: 'Riverside',
+        name: 'Cityville',
         component: 'Locations',
         link: '/locations',
     },
     {
-        name: 'LaGrange',
+        name: 'Metropolis',
         component: 'Locations',
         link: '/locations',
     },
     {
-        name: 'Chicago',
+        name: 'Springfield',
+        component: 'Locations',
+        link: '/locations',
+    },
+    {
+        name: 'Laketown',
+        component: 'Locations',
+        link: '/locations',
+    },
+    {
+        name: 'Hilldale',
+        component: 'Locations',
+        link: '/locations',
+    },
+    {
+        name: 'Rivercity',
+        component: 'Locations',
+        link: '/locations',
+    },
+    {
+        name: 'Greenville',
+        component: 'Locations',
+        link: '/locations',
+    },
+    {
+        name: 'Eastwood',
         component: 'Locations',
         link: '/locations',
     }
@@ -1044,49 +1051,120 @@ export const navMenu = [
         ],
     },
     { menu: 'Locations', link: '/locations' },
-    { menu: 'Careers', link: 'https://ats.rippling.com/orthopedic-associates-of-riverside/jobs' }
+    { menu: 'Careers', link: 'https://ats.rippling.com/default-company/jobs' }
 
 ];
+
 export const officesData = [
     {
         id: 1,
-        city: 'Riverside',
-        addressOne: '353 East Burlington Street, 100',
-        addressTwo: 'Riverside, IL 60546',
-        phone: '708-442-0221',
-        fax: '708-442-5670',
-        image: 'https://i.imgur.com/A30o3rv.webp',
+        city: 'Cityville',
+        addressOne: '100 Main Street',
+        addressTwo: 'Cityville, IL 60000',
+        phone: '555-0100',
+        fax: '555-0101',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
         coordinates: {
-            lat: 41.8312612,
-            lng: -87.804197,
+            lat: 40.0000,
+            lng: -89.0000,
         },
         show: false,
     },
     {
         id: 2,
-        city: 'La Grange',
-        addressOne: '5201 Willow Springs Road, 280',
-        addressTwo: 'La Grange, IL 60525',
-        phone: '708-442-0221',
-        fax: '708-442-5670',
-        image: 'https://i.imgur.com/fWvKgfQ.webp',
+        city: 'Metropolis',
+        addressOne: '200 Central Ave',
+        addressTwo: 'Metropolis, IL 60001',
+        phone: '555-0200',
+        fax: '555-0201',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
         coordinates: {
-            lat: 41.7956315,
-            lng: -87.8867671,
+            lat: 40.5000,
+            lng: -89.5000,
         },
         show: false,
     },
     {
         id: 3,
-        city: 'Archer',
-        addressOne: '6084 S Archer Avenue',
-        addressTwo: 'Chicago, IL 60638',
-        phone: '708-442-0221',
-        fax: '708-442-5670',
-        image: 'https://i.imgur.com/1vuk4cj.webp',
+        city: 'Springfield',
+        addressOne: '300 Capitol Plaza',
+        addressTwo: 'Springfield, IL 60002',
+        phone: '555-0300',
+        fax: '555-0301',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
         coordinates: {
-            lat: 41.79482,
-            lng: -87.7699979,
+            lat: 39.8000,
+            lng: -89.6500,
+        },
+        show: false,
+    },
+    {
+        id: 4,
+        city: 'Laketown',
+        addressOne: '400 Lakeview Drive',
+        addressTwo: 'Laketown, IL 60003',
+        phone: '555-0400',
+        fax: '555-0401',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
+        coordinates: {
+            lat: 40.2500,
+            lng: -89.7500,
+        },
+        show: false,
+    },
+    {
+        id: 5,
+        city: 'Hilldale',
+        addressOne: '500 Hill Street',
+        addressTwo: 'Hilldale, IL 60004',
+        phone: '555-0500',
+        fax: '555-0501',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
+        coordinates: {
+            lat: 39.9000,
+            lng: -88.9500,
+        },
+        show: false,
+    },
+    {
+        id: 6,
+        city: 'Rivercity',
+        addressOne: '600 River Road',
+        addressTwo: 'Rivercity, IL 60005',
+        phone: '555-0600',
+        fax: '555-0601',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
+        coordinates: {
+            lat: 40.3000,
+            lng: -89.3000,
+        },
+        show: false,
+    },
+    {
+        id: 7,
+        city: 'Greenville',
+        addressOne: '700 Green Blvd',
+        addressTwo: 'Greenville, IL 60006',
+        phone: '555-0700',
+        fax: '555-0701',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
+        coordinates: {
+            lat: 40.1000,
+            lng: -88.8000,
+        },
+        show: false,
+    },
+    {
+        id: 8,
+        city: 'Eastwood',
+        addressOne: '800 Eastwood Lane',
+        addressTwo: 'Eastwood, IL 60007',
+        phone: '555-0800',
+        fax: '555-0801',
+        image: 'https://i.imgur.com/r6Cclyu.jpg',
+        coordinates: {
+            lat: 39.7500,
+            lng: -89.2500,
         },
         show: false,
     }

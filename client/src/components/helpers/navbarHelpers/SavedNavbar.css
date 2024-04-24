@@ -41,7 +41,7 @@
 }
 
 #form-div::before {
-    background-color: rgba(143, 0, 72, 01);
+    background-color: rgba(0, 64, 143, 01);
     clip-path: polygon(calc(0% + (30.3333333333px)) calc(0% + (30.3333333333px)), 100% 0, calc(100% - (30.3333333333px)) calc(100% - (30.3333333333px)), 0 100%);
 }
 
@@ -346,7 +346,7 @@
     top: 0px;
     right: 0px;
     cursor: pointer;
-    color: rgba(143, 0, 72, 0.7);
+    color: rgba(0, 64, 143, 0.7);
 
     font-size: 1.5rem;
     opacity: 70%;
@@ -426,7 +426,7 @@
         animation: borderTopLeftCorner 2s ease-in-out infinite;
         transform: translateX(-50px) translateY(-50px);
 
-        /* background-color: rgba(143, 0, 72, 0.5); */
+        /* background-color: rgba(0, 64, 143, 0.5); */
         background-color: orange;
 
         clip-path: polygon(calc(0% + 33.3333333333px) calc(0% + 33.3333333333px), 100% 0, calc(100% - 33.3333333333px) calc(100% - 33.3333333333px), 0 100%);
@@ -436,8 +436,8 @@
         top: 70px;
         right: 50px;
         cursor: pointer;
-        color: rgba(143, 0, 72, 0.7);
-        /* color: rgba(143, 0, 72, 1); */
+        color: rgba(0, 64, 143, 0.7);
+        /* color: rgba(0, 64, 143, 1); */
         font-size: 1.5rem;
         z-index: 5;
     }

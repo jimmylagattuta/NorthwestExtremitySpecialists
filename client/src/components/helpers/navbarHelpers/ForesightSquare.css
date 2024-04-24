@@ -78,7 +78,7 @@ h3.foresight-subheader {
   }
   
   #foresight-article {
-      --c: rgba(143, 0, 72, 0.7);
+      --c: rgba(0, 64, 143, 0.7);
       --s0: calc(1.25em + 6px);
       --s1: calc(1.25em + 6px + 0.5em);
     place-self: center;
@@ -179,7 +179,7 @@ h3.foresight-subheader {
         margin-bottom: 6px;
     }
   #foresight-article {
-    --c: rgba(143, 0, 72, 0.7);
+    --c: rgba(0, 64, 143, 0.7);
     --s0: calc(1.25em + 6px);
     --s1: calc(1.25em + 6px + 0.5em);
     place-self: center;

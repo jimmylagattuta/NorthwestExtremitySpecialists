@@ -70,66 +70,66 @@ const MenuComponent = () => {
       </div>
       {isMenuOpen && (
         <div className="contact-nav-menu">
-          <div className='riverside-call-directions'>
+          <div className='default-company-call-directions'>
             <a
               id="map-icon-nav"
-              href='tel:+17084420221'
+              href='tel:+15550100'
               title='Phone clickable'
-              onMouseEnter={() => handleMouseEnter('Riverside', '353 East Burlington Street, 100\nRiverside, IL 60546\n708-442-0221\nFax: 708-442-5670', true)}
+              onMouseEnter={() => handleMouseEnter('Cityville', '100 Main Street\nCityville, IL 60000\n555-0100\nFax: 555-0101', true)}
               onMouseLeave={handleMouseLeave}
               style={getPhoneHoveredStyle()}
             >
               <i id="nav-phone-call" className='fas fa-mobile-alt fa-2x'></i>
             </a>
-            Riverside
+            Cityville
             <a
               id="map-icon-nav"
-              href={`https://maps.google.com/?q=353+East+Burlington+Street,+100+Riverside,+IL+60546`}
-              onMouseEnter={() => handleMouseEnter('Riverside', '353 East Burlington Street, 100\nRiverside, IL 60546\n708-442-0221\nFax: 708-442-5670', false)}
+              href={`https://maps.google.com/?q=100+Main+Street,Cityville,IL+60000`}
+              onMouseEnter={() => handleMouseEnter('Cityville', '100 Main Street\nCityville, IL 60000\n555-0100\nFax: 555-0101', false)}
               onMouseLeave={handleMouseLeave}
               style={getAddressHoveredStyle()}
             >
               <i id="nav-map-go" className='fas fa-map-marked-alt fa-1x'></i>
             </a>
           </div>
-          <div className='riverside-call-directions'>
+          <div className='default-company-call-directions'>
             <a
               id="map-icon-nav"
-              href='tel:+17084420221'
+              href='tel:+15550200'
               title='Phone clickable'
-              onMouseEnter={() => handleMouseEnter('La Grange', '5201 Willow Springs Road, 280\nLa Grange, IL 60525\n708-442-0221\nFax: 708-442-5670', true)}
+              onMouseEnter={() => handleMouseEnter('Metropolis', '200 Central Ave\nMetropolis, IL 60001\n555-0200\nFax: 555-0201', true)}
               onMouseLeave={handleMouseLeave}
               style={getPhoneHoveredStyle()}
             >
               <i id="nav-phone-call" className='fas fa-mobile-alt fa-2x'></i>
             </a>
-            La Grange
+            Metropolis
             <a
               id="map-icon-nav"
-              href={`https://maps.google.com/?q=5201+Willow+Springs+Road,+280+La+Grange,+IL+60525`}
-              onMouseEnter={() => handleMouseEnter('La Grange', '5201 Willow Springs Road, 280\nLa Grange, IL 60525\n708-442-0221\nFax: 708-442-5670', false)}
+              href={`https://maps.google.com/?q=200+Central+Ave,Metropolis,IL+60001`}
+              onMouseEnter={() => handleMouseEnter('Metropolis', '200 Central Ave\nMetropolis, IL 60001\n555-0200\nFax: 555-0201', false)}
               onMouseLeave={handleMouseLeave}
               style={getAddressHoveredStyle()}
             >
               <i id="nav-map-go" className='fas fa-map-marked-alt fa-1x'></i>
             </a>
           </div>
-          <div className='riverside-call-directions'>
+          <div className='default-company-call-directions'>
             <a
               id="map-icon-nav"
-              href='tel:+17084420221'
+              href='tel:+15550300'
               title='Phone clickable'
-              onMouseEnter={() => handleMouseEnter('Chicago', '6084 S Archer Avenue\nChicago, IL 60638\n708-442-0221\nFax: 708-442-5670', true)}
+              onMouseEnter={() => handleMouseEnter('Springfield', '300 Capitol Plaza\nSpringfield, IL 60002\n555-0300\nFax: 555-0301', true)}
               onMouseLeave={handleMouseLeave}
               style={getPhoneHoveredStyle()}
             >
               <i id="nav-phone-call" className='fas fa-mobile-alt fa-2x'></i>
             </a>
-            Chicago
+            Springfield
             <a
               id="map-icon-nav"
-              href={`https://maps.google.com/?q=6084+S+Archer+Avenue+Chicago,+IL+60638`}
-              onMouseEnter={() => handleMouseEnter('Chicago', '6084 S Archer Avenue\nChicago, IL 60638\n708-442-0221\nFax: 708-442-5670', false)}
+              href={`https://maps.google.com/?q=300+Capitol+Plaza,Springfield,IL+60002`}
+              onMouseEnter={() => handleMouseEnter('Springfield', '300 Capitol Plaza\nSpringfield, IL 60002\n555-0300\nFax: 555-0301', false)}
               onMouseLeave={handleMouseLeave}
               style={getAddressHoveredStyle()}
             >
@@ -137,7 +137,7 @@ const MenuComponent = () => {
             </a>
           </div>
           {hoveredDetails && (
-            <div style={{ maxWidth: '140px', backgroundColor: 'rgb(143, 0, 72)', zIndex: '8', padding: '5px', lineHeight: '1.5' }}>
+            <div style={{ maxWidth: '140px', backgroundColor: 'rgb(0, 64, 143)', zIndex: '8', padding: '5px', lineHeight: '1.5' }}>
               <p dangerouslySetInnerHTML={{ __html: hoveredDetails }}></p>
             </div>
           )}

@@ -96,16 +96,16 @@ const About = () => {
                 {/* Check if item.descriptionOne is a string */}
                 {typeof item.descriptionOne === 'string' ? (
                   // If it's a string, split it to insert the link where needed
-                  item.descriptionOne.split(/(OAR Patient Portal!)/).map((part, index) => (
-                    part === "OAR Patient Portal!" ? (
+                  item.descriptionOne.split(/(Default Company Patient Portal!)/).map((part, index) => (
+                    part === "Default Company Patient Portal!" ? (
                       <a
                         key={index}
                         className="animate-grow"
-                        href="https://oar.myezyaccess.com/Patient/Main.aspx"
+                        href="https://default-company.myezyaccess.com/Patient/Main.aspx"
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        OAR Patient Portal!
+                        Default Company Patient Portal!
                       </a>
                     ) : (
                       part
@@ -129,7 +129,7 @@ const About = () => {
               <ul className='unordered-list-about-bring'>
                 <a href="tel:17084420221">
                   <button className="portal-button">
-                    Call Us at (708) 442-0221
+                    Call Us at (123) 456-7890
                   </button>
                 </a>
               </ul>
@@ -169,7 +169,7 @@ const About = () => {
                 </ul>
               ))}
             <ul className='portal-unordered-list-about'>
-              <a style={{ color: 'black' }} className="animate-grow-portal" href="https://oar.myezyaccess.com/Patient/Main.aspx" target="_blank" rel="noopener noreferrer">Go To Portal!</a>
+              <a style={{ color: 'black' }} className="animate-grow-portal" href="https://default-company.myezyaccess.com/Patient/Main.aspx" target="_blank" rel="noopener noreferrer">Go To Portal!</a>
             </ul>
           </div>
         ))}

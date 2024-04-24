@@ -7,7 +7,8 @@ const Services = () => {
                 Explore Our Services
             </h1>
             <p className='expertise-header-description'>
-                Services in Riverside, La Grange, and Chicago
+                Services in Cityville, Metropolis, Springfield, Laketown, Hilldale, Rivercity, Greenville, and Eastwood
+
             </p>
             <ExpertiseBlocks />
         </div>

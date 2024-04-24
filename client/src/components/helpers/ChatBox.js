@@ -76,8 +76,8 @@ function ChatBox(props) {
   const fetchReviews = () => {
     const url =
       process.env.NODE_ENV === 'production'
-        ? 'https://www.orthoriverside.com/api/v1/pull_google_places_cache'
-        : 'https://www.orthoriverside.com/api/v1/pull_google_places_cache';
+        ? 'localhost:3001/api/v1/pull_google_places_cache'
+        : 'localhost:3001/api/v1/pull_google_places_cache';
 
     const headers = {
       'Content-Type': 'application/json',
@@ -199,7 +199,7 @@ useEffect(() => {
       agreeToTerms: state.agreeToTerms,
     };
     try {
-      const response = await fetch('https://www.orthoriverside.com/api/v1/send-email', {
+      const response = await fetch('localhost:3001/api/v1/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -503,8 +503,8 @@ useEffect(() => {
           }}
           onSubmit={handleSubmit}>
           <p style={{ fontWeight: '400', letterSpacing: '0.05rem', alignSelf: 'center', fontSize: '0.8rem', fontFamily: 'sans-serif', paddingTop: '10px' }}>CONTACT US</p>
-          <h2 style={{ fontWeight: '400', letterSpacing: '0.01rem', alignSelf: 'center', fontFamily: 'sans-serif', padding: '10px 5px 0px 5px', marginBottom: '0px' }}>Send A Message To Orthopaedic Associates Of Riverside</h2>
-          <p style={{ fontWeight: '400', alignSelf: 'center', fontSize: '0.9rem', padding: '10px 10px 0px 10px', maxWidth: '90%' }}>If you have any questions, concerns, or comments regarding Orthopaedic Associates Of Riverside, please fill out the short contact form below.</p>
+          <h2 style={{ fontWeight: '400', letterSpacing: '0.01rem', alignSelf: 'center', fontFamily: 'sans-serif', padding: '10px 5px 0px 5px', marginBottom: '0px' }}>Send A Message To Company Default</h2>
+          <p style={{ fontWeight: '400', alignSelf: 'center', fontSize: '0.9rem', padding: '10px 10px 0px 10px', maxWidth: '90%' }}>If you have any questions, concerns, or comments regarding Company Default, please fill out the short contact form below.</p>
 
           <div style={{ maxWidth: '90%', alignSelf: 'center', padding: '10px 10px 0px 10px' }} id="chatbox-div">
             <div id="chat-middle-component">

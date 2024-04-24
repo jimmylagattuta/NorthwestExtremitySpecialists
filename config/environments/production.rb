@@ -29,7 +29,7 @@ Rails.application.configure do
     'Cache-Control' => 'public, max-age=31536000'
   }
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  config.asset_host = "http://orthoriverside.com"
+  config.asset_host = "http://defaultcompany.com"
   config.assets.compile = false
 
   # Specifies the header that your server uses for sending files.
@@ -74,7 +74,7 @@ Rails.application.configure do
   # Use a different logger for distributed setups.
   # require "syslog/logger"
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new "app-name")
-  config.action_mailer.asset_host = "https://www.orthoriverside.com"
+  config.action_mailer.asset_host = "localhost:3001"
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {

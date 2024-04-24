@@ -15,31 +15,31 @@
     0% {
         filter: grayscale(100%); /* Start with full grayscale */
         --_p: 65%; /* Start at 75% */
-        --c: rgba(218, 102, 123, 0.5); /* Start with specified color */
+        --c: rgba(145, 194, 255, 0.5); /* Start with specified color */
     }
 
     25% {
         filter: grayscale(50%); /* Further reducing grayscale */
         --_p: 67.5%; /* Maintained */
-        --c: rgba(218, 102, 123, 0.55); /* Maintained */
+        --c: rgba(145, 194, 255, 0.55); /* Maintained */
     }
 
     50% {
         filter: grayscale(50%); /* Further reducing grayscale */
         --_p: 70%; /* Maintained */
-        --c: rgba(218, 102, 123, 0.6); /* Maintained */
+        --c: rgba(145, 194, 255, 0.6); /* Maintained */
     }
 
     75% {
         filter: grayscale(25%); /* Further reducing grayscale */
         --_p: 72.5%; /* Maintained */
-        --c: rgba(218, 102, 123, 0.65); /* Maintained */
+        --c: rgba(145, 194, 255, 0.65); /* Maintained */
     }
 
     100% {
         filter: grayscale(0%); /* No grayscale */
         --_p: 75%; /* Maintained */
-        --c: rgba(218, 102, 123, 0.7); /* Maintained */
+        --c: rgba(145, 194, 255, 0.7); /* Maintained */
     }
 }
 
@@ -113,7 +113,7 @@
     bottom: -2px; /* Adjust this value based on your preference */
     width: 0; /* Initially, the width is 0 */
     height: 2px; /* Adjust the height of the underline */
-    background-color: rgba(161, 2, 42, 0.7);
+    background-color: rgba(0 64 143, 0.7);
     transition: width 0.5s ease, left 0.5s ease; /* Transition the width and left position */
     transform: translateX(0%); /* Center the underline */
 }
@@ -172,7 +172,7 @@
 }
 
 .portal-unordered-list-about li {
-    text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+    text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
     padding: 4px 0px 4px 0px;
     font-size: 1.2rem;
     color: #333;
@@ -242,7 +242,7 @@
         transform: translateY(20px); /* Initial position offscreen */
         filter: grayscale(0%); /* No grayscale */
         --_p: 75%; /* Maintained */
-        --c: rgba(218, 102, 123, 0.7); /* Maintained */
+        --c: rgba(145, 194, 255, 0.7); /* Maintained */
     }
     
     .portal-section h2 {
@@ -259,7 +259,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 1rem;
         color: #333;
@@ -333,7 +333,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 1rem;
         color: #333;
@@ -415,7 +415,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 1.3rem;
         color: #333;
@@ -498,7 +498,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 1.3rem;
         color: #333;
@@ -581,7 +581,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 1rem;
         color: #333;
@@ -664,7 +664,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 0.8rem;
         color: #333;
@@ -752,7 +752,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 0.8rem;
         color: #333;
@@ -785,7 +785,7 @@
 
 
     .portal-unordered-list-about li {
-        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(143, 0, 72,0.8);
+        text-shadow: -1px -1px 0px rgba(255, 255, 255, 0.3), 1px 1px 0px rgba(0, 64, 143,0.8);
         padding: 4px 0px 4px 0px;
         font-size: 0.8rem;
         color: #333;

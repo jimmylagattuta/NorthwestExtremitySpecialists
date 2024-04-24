@@ -106,10 +106,10 @@ const FloatingOfficeInfo = ({
                                 Tuesday: 8 AM- 5PM
                             </div>
                             <div className='map-float-info'>
-                                {place.city === 'Montebello' ? 'Wednesday: Closed' : 'Wednesday: 8 AM- 5PM'}
+                                {place.city === 'Hilltown' ? 'Wednesday: Closed' : 'Wednesday: 8 AM- 5PM'}
                             </div>
                             <div className='map-float-info'>
-                                {place.city === 'Glendale' ? 'Thursday: Closed' : 'Thursday: 8 AM- 5PM'}
+                                {place.city === 'Rivercity' ? 'Thursday: Closed' : 'Thursday: 8 AM- 5PM'}
                             </div>
                             <div className='map-float-info'>
                                 Friday: 8 AM- 5PM
@@ -165,7 +165,7 @@ const InfoWindow = ({ place, handleInfoWindowClose, markerSelected }) => {
                     Hours of Operation
                 </h2>
                 <div className='info-window-text'>
-                    {place.city === 'Montebello' ? 'Mon, Tue, Thu, Fri' : (place.city === 'Glendale' ? 'Mon, Tue, Wed, Fri' : 'Monday - Friday')}
+                    {place.city === 'Eastwood' ? 'Mon, Tue, Thu, Fri' : (place.city === 'Rivercity' ? 'Mon, Tue, Wed, Fri' : 'Monday - Friday')}
                 </div>
                 <div className='info-window-text'>8AM-5PM</div>
             </div>
@@ -281,7 +281,7 @@ const MapContainer = () => {
 
         return selectedOffice.coordinates;
     };
-    const riversideGoogleMaps = process.env.REACT_APP_GOOGLE_MAPS_REACT_KEY;
+    const defaultCompanyGoogleMaps = process.env.REACT_APP_GOOGLE_MAPS_REACT_KEY;
     const handleMarkerClick = (key) => {
         console.log('handleMarkerClicked');
         const coordinates = showInfo(key);
@@ -333,7 +333,7 @@ const MapContainer = () => {
                     center={centered}
                     zoom={zoomed}
                     bootstrapURLKeys={{
-                        key: riversideGoogleMaps,
+                        key: defaultCompanyGoogleMaps,
                         v: 'weekly',
                     }}
                     onChildClick={

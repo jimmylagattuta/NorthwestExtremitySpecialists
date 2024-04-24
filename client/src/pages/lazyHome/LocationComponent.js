@@ -28,7 +28,7 @@ const LocationComponent = () => {
                 </div>
                 <h2 className='section-title-location-component'>
                     Offices Located Across
-                    The Greater Chicago and Riverside Area
+                    The Greater Hilltown and Rivercity Area
                 </h2>
             </div>
         </div>
