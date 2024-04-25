@@ -51,8 +51,8 @@ export const physicians = [
             "Through this program, he trained at Cedars Sinai, Ventura County Medical Center, Community Memorial Hospital, and Children’s Hospital of Orange County. Dr. Friedman completed his fellowship training at the San Diego Arthroscopy and Sports Medicine Fellowship program.",
             "Dr. Friedman has served as the assistant team physician for several professional, collegiate, and high school teams, including the San Diego Gulls, San Diego State University, and others. He is committed to staying active in his field, has published numerous articles, and is an active member of various orthopedic and sports medicine societies."
         ],
-        image: 'https://i.imgur.com/EUSrDSg.jpg',
-        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
     },
     {
         name: 'Dr. Clifford D. Mah',
@@ -86,8 +86,8 @@ export const physicians = [
             "Dr. Surratt became interested in podiatry after a fellow teammate was treated for an injury by a team podiatrist at Colorado State University. He is an avid runner, with credentials including PR of 14:11 in the 5,000 meters and 29:30 in the 10,000 meters during his tenure at Colorado State.",
             "His clinical specialties include running mechanics, sports medicine of the foot and ankle, and surgical management of foot deformities. His current hobbies include cycling, running, archery, and the occasional distance swim, having completed the Alcatraz Swim for his 40th birthday. He enjoys spending time out of the city at his cabin in Sisters, OR with his wife, son, and daughter."
         ],
-        image: 'https://i.imgur.com/EUSrDSg.jpg',
-        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
     },
     {
         name: 'Dr. Manny Moy',
@@ -132,8 +132,8 @@ export const physicians = [
             "Dr. Melillo is dedicated to continuing his medical training through various educational seminars. He is an attending surgeon for the Legacy/Kaiser Portland Hospital’s Podiatric Surgical Residency Program.",
             "He runs a small family vineyard, producing Pinot Noir in the Willamette Valley, and enjoys music, cycling, physical fitness, and food. Dr. Melillo has 6 children and a lovable, energetic Golden Retriever."
         ],
-        image: 'https://i.imgur.com/EUSrDSg.jpg',
-        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
     },
     {
         name: 'Dr. Todd Galle',
@@ -153,6 +153,50 @@ export const physicians = [
             "He completed a three-year Podiatric Surgical Residency Program at the Legacy Health Systems and Kaiser Foundation Hospitals in Portland, OR.",
             "Board certified in foot surgery, Dr. Dehqanzada is committed to continued training and education through participation in regional and national educational seminars.",
             "His interests include high-energy activities such as martial arts, running, and weight training, as well as enjoying finer things like photography and wine tasting with his family."
+        ],
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
+    },
+    {
+        name: 'Dr. Cara Beach',
+        bio: [
+            "Dr. Cara Beach completed her undergraduate degree in exercise physiology at Michigan State University, where she was also a four-year starter on the women's soccer team and served as team captain in her senior year.",
+            "She earned her doctorate of Podiatric Medicine degree at Kent State University College of Podiatric Medicine. She completed her three-year surgical residency in trauma and reconstruction at Legacy Health and Kaiser Permanente Hospitals.",
+            "Dr. Beach's clinical interests include conservative and surgical approaches to sports injuries, foot and ankle reconstruction, and trauma.",
+            "Her hobbies include skiing, mountain biking, fly fishing, hiking, camping, and trail running. She enjoys these activities with her husband and dog."
+        ],
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+    },
+    {
+        name: 'Dr. Lacey Beth Lockhart',
+        bio: [
+            "Dr. Lacey Beth Lockhart grew up in Gresham, Oregon. She attended Linfield College in McMinnville, Oregon where she majored in Exercise Science and minored in Spanish.",
+            "After completing college, she worked in the medical field, gaining experience with a variety of pathology and patient populations. She earned her degree in podiatric medicine at California School of Podiatric Medicine at Samuel Merritt University.",
+            "From there, she completed her residency at Legacy Health Foot and Ankle Reconstructive Surgery Program in Portland, Oregon. Her 3-year surgical training included clinical management of common podiatric conditions as well as extensive biomechanical and surgical training.",
+            "Dr. Lockhart enjoys treating a wide range of pathology including sports injuries, diabetic limb salvage, and foot and ankle surgery. In her spare time, she enjoys real estate, planning events, going to the Oregon Coast, and serving as the Advisor for Phi Sigma Sigma Sorority at Linfield."
+        ],
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+    },
+    {
+        name: 'Dr. Melinda Nicholes',
+        bio: [
+            "Originally from Wisconsin, Dr. Melinda Nicholes received her undergraduate degree at Marquette University in Milwaukee, WI.",
+            "She earned her Doctorate of Podiatric Medicine at Des Moines University and then completed her 3-year surgical residency at SSM Health DePaul Hospital in St. Louis, Missouri.",
+            "Dr. Nicholes is skilled in the techniques of foot and ankle surgery, sports medicine, wound care, and diabetic foot care.",
+            "In her spare time, Dr. Nicholes enjoys spending time with her husband, hiking with their two dogs, camping, reading, and playing board games."
+        ],
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+    },
+    {
+        name: 'Dr. Taylor Bunka',
+        bio: [
+            "Dr. Taylor Bunka was born in Toronto, Ontario and grew up in Northern California in the Bay Area. She received a B.S. in Kinesiology from Cal Poly San Luis Obispo.",
+            "She attended Podiatry School at CSPM in Oakland, CA, then went on to do her residency at MedStar Georgetown University Hospital, followed by a one-year fellowship at the California Reconstruction, Trauma and Arthroplasty Foot and Ankle Fellowship.",
+            "Prior to her employment at NES, she worked for a private practice orthopedic group out in Gresham, where she had a great deal of exposure to sports medicine injuries.",
+            "With her husband, she moved to Oregon City with their two dogs last year and welcomed a baby girl to their family in March. In her spare time, she loves exploring Portland with her entire family and working out or reading. She is very excited to join the NES family and cannot wait to get started."
         ],
         image: 'https://i.imgur.com/EUSrDSg.jpg',
         imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
