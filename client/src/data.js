@@ -559,7 +559,7 @@ export const services = [
             "Ongoing support and follow-up care to ensure the best possible outcomes for our patients."
         ],
         link: '/services',
-    }
+    },
     // Sports Medicine
     {
         image: 'https://i.imgur.com/2Q4xrFD.webp',
