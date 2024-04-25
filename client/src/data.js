@@ -30,56 +30,135 @@ export const products = [
 ];
 export const physicians = [
     {
-        name: 'Doctor 1',
+        name: 'Dr. Ron Bowman',
         bio: [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-            "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-            "Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris."
+            "Ron Bowman MD is a native Oregonian, raised on a family wheat farm in Northeastern Oregon. His early exposure to the physical demands placed on workers shaped his future in medicine. He completed his residency in Orthopedic Surgery in 1991 and returned to his hometown Pendleton, Oregon to practice.",
+            "He practiced general orthopedics there for several years, which included arthroscopic surgery, total joint replacements, trauma, and hand, foot, and ankle surgery. He was first certified by the American Board of Orthopedic Surgeons in 1993 and later received a Certificate of Added Qualification in Sports Medicine, currently active through 2023.",
+            "In 2003, Dr. Bowman moved to the Portland, Oregon area to focus his practice on treating injured workers. He became the Chairman of the OR Workers Compensation Medical Advisory Committee in 2004, a role that leverages his expertise to influence state policies on treatment approvals within the Workers Compensation system.",
+            "Dr. Bowman's practice is predominantly dedicated to the treatment of injured workers, handling over 80% of cases involving shoulder pain or instability due to rotator cuff and labral tears, knee pain or instability due to meniscal and articular cartilage injuries, and ligament damage to the knee. He is known for utilizing the latest in biologics and minimally invasive techniques.",
+            "His comprehensive approach to treatment not only focuses on precise diagnoses and surgical excellence but also encompasses the full spectrum of the patient's recovery journey. This includes extensive postoperative rehabilitation to ensure optimal recovery and a successful return to work.",
+            "Outside the operating room, Dr. Bowman is an avid cyclist, having participated in several Cycle Oregon events. He also enjoys golf and has built a golf simulator in his garage. He values his time with his family and pets, finding balance between his professional and personal life.",
+            "Dr. Bowman also offers medical-legal services, providing expert consulting for attorneys and insurers. His extensive experience allows him to offer valuable insights as a non-biased expert physician in both defense and plaintiff cases."
         ],
-        image: 'https://imgur.com/7FwA1eX.jpg',
-        imageMedium: 'https://imgur.com/7FwA1eX.jpg'
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
     },
     {
-        name: 'Doctor 2',
+        name: 'Dr. Alex Friedman',
         bio: [
-            "Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam.",
-            "Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat.",
-            "Cras mollis scelerisque nunc. Nullam arcu. Aliquam consequat. Curabitur augue lorem, dapibus quis, laoreet et, pretium ac, nisi. Aenean magna nisl, mollis quis, molestie eu, feugiat in, orci."
+            "Dr. Alex Friedman is an orthopedic surgeon with advanced fellowship training in arthroscopy and sports medicine. He serves his community with a patient-first mindset, and is particularly interested in shoulder, knee, elbow and hip injuries and the care of patients of all ages and athletic abilities.",
+            "He is a Pacific Northwest native and graduated from Gonzaga University with a degree in Mechanical Engineering. He went on to attend medical school at Pacific Northwest University of Health Sciences, followed by orthopedic surgery residency at Community Memorial Health System in Southern California.",
+            "Through this program, he trained at Cedars Sinai, Ventura County Medical Center, Community Memorial Hospital, and Children’s Hospital of Orange County. Dr. Friedman completed his fellowship training at the San Diego Arthroscopy and Sports Medicine Fellowship program.",
+            "Dr. Friedman has served as the assistant team physician for several professional, collegiate, and high school teams, including the San Diego Gulls, San Diego State University, and others. He is committed to staying active in his field, has published numerous articles, and is an active member of various orthopedic and sports medicine societies."
         ],
         image: 'https://i.imgur.com/EUSrDSg.jpg',
         imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
     },
     {
-        name: 'Doctor 3',
+        name: 'Dr. Clifford D. Mah',
         bio: [
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae. Sed dui lorem, adipiscing in adipiscing et, interdum nec metus. Mauris ultricies, justo eu convallis placerat, felis enim.",
-            "Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam.",
-            "Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum."
+            "Dr. Clifford D. Mah is a board-certified podiatric surgeon specializing in conservative and surgical approaches to the management of foot and ankle disorders.",
+            "After earning his Doctor of Podiatric Medicine Degree from the California College of Podiatric Medicine, Dr. Mah completed his residency in trauma and reconstructive surgery of the foot and ankle at Northlake Medical Center, Tucker, GA.",
+            "Currently, Dr. Mah is the Chief of Podiatric Medicine and Surgery at Providence St. Vincent Medical Center in Portland, OR, and serves on several boards and committees related to podiatric medicine and surgery.",
+            "He enjoys teaching and has provided numerous lectures for Continuing Medical Education courses. Dr. Mah also enjoys spending time with his family, playing tennis, and golf."
         ],
-        image: 'https://imgur.com/7FwA1eX.jpg',
-        imageMedium: 'https://imgur.com/7FwA1eX.jpg'
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
     },
     {
-        name: 'Doctor 4',
+        name: 'Dr. Denny Le',
         bio: [
-            "Morbi in sem quis dui placerat ornare. Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu. Cras consequat. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat.",
-            "Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus. Phasellus ultrices nulla quis nibh. Quisque a lectus. Donec consectetuer ligula vulputate sem tristique cursus.",
-            "Nam nulla quam, gravida non, commodo a, sodales sit amet, nisi. Pellentesque fermentum dolor. Aliquam quam lectus, facilisis auctor, ultrices ut, elementum vulputate, nunc."
+            "Oregon native Dr. Denny Le completed his undergraduate degree in cellular, molecular, and developmental biology at the University of Washington in Seattle. With an extensive medical research background, he furthered his education and received his Doctor of Podiatric Medicine at the California School of Podiatric Medicine in Oakland.",
+            "He then returned to Portland to complete his three-year surgical residency in trauma and reconstruction as Chief Resident at Legacy Health and Kaiser Permanente Hospitals.",
+            "Dr. Le’s clinical interests include advanced and innovative techniques in both conservative and surgical approaches for sports injuries, and complex foot and ankle disorders.",
+            "He is dedicated to continuing his medical expertise and has a strong passion for helping his patients get back to an active lifestyle.",
+            "Dr. Le’s wide areas of interest include being a foodie, weight-training, spending evenings with family and friends, and dancing. He continues to enjoy exploring the Pacific Northwest and trying the countless delicious restaurants Portland has to offer."
+        ],
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
+    },
+    {
+        name: 'Dr. Jason Surratt',
+        bio: [
+            "Dr. Surratt graduated with honors from the California College of Podiatric Medicine and completed a comprehensive podiatric medical and surgical residency program at the Legacy/Kaiser Portland Hospitals in Portland, OR.",
+            "Dr. Surratt is a four-time winner of 'Top Doc' by Portland Monthly. He is board certified in foot surgery.",
+            "After completing his formal training, he founded Westside Foot & Ankle Specialists, which grew into a multi-location practice with five foot and ankle specialists, three physical therapists, and a wound care RN before joining Northwest Extremity Specialists.",
+            "Dr. Surratt became interested in podiatry after a fellow teammate was treated for an injury by a team podiatrist at Colorado State University. He is an avid runner, with credentials including PR of 14:11 in the 5,000 meters and 29:30 in the 10,000 meters during his tenure at Colorado State.",
+            "His clinical specialties include running mechanics, sports medicine of the foot and ankle, and surgical management of foot deformities. His current hobbies include cycling, running, archery, and the occasional distance swim, having completed the Alcatraz Swim for his 40th birthday. He enjoys spending time out of the city at his cabin in Sisters, OR with his wife, son, and daughter."
         ],
         image: 'https://i.imgur.com/EUSrDSg.jpg',
         imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
     },
     {
-        name: 'Doctor 5',
+        name: 'Dr. Manny Moy',
         bio: [
-            "Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. In auctor lobortis lacus. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Hendrerit mauris. Phasellus pede arcu, dapibus eu, fermentum et, dapibus sed, urna.",
-            "Morbi interdum mollis sapien. Sed ac risus. Phasellus lacinia, magna a ullamcorper laoreet, lectus arcu pulvinar risus, vitae facilisis libero dolor a purus. Sed vel lacus. Mauris nibh felis, adipiscing varius, adipiscing in, lacinia vel, tellus.",
-            "Suspendisse ac urna. Etiam pellentesque mauris ut lectus. Nunc tellus ante, mattis eget, gravida vitae, ultricies ac, leo. Integer leo pede, ornare a, lacinia eu, vulputate vel, nisl."
+            "Dr. Manny Moy was born in Taishan, China and grew up in Oakland, CA after immigrating to the United States when he was nine years old.",
+            "He attended the University of California at Berkeley, graduating with a B.A. in molecular cell biology. He then graduated from California College of Podiatric Medicine at Samuel Merritt University in 1997 and completed his residency and diabetic foot reconstruction fellowship at Yale-New Haven Hospital in Connecticut.",
+            "Dr. Moy maintained Chief Resident status during his residency training and presented numerous lectures on diabetic wound management, Lisfranc fractures, Charcot-Marie tooth deformity reconstruction, and diabetic foot reconstruction.",
+            "He founded his own clinic in Portland in September 2001 and has been actively involved in providing expert medical consulting services. Dr. Moy is a proud father of twin boys and enjoys playing tennis, traveling to the Oregon coast, cooking authentic Chinese food, and spending time with his significant other."
         ],
-        image: 'https://imgur.com/7FwA1eX.jpg',
-        imageMedium: 'https://imgur.com/7FwA1eX.jpg'
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
+    },
+    {
+        name: 'Dr. Mia Horvath',
+        bio: [
+            "Originally from San Francisco, Dr. Mia Horvath graduated with honors from the Ohio College of Podiatric Medicine in Independence, OH.",
+            "She completed a three-year surgical residency with emphasis on rearfoot and ankle reconstructive surgery at St. Vincent Mercy Medical Center in Toledo, OH.",
+            "Most recently, Dr. Horvath practiced in Arizona where she was featured in the Phoenix Magazine Top Doc for 2014 and 2015.",
+            "She took over Dr. Lisa Lipe’s long-standing practice on the corner of 99W/Portland Road and Washington Street in Newberg.",
+            "Dr. Horvath treats a range of foot problems affecting both children and adults, specializing in primary podiatry care as well as foot and ankle surgery. She enjoys the outdoors, stand up paddle boarding, kayaking, and playing the ukulele."
+        ],
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+    },
+    {
+        name: 'Dr. Peter Pham',
+        bio: [
+            "Dr. Peter Pham is an Oregon native who grew up in the Portland metro area and received his undergraduate degree in Biology from Oregon State University in 2009.",
+            "He attended the California School of Podiatric Medicine of Samuel Merritt University to pursue his medical degree, followed by a rigorous 3-year surgical residency at West Houston Medical Center, where he received comprehensive training in forefoot, rearfoot and ankle surgery.",
+            "Dr. Pham has been involved in presenting and co-authoring numerous research publications and presentations. He is a devoted and compassionate podiatrist, emphasizing patient education to enhance treatment outcomes.",
+            "He treats a wide range of problems including bunions, hammertoes, nail fungus, flatfeet, and heel pain. Outside of work, Dr. Pham enjoys traveling, cooking, and spending time with his wife and son. He is also an avid sports fan, particularly of the Trail Blazers."
+        ],
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
+    },
+    {
+        name: 'Dr. Thomas Melillo',
+        bio: [
+            "Dr. Thomas Melillo graduated with honors from Fairfield University and from the Ohio College of Podiatric Medicine.",
+            "He completed a comprehensive podiatric medical and surgical residency program at St. Mary’s Medical Center in San Francisco.",
+            "Active in the American Podiatric Medical Association, he is also the past president of the Oregon Podiatric Medical Association, serving from 2010-2014.",
+            "Dr. Melillo is dedicated to continuing his medical training through various educational seminars. He is an attending surgeon for the Legacy/Kaiser Portland Hospital’s Podiatric Surgical Residency Program.",
+            "He runs a small family vineyard, producing Pinot Noir in the Willamette Valley, and enjoys music, cycling, physical fitness, and food. Dr. Melillo has 6 children and a lovable, energetic Golden Retriever."
+        ],
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
+    },
+    {
+        name: 'Dr. Todd Galle',
+        bio: [
+            "Dr. Todd Galle received his podiatric medical degree from Dr. William M. Scholl College of Podiatric Medicine with the highest of honors.",
+            "He completed his podiatric surgical residency at Rush Presbyterian St. Luke’s Medical Center in Chicago, IL, and is board certified in foot surgery.",
+            "Dr. Galle has an extensive practice history and has been actively involved with teaching podiatric surgical residents and students. He is dedicated to continuing his podiatric medical education and training.",
+            "After practicing in Chicago and the Phoenix area, Dr. Galle relocated to Portland with his wife and twin daughters. His interests include travel, photography, and cooking. He is a food and wine enthusiast and enjoys hiking and exploring the Pacific Northwest."
+        ],
+        image: 'https://i.imgur.com/7FwA1eX.jpg',
+        imageMedium: 'https://i.imgur.com/7FwA1eX.jpg'
+    },
+    {
+        name: 'Dr. Yama Dehqanzada',
+        bio: [
+            "Dr. Yama Dehqanzada received his undergraduate degree from University of California Davis in 1996 and graduated with honors from the California College of Podiatric Medicine in 2000.",
+            "He completed a three-year Podiatric Surgical Residency Program at the Legacy Health Systems and Kaiser Foundation Hospitals in Portland, OR.",
+            "Board certified in foot surgery, Dr. Dehqanzada is committed to continued training and education through participation in regional and national educational seminars.",
+            "His interests include high-energy activities such as martial arts, running, and weight training, as well as enjoying finer things like photography and wine tasting with his family."
+        ],
+        image: 'https://i.imgur.com/EUSrDSg.jpg',
+        imageMedium: 'https://i.imgur.com/EUSrDSg.jpg'
     }
 ];
+
 
 export const services = [
     {
