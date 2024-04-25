@@ -2,6 +2,41 @@ class Api::V1::JobsController < ApplicationController
   rescue_from StandardError, with: :handle_unexpected_error
   rescue_from JSON::ParserError, with: :handle_json_parsing_error
   
+  # rails console id finder
+  # require 'net/http'
+  # require 'json'
+  # require 'uri'
+
+  # def fetch_place_ids(search_term, api_key)
+  #   encoded_search_term = URI.encode_www_form_component(search_term)
+  #   url = URI("https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{encoded_search_term}&key=#{api_key}")
+
+  #   http = Net::HTTP.new(url.host, url.port)
+  #   http.use_ssl = true
+
+  #   request = Net::HTTP::Get.new(url)
+  #   response = http.request(request)
+  #   body = response.read_body
+  #   data = JSON.parse(body)
+
+  #   if data['status'] == 'OK'
+  #     place_ids = data['results'].map { |result| result['place_id'] }
+  #     return place_ids
+  #   else
+  #     puts "Error: #{data['status']}"
+  #     return []
+  #   end
+  # end
+
+  # search_term = 'Northwest Extremity Specialists'
+
+
+  # api_key = ENV['REACT_APP_GOOGLE_PLACES_API_KEY']
+
+  # place_ids = fetch_place_ids(search_term, api_key)
+  # puts "Place IDs for '#{search_term}':"
+  # puts place_ids.inspect
+ 
   def index
     puts "Rendering index action..."
     render json: "Default Company " * 1000
@@ -92,12 +127,7 @@ class GooglePlacesCached
 
     # puts "No cached data found."
     # puts "Fetching place IDs..."
-    place_ids = [
-      'ChIJvdxR8To0DogRhCRjmGXy7ts',
-      'ChIJRQj7LQ5JDogR-YUMlT6K48A',
-      'ChIJj8ezzWgxDogRT_5mqMYhk94'
-    ]
-
+    place_ids = ["ChIJi3RsjPEMlVQRt1cOeU3_g48", "ChIJf07ARPkJlVQRJCA-9wte444", "ChIJSRSts-CglVQRfXCyBEPzHNg", "ChIJwYKIh1MJlVQRIXzFZskUtFY", "ChIJ_TJXrMl3lVQRl1nLczjqvcc", "ChIJIZy0a0N1lVQRChk-thmw9UQ", "ChIJG0RqfGJzlVQR-lIHvq9lq3M", "ChIJvWKjfLwPlVQRq0OjxUpuQDs", "ChIJKd5scTVtlVQRniUVJVvA8o0", "ChIJ_2wPhoOflVQRtfSw-4BiUwc", "ChIJs-vDeEZBlVQR9ssRDsT6Ds4", "ChIJhbrgCv5rlVQRpzA6YfChxx4", "ChIJ66ucReMMlVQRPG1PJKZeebY", "ChIJ99Ey1j2hlVQRVTo0viIRIoA", "ChIJDYTghvFulVQRA21iSpDiBxA", "ChIJ4UF7HIxzlVQRUle-xIsEK18"]
     http = Net::HTTP.new("maps.googleapis.com", 443)
     http.use_ssl = true
     reviews = []
