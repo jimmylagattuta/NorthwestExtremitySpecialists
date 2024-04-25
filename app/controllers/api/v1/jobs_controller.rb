@@ -36,6 +36,55 @@ class Api::V1::JobsController < ApplicationController
   # place_ids = fetch_place_ids(search_term, api_key)
   # puts "Place IDs for '#{search_term}':"
   # puts place_ids.inspect
+
+
+  # other for id's company's name
+
+  # def fetch_place_data(search_term, api_key)
+  #   encoded_search_term = URI.encode_www_form_component(search_term)
+  #   url = URI("https://maps.googleapis.com/maps/api/place/textsearch/json?query=#{encoded_search_term}&key=#{api_key}")
+  
+  #   http = Net::HTTP.new(url.host, url.port)
+  #   http.use_ssl = true
+  
+  #   request = Net::HTTP::Get.new(url)
+  #   response = http.request(request)
+  #   body = response.read_body
+  #   data = JSON.parse(body)
+  
+  #   if data['status'] == 'OK' && !data['results'].empty?
+  #     result = data['results'].find { |result| result['formatted_address']&.include?('Oregon') }
+  #     if result
+  #       { 'name' => search_term, 'place_id' => result['place_id'], 'formatted_address' => result['formatted_address'], 'rating' => result['rating'] }
+  #     else
+  #       puts "No results found in Oregon for #{search_term}"
+  #       nil
+  #     end
+  #   else
+  #     puts "Error: #{data['status']}"
+  #     nil
+  #   end
+  # end
+  
+  # companies = [
+  #   { name: 'Creekside Physical Therapy' }
+  # ]
+  
+  # api_key = ENV['REACT_APP_GOOGLE_PLACES_API_KEY']
+  # place_data = []
+  
+  # companies.each do |company|
+  #   place_data << fetch_place_data(company[:name], api_key)
+  # end
+  
+  # place_data.compact.each do |data|
+  #   puts "Company: #{data['name']}"
+  #   puts "Place ID: #{data['place_id']}"
+  #   puts "Address: #{data['formatted_address']}"
+  #   puts "Rating: #{data['rating']}"
+  #   puts
+  # end
+  
  
   def index
     puts "Rendering index action..."
