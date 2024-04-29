@@ -29,28 +29,36 @@ class Api::V1::JobsController < ApplicationController
     end
 
     if res.is_a?(Net::HTTPSuccess)
-      reviews_data = JSON.parse(res.body)
-      reviews = reviews_data["reviews"]
-
-      # Process and display the reviews
-      reviews.each do |review|
-        puts "Review ID: #{review['id']}"
-        puts "Text: #{review['text']}"
-        puts "Rating: #{review['rating']}"
-        puts "Time Created: #{review['time_created']}"
-        puts "User ID: #{review['user']['id']}"
-        puts "User Profile URL: #{review['user']['profile_url']}"
-        puts "User Image URL: #{review['user']['image_url']}"
-        puts "User Name: #{review['user']['name']}"
-        puts "-------------------------"
+      data = JSON.parse(res.body)
+      if data["businesses"]
+        business_id = data["businesses"][0]["id"]
+    
+        # Make a request to get reviews
+        reviews_uri = URI(REVIEWS_URL % business_id)
+        req_reviews = Net::HTTP::Get.new(reviews_uri)
+        req_reviews['Authorization'] = "Bearer #{API_KEY}"
+    
+        res_reviews = Net::HTTP.start(reviews_uri.hostname, reviews_uri.port, use_ssl: reviews_uri.scheme == 'https') do |http|
+          http.request(req_reviews)
+        end
+    
+        if res_reviews.is_a?(Net::HTTPSuccess)
+          reviews_data = JSON.parse(res_reviews.body)
+          reviews = reviews_data["reviews"]
+          
+          reviews.each do |review|
+            puts review["text"]
+          end
+        else
+          puts "Failed to retrieve reviews: #{res_reviews.code}"
+        end
+      else
+        puts "Business not found"
       end
-
-      render json: { reviews: reviews, csrf_token: csrf_token }
     else
-      puts "Failed to retrieve reviews: #{res.code}"
-      puts "Response Body: #{res.body}" if res.body.present?
-      render json: { error: "Failed to retrieve reviews. HTTP Status: #{res.code}" }, status: :unprocessable_entity
+      puts "Failed to retrieve business: #{res.code}"
     end
+    
   end
 
   private
