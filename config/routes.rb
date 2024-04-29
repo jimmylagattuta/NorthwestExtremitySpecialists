@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       post "/signup", to: "users#create"
       post "/login", to: "sessions#create"
       delete "/logout", to: "sessions#destroy"
-      get "/pull_yelp reviews", to: "jobs#pull_yelp reviews"
+      get "/pull_yelp_reviews", to: "jobs#pull_yelp_reviews"
       post '/send-email', to: 'email#send_email'
     end
   end
