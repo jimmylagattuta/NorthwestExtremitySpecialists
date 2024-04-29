@@ -17,7 +17,7 @@ class MonthlyJob
 
       # Fetch place details from Google Places API
       encoded_place_id = URI.encode_www_form_component(place_id)
-      url = URI("https://maps.googleapis.com/maps/api/place/details/json?place_id=#{encoded_place_id}&key=#{ENV['REACT_APP_GOOGLE_PLACES_API_KEY']}")
+      url = URI("https://maps.googleapis.com/maps/api/place/details/json?place_id=#{encoded_place_id}&key=#{ENV['REACT_APP_YELP_API_KEY']}")
       request = Net::HTTP::Get.new(url)
       response = http.request(request)
       body = response.read_body
