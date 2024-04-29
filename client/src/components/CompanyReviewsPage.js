@@ -86,7 +86,7 @@ const CompanyReviewsPage = () => {
 
       const fetchReviews = () => {
         const url = process.env.NODE_ENV === 'production'
-            ? 'https://northwest-extremity-specialist-1660e5326280.herokuapp.com/api/v1/pull_google_places_cache'
+            ? 'https://northwest-extremity-specialist-1660e5326280.herokuapp.com/api/v1/pull_yelp_reviews'
             : 'localhost:3001/api/v1/pull_google_places_cache';
     
         const headers = {
