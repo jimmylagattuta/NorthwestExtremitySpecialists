@@ -72,17 +72,20 @@ class Api::V1::JobsController < ApplicationController
           render json: { reviews: reviews, csrf_token: csrf_token }
         else
           puts "Failed to retrieve reviews: #{res_reviews.code}"
-          render json: { error: "Failed to retrieve reviews" }, status: :unprocessable_entity
+          puts "Response Body: #{res_reviews.body}" if res_reviews.body.present?
+          render json: { error: "Failed to retrieve reviews. HTTP Status: #{res_reviews.code}" }, status: :unprocessable_entity
         end
       else
         puts "Business not found"
-        render json: { error: "Business not found" }, status: :not_found
+        render json: { error: "Business not found in Yelp search results" }, status: :not_found
       end
     else
       puts "Failed to retrieve business: #{res.code}"
-      render json: { error: "Failed to retrieve business" }, status: :unprocessable_entity
+      puts "Response Body: #{res.body}" if res.body.present?
+      render json: { error: "Failed to retrieve business. HTTP Status: #{res.code}" }, status: :unprocessable_entity
     end
   end
+  
   
   private
 
