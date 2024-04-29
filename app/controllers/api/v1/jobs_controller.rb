@@ -16,9 +16,9 @@ class Api::V1::JobsController < ApplicationController
   
     # Make a request to the Yelp API to search for the business
     business_search_url = "https://api.yelp.com/v3/businesses/search"
-    term = "Creekside Physical Therapy"
+    term = "Northwest Extremity Specialists"
     location = "Portland, Oregon" # or any other location
-    limit = 10
+    limit = 3
   
     uri = URI(business_search_url)
     params = {
