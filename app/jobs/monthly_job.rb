@@ -1,24 +1,6 @@
 class MonthlyJob
   include Sidekiq::Worker
 
-  physicians = [
-    "Dr. Ron Bowman",
-    "Dr. Alex Friedman",
-    "Dr. Clifford D. Mah",
-    "Dr. Denny Le",
-    "Dr. Jason Surratt",
-    "Dr. Manny Moy",
-    "Dr. Mia Horvath",
-    "Dr. Peter Pham",
-    "Dr. Thomas Melillo",
-    "Dr. Todd Galle",
-    "Dr. Yama Dehqanzada",
-    "Dr. Cara Beach",
-    "Dr. Lacey Beth Lockhart",
-    "Dr. Melinda Nicholes",
-    "Dr. Taylor Bunka"
-  ]
-
   def perform
     require 'uri'
     require 'net/http'
@@ -29,8 +11,6 @@ class MonthlyJob
     http = Net::HTTP.new("maps.googleapis.com", 443)
     http.use_ssl = true
     reviews = []
-
-    puts "Fetching and filtering reviews..."
 
     places.each do |place|
       place_id = place
@@ -50,13 +30,29 @@ class MonthlyJob
           place_reviews = place_details.present? ? place_details['reviews'] || [] : []
           reviews.concat(place_reviews)
         else
-          puts "Skipping place #{place_id} as it is not in Oregon."
+          puts "Skipping location #{place_id} because it's not in Oregon."
         end
       else
-        puts "Failed to fetch details for place #{place_id}: #{parsed_response['status']}"
+        puts "Failed to retrieve place details for place ID: #{place_id}"
       end
     end
 
-    puts "Finished fetching and filtering reviews."
+    filtered_reviews = []
+    reviews.each do |review|
+      if review['rating'] == 5 && review['author_name'] != 'Pdub ..'
+        filtered_reviews << review
+      end
+    end
+
+    redis = Redis.new(url: ENV['REDIS_URL'])
+
+    if redis.exists('cached_google_places_reviews')
+      redis.del('cached_google_places_reviews')
+    end
+
+    redis.set('cached_google_places_reviews', JSON.generate(filtered_reviews))
+    redis.expire('cached_google_places_reviews', 30.days.to_i)
+  rescue StandardError => e
+    puts "Error in MonthlyJob: #{e.message}"
   end
 end
