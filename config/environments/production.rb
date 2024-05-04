@@ -48,7 +48,7 @@ Rails.application.configure do
   config.log_tags = [ :request_id ]
 
   # Use a different cache store in production.
-  config.cache_store = :redis_cache_store, { url: ENV['REDIS_TLS_URL'], expires_in: 30.days }
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'], expires_in: 30.days }
   config.active_job.queue_adapter = :sidekiq
 
   Sidekiq.configure_server do |config|
