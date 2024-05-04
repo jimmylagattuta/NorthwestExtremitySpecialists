@@ -1,54 +1,76 @@
-require 'uri'
-require 'net/http'
-require 'json'
-require 'redis'
-
 class MonthlyJob
   include Sidekiq::Worker
 
+  physicians = [
+    "Dr. Ron Bowman",
+    "Dr. Alex Friedman",
+    "Dr. Clifford D. Mah",
+    "Dr. Denny Le",
+    "Dr. Jason Surratt",
+    "Dr. Manny Moy",
+    "Dr. Mia Horvath",
+    "Dr. Peter Pham",
+    "Dr. Thomas Melillo",
+    "Dr. Todd Galle",
+    "Dr. Yama Dehqanzada",
+    "Dr. Cara Beach",
+    "Dr. Lacey Beth Lockhart",
+    "Dr. Melinda Nicholes",
+    "Dr. Taylor Bunka"
+  ]
+
   def perform
-    places = ["ChIJi3RsjPEMlVQRt1cOeU3_g48", "ChIJf07ARPkJlVQRJCA-9wte444", "ChIJSRSts-CglVQRfXCyBEPzHNg", "ChIJwYKIh1MJlVQRIXzFZskUtFY", "ChIJ_TJXrMl3lVQRl1nLczjqvcc", "ChIJIZy0a0N1lVQRChk-thmw9UQ", "ChIJG0RqfGJzlVQR-lIHvq9lq3M", "ChIJvWKjfLwPlVQRq0OjxUpuQDs", "ChIJKd5scTVtlVQRniUVJVvA8o0", "ChIJ_2wPhoOflVQRtfSw-4BiUwc", "ChIJs-vDeEZBlVQR9ssRDsT6Ds4", "ChIJhbrgCv5rlVQRpzA6YfChxx4", "ChIJ66ucReMMlVQRPG1PJKZeebY", "ChIJ99Ey1j2hlVQRVTo0viIRIoA", "ChIJDYTghvFulVQRA21iSpDiBxA", "ChIJ4UF7HIxzlVQRUle-xIsEK18"]
+    require 'uri'
+    require 'net/http'
+    require 'json'
+    require 'redis'
+
+    places = ["ChIJT8nUWmzlBIgRnZluSKvaU7o", "ChIJy6GIldiP4okR-sQZEghTDSg", "ChIJt1CU6gxK0IkR4wEmOq3hYr4", "ChIJG5iRHpBhOIgRpqxsWqCW45o", "ChIJG4IRFhlSa4gRVOkjjz85dqE", "ChIJwS4aJMNCZIgRCnJm1UIi1DM", "ChIJf6kf46N1F4gRCtuy1-sFiFE", "ChIJPYnEYuIZxokROs5cvHzUe_A", "ChIJK3II3q_utYkR4B1voXTzigI", "ChIJkfcs-vB7ZIgRPIXGzSE94sQ", "ChIJKTOyIqC6ZIgRm_6vgwqt1C0", "ChIJUf1pNYumBIgRvqA-5r5JhWY", "ChIJ6UrV6tWpQYgRkhDQkPSseF4", "ChIJQ9SZk5oM3okRZhhzh4KmqV0", "ChIJccwssNidF4gRYkrpX72fqTA", "ChIJd6eSQJOZ9YgRdhGy82PWczE", "ChIJRwQnvhGFSk0RIN3V7ZxohCU", "ChIJZdP8j6G6ZIgRLowFu2-Fdco", "ChIJTfWBLxLSFogRjG83U7kxIpE", "ChIJZdP8j6G6ZIgRS0MV7drU2IE"]
+    http = Net::HTTP.new("maps.googleapis.com", 443)
+    http.use_ssl = true
     reviews = []
 
-    places.each do |place_id|
-      # Make a request to the Yelp API to get reviews for the business
-      reviews_url = "https://api.yelp.com/v3/businesses/#{place_id}/reviews"
+    places.each do |place|
+      place_id = place
 
-      uri = URI(reviews_url)
-      req = Net::HTTP::Get.new(uri)
-      req['Authorization'] = "Bearer #{ENV['REACT_APP_YELP_API_KEY']}"
+      encoded_place_id = URI.encode_www_form_component(place_id)
+      url = URI("https://maps.googleapis.com/maps/api/place/details/json?place_id=#{encoded_place_id}&key=#{ENV['REACT_APP_GOOGLE_PLACES_API_KEY']}")
+      request = Net::HTTP::Get.new(url)
+      response = http.request(request)
+      body = response.read_body
+      parsed_response = JSON.parse(body)
 
-      res = Net::HTTP.start(uri.hostname, uri.port, use_ssl: uri.scheme == 'https') do |http|
-        http.request(req)
-      end
+      if parsed_response['status'] == 'OK'
+        place_details = parsed_response['result']
+        address = place_details['formatted_address']
 
-      if res.is_a?(Net::HTTPSuccess)
-        reviews_data = JSON.parse(res.body)
-        reviews.concat(reviews_data["reviews"])
+        if address.include?('Oregon')
+          place_reviews = place_details.present? ? place_details['reviews'] || [] : []
+          reviews.concat(place_reviews)
+        else
+          puts "Skipping location #{place_id} because it's not in Oregon."
+        end
       else
-        puts "Failed to retrieve reviews for place ID: #{place_id}"
+        puts "Failed to retrieve place details for place ID: #{place_id}"
       end
     end
 
-    # Filter and process the reviews as needed
     filtered_reviews = []
     reviews.each do |review|
-      # Apply any filtering or processing logic here
-      if review['rating'] == 5 && review['user'] && review['user']['name'] != 'Pdub ..'
+      if review['rating'] == 5 && physicians.include?(review['author_name'])
         filtered_reviews << review
       end
     end
 
-    # Cache the filtered reviews
     redis = Redis.new(url: ENV['REDIS_URL'])
 
-    if redis.exists('cached_yelp_reviews')
-      redis.del('cached_yelp_reviews')
+    if redis.exists('cached_google_places_reviews')
+      redis.del('cached_google_places_reviews')
     end
 
-    redis.set('cached_yelp_reviews', JSON.generate(filtered_reviews))
-    redis.expire('cached_yelp_reviews', 30.days.to_i)
-  rescue StandardError => e
-    puts "Error in MonthlyJob: #{e.message}"
+    redis.set('cached_google_places_reviews', JSON.generate(filtered_reviews))
+    redis.expire('cached_google_places_reviews', 86400)
+
+    puts "Cached reviews: #{filtered_reviews}"
   end
 end
