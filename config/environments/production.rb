@@ -46,23 +46,19 @@ Rails.application.configure do
 
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
-  redis_tls_options = {
-    ssl_params: {
-      verify_mode: OpenSSL::SSL::VERIFY_NONE
-    }
-  }
-  
-  config.cache_store = :redis_cache_store, { url: ENV['REDIS_URL'], **redis_tls_options }
+
+  # Use a different cache store in production.
+  config.cache_store = :redis_cache_store, { url: ENV['REDIS_TLS_URL'], expires_in: 30.days }
   config.active_job.queue_adapter = :sidekiq
-  
+
   Sidekiq.configure_server do |config|
-    config.redis = { url: ENV['REDIS_URL'], **redis_tls_options }
+    config.redis = { url: ENV['REDIS_URL'] }
   end
-  
+
   Sidekiq.configure_client do |config|
-    config.redis = { url: ENV['REDIS_URL'], **redis_tls_options }
+    config.redis = { url: ENV['REDIS_URL'] }
   end
-  
+
   # config.cache_store = :mem_cache_store
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
