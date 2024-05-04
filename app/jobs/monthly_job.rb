@@ -30,6 +30,8 @@ class MonthlyJob
     http.use_ssl = true
     reviews = []
 
+    puts "Fetching and filtering reviews..."
+
     places.each do |place|
       place_id = place
 
@@ -48,29 +50,13 @@ class MonthlyJob
           place_reviews = place_details.present? ? place_details['reviews'] || [] : []
           reviews.concat(place_reviews)
         else
-          puts "Skipping location #{place_id} because it's not in Oregon."
+          puts "Skipping place #{place_id} as it is not in Oregon."
         end
       else
-        puts "Failed to retrieve place details for place ID: #{place_id}"
+        puts "Failed to fetch details for place #{place_id}: #{parsed_response['status']}"
       end
     end
 
-    filtered_reviews = []
-    reviews.each do |review|
-      if review['rating'] == 5 && physicians.include?(review['author_name'])
-        filtered_reviews << review
-      end
-    end
-
-    redis = Redis.new(url: ENV['REDIS_URL'])
-
-    if redis.exists('cached_google_places_reviews')
-      redis.del('cached_google_places_reviews')
-    end
-
-    redis.set('cached_google_places_reviews', JSON.generate(filtered_reviews))
-    redis.expire('cached_google_places_reviews', 86400)
-
-    puts "Cached reviews: #{filtered_reviews}"
+    puts "Finished fetching and filtering reviews."
   end
 end

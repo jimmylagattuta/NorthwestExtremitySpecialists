@@ -26,6 +26,8 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def pull_google_places_cache
+    puts "Pulling and filtering Google Places cache..."
+
     log_daily_visits
     csrf_token = form_authenticity_token
 
@@ -35,6 +37,7 @@ class Api::V1::JobsController < ApplicationController
     if reviews.blank?
       OfficeMailer.alert_no_reviews_email.deliver_later
     else
+      puts "Found #{reviews.length} reviews."
       reviews.each do |review|
         # Check if the review is from one of the specified physicians
         next unless physicians.include?(review['author_name'])
@@ -46,6 +49,8 @@ class Api::V1::JobsController < ApplicationController
         puts "-------------------------"
       end
     end
+    puts "Finished pulling and filtering Google Places cache."
+
     render json: { reviews: reviews, csrf_token: csrf_token }
   end
 
