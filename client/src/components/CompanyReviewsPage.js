@@ -51,7 +51,6 @@ const CompanyReviewsPage = () => {
       'https://lh3.googleusercontent.com/a/ACg8ocLKrlJ0NBUgNt_mA6fqHxuYrVbHfYy48bb-CaVg3YQC=s128-c0x00000000-cc-rp-mo-ba3',
       'https://lh3.googleusercontent.com/a/ACg8ocKww_NJw1NmlQPCb0AodayToyOTvLxgGtcfIOPuromk=s128-c0x00000000-cc-rp-mo',
       'https://lh3.googleusercontent.com/a/ACg8ocIFg5G-JO49VMdkvA4N5IwxQ9XKjHP3HHTytStrVCI=s128-c0x00000000-cc-rp-mo'
-  
     ];
 
     const formatDate = (dateString) => {
@@ -64,145 +63,153 @@ const CompanyReviewsPage = () => {
     const { csrfToken, setCsrfToken } = useCsrfToken();
 
     useEffect(() => {
-      const cacheKey = 'cached_yelp_reviews';
+        const cacheKey = 'cached_yelp_reviews';
 
-      const getCachedReviews = () => {
-          const cachedData = localStorage.getItem(cacheKey);
-          if (cachedData) {
-              const { reviews, expiry } = JSON.parse(cachedData);
-              if (expiry > Date.now()) {
-                  return JSON.parse(reviews);
-              } else {
-                  localStorage.removeItem(cacheKey); // Remove expired cache
-              }
-          }
-          return null;
-      };
-      const saveToCache = (data) => {
-          const expiry = Date.now() + 7 * 24 * 60 * 60 * 1000; // Cache for 7 days
-          const cacheData = JSON.stringify(data);
-          localStorage.setItem(cacheKey, cacheData);
-      };
+        const getCachedReviews = () => {
+            const cachedData = localStorage.getItem(cacheKey);
+            if (cachedData) {
+                const { reviews, expiry } = JSON.parse(cachedData);
+                if (expiry > Date.now()) {
+                    return JSON.parse(reviews);
+                } else {
+                    localStorage.removeItem(cacheKey); // Remove expired cache
+                }
+            }
+            return null;
+        };
+        const saveToCache = (data) => {
+            const expiry = Date.now() + 7 * 24 * 60 * 60 * 1000; // Cache for 7 days
+            const cacheData = JSON.stringify(data);
+            localStorage.setItem(cacheKey, cacheData);
+        };
 
-      const fetchReviews = () => {
-        const url = process.env.NODE_ENV === 'production'
-            ? 'https://northwest-extremity-specialist-1660e5326280.herokuapp.com/api/v1/pull_google_places_cache'
-            : 'localhost:3001/api/v1/pull_google_places_cache';
-    
-        const headers = {
-            'Content-Type': 'application/json',
-            'X-CSRF-Token': csrfToken,
+        const fetchReviews = () => {
+            const url = process.env.NODE_ENV === 'production'
+                ? 'https://northwest-extremity-specialist-1660e5326280.herokuapp.com/api/v1/pull_google_places_cache'
+                : 'localhost:3001/api/v1/pull_google_places_cache';
+
+            const headers = {
+                'Content-Type': 'application/json',
+                'X-CSRF-Token': csrfToken,
+            };
+
+            fetch(url, { headers })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to fetch reviews');
+                }
+            })
+            .then((data) => {
+                console.log('data', data);
+                if (Array.isArray(data.northwest_reviews)) {
+                    if (data.csrf_token) {
+                        setCsrfToken(data.csrf_token);
+                    }
+
+                    // Filter out reviews starting with "Absolutely Horrendous"
+                    const filteredReviews = data.northwest_reviews.filter(item => {
+                        return !item.text.startsWith("Absolutely horrendous") && 
+                               !defaultProfilePhotoUrls.includes(item.profile_photo_url);
+                    });
+
+                    // Shuffle the filteredReviews array
+                    const shuffledReviews = shuffleArray(filteredReviews);
+
+                    // Take the first three reviews
+                    const randomReviews = shuffledReviews.slice(0, 3);
+
+                    saveToCache(data);
+                    setReviews(randomReviews);
+                    setLoading(false);
+                } else {
+                    throw new Error('Data.northwest_reviews is not an array');
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                setError(err.message);
+                setLoading(false);
+            });
         };
     
-        fetch(url, { headers })
-        .then((response) => {
-            if (response.ok) {
-                return response.json();
-            } else {
-                throw new Error('Failed to fetch reviews');
+        // Function to shuffle an array using the Fisher-Yates algorithm
+        function shuffleArray(array) {
+            for (let i = array.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
             }
-        })
-        .then((data) => {
-          console.log('data', data);
-            if (Array.isArray(data.reviews)) {
-                if (data.csrf_token) {
-                    setCsrfToken(data.csrf_token);
-                }
-    
-                // Filter out reviews starting with "Absolutely Horrendous"
-                const filteredReviews = data.reviews.filter(item => {
-                    return !item.text.startsWith("Absolutely horrendous") && 
-                           !defaultProfilePhotoUrls.includes(item.profile_photo_url);
-                });
-    
-                // Shuffle the filteredReviews array
-                const shuffledReviews = shuffleArray(filteredReviews);
-    
-                // Take the first three reviews
-                const randomReviews = shuffledReviews.slice(0, 3);
-    
-                saveToCache(data);
-                setReviews(randomReviews);
-                setLoading(false);
-            } else {
-                throw new Error('Data.reviews is not an array');
-            }
-        })
-        .catch((err) => {
-            console.error(err);
-            setError(err.message);
-            setLoading(false);
-        });
-      };
-    
-        
-      
-      // Function to shuffle an array using the Fisher-Yates algorithm
-      function shuffleArray(array) {
-          for (let i = array.length - 1; i > 0; i--) {
-              const j = Math.floor(Math.random() * (i + 1));
-              [array[i], array[j]] = [array[j], array[i]];
-          }
-          return array;
-      }
-      
+            return array;
+        }
 
-      const cachedReviews = getCachedReviews();
-      if (cachedReviews) {
-          setReviews(cachedReviews);
-          setLoading(false);
-      } else {
-          fetchReviews();
-      }
-  }, []);
+        const cachedReviews = getCachedReviews();
+        if (cachedReviews) {
+            setReviews(cachedReviews);
+            setLoading(false);
+        } else {
+            fetchReviews();
+        }
+    }, [csrfToken, setCsrfToken]);
 
     return (
-      <div className='reviews-container'>
-        {reviews.map((item, index) => {
-          const profilePhotoUrl = item.profile_photo_url || defaultProfilePhotoUrls[index % defaultProfilePhotoUrls.length];
-          // Check if the username is "CoCo DeLuxe" and replace the profile photo URL with the default if true
-          if (item.author_name === "CoCo DeLuxe") {
-            profilePhotoUrl = defaultProfilePhotoUrls[index % defaultProfilePhotoUrls.length];
-          }
-    
-          return (
-            <div key={index} className='single-review-container'>
-              <div className='review-top-info'>
-                <div
-                  className='user-icon'
-                  style={{
-                    backgroundImage: `url(${profilePhotoUrl})`,
-                  }}>
-                  {!item.profile_photo_url && (
-                    <i className='fas fa-user-circle'></i>
-                  )}
+        <div className='reviews-container'>
+            {reviews.map((item, index) => {
+                let profilePhotoUrl = item.profile_photo_url || defaultProfilePhotoUrls[index % defaultProfilePhotoUrls.length];
+                // Check if the username is "CoCo DeLuxe" and replace the profile photo URL with the default if true
+                if (item.author_name === "CoCo DeLuxe") {
+                    profilePhotoUrl = defaultProfilePhotoUrls[index % defaultProfilePhotoUrls.length];
+                }
+
+                return (
+                    <div key={index} className='single-review-container'>
+                        <div className='review-top-info'>
+                            <div
+                                className='user-icon'
+                                style={{
+                                    backgroundImage: `url(${profilePhotoUrl})`,
+                                }}>
+                                {!item.profile_photo_url && (
+                                    <i className='fas fa-user-circle'></i>
+                                )}
+                            </div>
+                            <div className='review-name-container'>
+                                <div className='user-name'>
+                                    {item.author_name}{' '}
+                                    <i className='fab fa-yelp'></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div className='review-info'>
+                            <i
+                                className='fa fa-quote-left'
+                                aria-hidden='true'></i>
+                            <i
+                                className='fa fa-quote-right'
+                                aria-hidden='true'></i>
+                            <p className='review-paragraph'>{item.text}</p>
+                        </div>
+                        <div className='google-link'>
+                        <a aria-label="Link to Google for Google API reviews for Company Default." href={item.author_url} target="_blank" rel="noopener noreferrer">
+                                <i style={{ color: 'white' }} className="fab fa-google fa-lg"></i>
+                            </a>
+                        </div>
+                    </div>
+                );
+            })}
+            {loading && (
+                <div className='loading'>
+                    <p>Loading reviews...</p>
                 </div>
-                <div className='review-name-container'>
-                  <div className='user-name'>
-                    {item.author_name}{' '}
-                    <i className='fab fa-yelp'></i>
-                  </div>
+            )}
+            {error && (
+                <div className='error'>
+                    <p>Error: {error}</p>
                 </div>
-              </div>
-              <div className='review-info'>
-                <i
-                  className='fa fa-quote-left'
-                  aria-hidden='true'></i>
-                <i
-                  className='fa fa-quote-right'
-                  aria-hidden='true'></i>
-                <p className='review-paragraph'>{item.text}</p>
-              </div>
-              <div className='google-link'>
-                <a aria-label="Link to Google for Google API reviews for Company Default." href={item.author_url} target="_blank" rel="noopener noreferrer">
-                  <i style={{ color: 'white' }} className="fab fa-google fa-lg"></i>
-                </a>
-              </div>
-            </div>
-          );
-        })}
-      </div>
+            )}
+        </div>
     );
 };
 
 export default CompanyReviewsPage;
+
