@@ -8,6 +8,8 @@ const CompanyReviewsPage = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     const [debug, setDebug] = useState(false); // Debug flag to toggle logs
+    const { csrfToken, setCsrfToken } = useCsrfToken();
+    const previousCsrfToken = useRef(csrfToken);
 
     const logDebug = (message, ...optionalParams) => {
         if (debug) {
@@ -60,98 +62,97 @@ const CompanyReviewsPage = () => {
         return formattedDate;
     };
 
-    const { csrfToken, setCsrfToken } = useCsrfToken();
 
     useEffect(() => {
-        const cacheKey = 'cached_yelp_reviews';
+      const cacheKey = 'cached_yelp_reviews';
 
-        const getCachedReviews = () => {
-            const cachedData = localStorage.getItem(cacheKey);
-            if (cachedData) {
-                const { reviews, expiry } = JSON.parse(cachedData);
-                if (expiry > Date.now()) {
-                    return JSON.parse(reviews);
-                } else {
-                    localStorage.removeItem(cacheKey); // Remove expired cache
-                }
-            }
-            return null;
-        };
-        const saveToCache = (data) => {
-            const expiry = Date.now() + 7 * 24 * 60 * 60 * 1000; // Cache for 7 days
-            const cacheData = JSON.stringify(data);
-            localStorage.setItem(cacheKey, cacheData);
-        };
+      const getCachedReviews = () => {
+          const cachedData = localStorage.getItem(cacheKey);
+          if (cachedData) {
+              const { reviews, expiry } = JSON.parse(cachedData);
+              if (expiry > Date.now()) {
+                  return JSON.parse(reviews);
+              } else {
+                  localStorage.removeItem(cacheKey);
+              }
+          }
+          return null;
+      };
 
-        const fetchReviews = () => {
-            const url = process.env.NODE_ENV === 'production'
-                ? 'https://northwest-extremity-specialist-1660e5326280.herokuapp.com/api/v1/pull_google_places_cache'
-                : 'localhost:3001/api/v1/pull_google_places_cache';
+      const saveToCache = (data) => {
+          const expiry = Date.now() + 7 * 24 * 60 * 60 * 1000;
+          const cacheData = JSON.stringify(data);
+          localStorage.setItem(cacheKey, cacheData);
+      };
 
-            const headers = {
-                'Content-Type': 'application/json',
-                'X-CSRF-Token': csrfToken,
-            };
+      const fetchReviews = () => {
+          const url =
+              process.env.NODE_ENV === 'production'
+                  ? 'https://northwest-extremity-specialist-1660e5326280.herokuapp.com/api/v1/pull_google_places_cache'
+                  : 'localhost:3001/api/v1/pull_google_places_cache';
 
-            fetch(url, { headers })
-            .then((response) => {
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Failed to fetch reviews');
-                }
-            })
-            .then((data) => {
-                console.log('data', data);
-                if (Array.isArray(data.northwest_reviews)) {
-                    if (data.csrf_token) {
-                        setCsrfToken(data.csrf_token);
-                    }
+          const headers = {
+              'Content-Type': 'application/json',
+              'X-CSRF-Token': csrfToken,
+          };
 
-                    // Filter out reviews starting with "Absolutely Horrendous"
-                    const filteredReviews = data.northwest_reviews.filter(item => {
-                        return !item.text.startsWith("Absolutely horrendous") && 
-                               !defaultProfilePhotoUrls.includes(item.profile_photo_url);
-                    });
+          fetch(url, { headers })
+              .then((response) => {
+                  if (response.ok) {
+                      return response.json();
+                  } else {
+                      throw new Error('Failed to fetch reviews');
+                  }
+              })
+              .then((data) => {
+                  console.log('data', data);
+                  if (Array.isArray(data.northwest_reviews)) {
+                      // Update CSRF token only if it changes
+                      if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
+                          setCsrfToken(data.csrf_token);
+                          previousCsrfToken.current = data.csrf_token;
+                      }
 
-                    // Shuffle the filteredReviews array
-                    const shuffledReviews = shuffleArray(filteredReviews);
+                      const filteredReviews = data.northwest_reviews.filter((item) => {
+                          return (
+                              !item.text.startsWith("Absolutely horrendous") &&
+                              !defaultProfilePhotoUrls.includes(item.profile_photo_url)
+                          );
+                      });
 
-                    // Take the first three reviews
-                    const randomReviews = shuffledReviews.slice(0, 3);
+                      const shuffledReviews = shuffleArray(filteredReviews);
+                      const randomReviews = shuffledReviews.slice(0, 3);
 
-                    saveToCache(data);
-                    setReviews(randomReviews);
-                    setLoading(false);
-                } else {
-                    throw new Error('Data.northwest_reviews is not an array');
-                }
-            })
-            .catch((err) => {
-                console.error(err);
-                setError(err.message);
-                setLoading(false);
-            });
-        };
-    
-        // Function to shuffle an array using the Fisher-Yates algorithm
-        function shuffleArray(array) {
-            for (let i = array.length - 1; i > 0; i--) {
-                const j = Math.floor(Math.random() * (i + 1));
-                [array[i], array[j]] = [array[j], array[i]];
-            }
-            return array;
-        }
+                      saveToCache(data);
+                      setReviews(randomReviews);
+                      setLoading(false);
+                  } else {
+                      throw new Error('Data.northwest_reviews is not an array');
+                  }
+              })
+              .catch((err) => {
+                  console.error(err);
+                  setError(err.message);
+                  setLoading(false);
+              });
+      };
 
-        const cachedReviews = getCachedReviews();
-        if (cachedReviews) {
-            setReviews(cachedReviews);
-            setLoading(false);
-        } else {
-            fetchReviews();
-        }
-    }, [csrfToken, setCsrfToken]);
+      function shuffleArray(array) {
+          for (let i = array.length - 1; i > 0; i--) {
+              const j = Math.floor(Math.random() * (i + 1));
+              [array[i], array[j]] = [array[j], array[i]];
+          }
+          return array;
+      }
 
+      const cachedReviews = getCachedReviews();
+      if (cachedReviews) {
+          setReviews(cachedReviews);
+          setLoading(false);
+      } else {
+          fetchReviews();
+      }
+  }, [csrfToken, setCsrfToken]);
     return (
         <div className='reviews-container'>
             {reviews.map((item, index) => {
