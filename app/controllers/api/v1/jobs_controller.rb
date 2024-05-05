@@ -10,9 +10,13 @@ class Api::V1::JobsController < ApplicationController
   def pull_google_places_cache
     puts "Fetching five-star reviews..."
     reviews = GooglePlacesCached.fetch_five_star_reviews_for_companies
-    puts "Successfully fetched five-star reviews"
+
+    creekside_reviews = reviews["Creekside Physical Therapy"] || []
+    northwest_reviews = reviews["Northwest Extremity Specialists"] || []
+
+    puts "Successfully fetched reviews for Creekside and Northwest"
     csrf_token = form_authenticity_token
-    render json: { reviews: reviews, csrf_token: csrf_token }
+    render json: { creekside_reviews: creekside_reviews, northwest_reviews: northwest_reviews, csrf_token: csrf_token }
   end
   
   private
@@ -73,6 +77,9 @@ class GooglePlacesCached
     if data['status'] == 'OK'
       puts "Successfully fetched reviews for place ID: #{place_id}"
       reviews = data['result']['reviews'] || []
+      reviews.select { |review| review['rating'] == 5 }.each do |review|
+        puts " - #{review['author_name']}: #{review['text']}"
+      end
       reviews.select { |review| review['rating'] == 5 }
     else
       puts "Error fetching reviews for Place ID #{place_id}: #{data['status']}"

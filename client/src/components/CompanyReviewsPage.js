@@ -103,6 +103,7 @@ const CompanyReviewsPage = () => {
             }
         })
         .then((data) => {
+          console.log('data', data);
             if (Array.isArray(data.reviews)) {
                 if (data.csrf_token) {
                     setCsrfToken(data.csrf_token);
