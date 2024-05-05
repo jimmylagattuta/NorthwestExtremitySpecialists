@@ -7,7 +7,7 @@ class Api::V1::JobsController < ApplicationController
     render json: "Default Company " * 1000
   end
 
-  def fetch_five_star_reviews
+  def pull_google_places_cache
     puts "Fetching five-star reviews..."
     reviews = GooglePlacesCached.fetch_five_star_reviews_for_companies
     csrf_token = form_authenticity_token
