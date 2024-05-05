@@ -1,119 +1,86 @@
-class Api::V1::JobsController < ApplicationController
-  rescue_from StandardError, with: :handle_unexpected_error
-  rescue_from JSON::ParserError, with: :handle_json_parsing_error
-
-  def index
-    puts "Rendering index action..."
-    render json: "Default Company " * 1000
-  end
-
-  def pull_google_places_cache
-    puts "Initiating Google Places cache retrieval..."
-    log_daily_visits
-    csrf_token = form_authenticity_token
-    puts "CSRF token fetched: #{csrf_token}"
-
-    reviews_json = GooglePlacesCached.cached_google_places_reviews
-    reviews = JSON.parse(reviews_json) rescue []
-
-    if reviews.blank?
-      puts "No reviews found, alerting via email..."
-      OfficeMailer.alert_no_reviews_email.deliver_later
-    else
-      reviews.each do |review|
-        puts "Review by #{review['author_name']} with rating #{review['rating']}"
-      end
-    end
-
-    render json: { reviews: reviews, csrf_token: csrf_token }
-  end
-  
-  private
-
-  def log_daily_visits
-    today = Date.today
-    visits_key = "daily_visits_#{today}"
-    redis = Redis.new(url: ENV['REDIS_URL'])
-    current_visits = redis.incr(visits_key)
-    puts "Daily visits count for #{today}: #{current_visits}"
-  end
-
-  def handle_unexpected_error(error)
-    OfficeMailer.error_email("Unexpected Error", error.message).deliver_later
-    render json: { error: "An unexpected error occurred: #{error.message}" }, status: :internal_server_error
-  end
-
-  def handle_json_parsing_error(error)
-    error_message = "Failed to parse JSON: #{error.message}"
-    OfficeMailer.error_email("JSON Parsing Error", error_message).deliver_later
-    render json: { error: error_message }, status: :unprocessable_entity
-  end
-end
-
-
-class GooglePlacesCached
-  require 'redis'
-  require 'json'
-  require 'uri'
+class JobsController < ApplicationController
   require 'net/http'
+  require 'json'
 
-  def self.remove_user_by_name(users, name)
-    users.reject! { |user| user['user'] && user['user']['name'] == name }
-  end
-
-  def self.cached_google_places_reviews
-    redis = Redis.new(url: ENV['REDIS_URL'])
-    cached_data = redis.get('cached_google_places_reviews')
-    
-    if cached_data.present?
-      puts "Parsing cached Google Places reviews..."
-      users = JSON.parse(cached_data)
-      remove_user_by_name(users, 'Pdub ..')
-      users = users.select { |review| review['rating'] == 5 }
-      
-      updated_reviews = JSON.generate(users)
-      return updated_reviews
-    else
-      puts "No cached data found, retrieving new data..."
-      fetch_and_cache_google_places(redis)
-    end
-  end
-
-  private
-
-  def self.fetch_and_cache_google_places(redis)
-    place_ids = ["ChIJi3RsjPEMlVQRt1cOeU3_g48", "ChIJf07ARPkJlVQRJCA-9wte444", "ChIJSRSts-CglVQRfXCyBEPzHNg", "ChIJwYKIh1MJlVQRIXzFZskUtFY", "ChIJ_TJXrMl3lVQRl1nLczjqvcc", "ChIJIZy0a0N1lVQRChk-thmw9UQ", "ChIJG0RqfGJzlVQR-lIHvq9lq3M", "ChIJvWKjfLwPlVQRq0OjxUpuQDs", "ChIJKd5scTVtlVQRniUVJVvA8o0", "ChIJ_2wPhoOflVQRtfSw-4BiUwc", "ChIJs-vDeEZBlVQR9ssRDsT6Ds4", "ChIJhbrgCv5rlVQRpzA6YfChxx4", "ChIJ66ucReMMlVQRPG1PJKZeebY", "ChIJ99Ey1j2hlVQRVTo0viIRIoA", "ChIJDYTghvFulVQRA21iSpDiBxA", "ChIJ4UF7HIxzlVQRUle-xIsEK18"]
+  # Method to fetch place IDs using a search term and API key
+  def fetch_place_ids(search_term, api_key)
     http = Net::HTTP.new("maps.googleapis.com", 443)
     http.use_ssl = true
-    reviews = []
+    url = URI("https://maps.googleapis.com/maps/api/place/findplacefromtext/json?input=#{search_term}&inputtype=textquery&fields=place_id&key=#{api_key}")
+    request = Net::HTTP::Get.new(url)
+    response = http.request(request)
+    data = JSON.parse(response.body)
 
+    if data['status'] == 'OK'
+      candidates = data['candidates'] || []
+      place_ids = candidates.map { |c| c['place_id'] }
+      return place_ids
+    else
+      Rails.logger.error("Error fetching place IDs for search term #{search_term}: #{data['status']}")
+      return []
+    end
+  end
+
+  # Method to fetch reviews for a specific place ID
+  def fetch_place_reviews(place_id, api_key)
+    http = Net::HTTP.new("maps.googleapis.com", 443)
+    http.use_ssl = true
+    url = URI("https://maps.googleapis.com/maps/api/place/details/json?place_id=#{place_id}&fields=reviews&key=#{api_key}")
+    request = Net::HTTP::Get.new(url)
+    response = http.request(request)
+    data = JSON.parse(response.body)
+
+    if data['status'] == 'OK'
+      reviews = data['result']['reviews'] || []
+      five_star_reviews = reviews.select { |review| review['rating'] == 5 }
+      return five_star_reviews
+    else
+      Rails.logger.error("Error fetching reviews for Place ID #{place_id}: #{data['status']}")
+      return []
+    end
+  end
+
+  # Method to display reviews for a list of place IDs
+  def display_reviews_for_place_ids(place_ids, api_key)
     place_ids.each do |place_id|
-      puts "Fetching details for place ID: #{place_id}"
-      url = build_place_details_url(place_id)
-      request = Net::HTTP::Get.new(url)
-      response = http.request(request)
-      body = response.read_body
-      parsed_response = JSON.parse(body)
+      reviews = fetch_place_reviews(place_id, api_key)
+      puts "Reviews for Place ID #{place_id}:"
+      puts "--------------------------------------"
 
-      if parsed_response['status'] == 'OK'
-        reviews.concat(parsed_response['result']['reviews'] || [])
-      else
-        puts "Failed to retrieve details for place ID: #{place_id}"
+      reviews.each_with_index do |review, index|
+        puts "Review ##{index + 1}:"
+        puts "Author: #{review['author_name']}"
+        puts "Rating: #{review['rating']}"
+        puts "Time: #{Time.at(review['time'])}"
+        puts "Review Text: #{review['text']}"
+        puts "--------------------------------------"
       end
     end
-
-    cache_reviews(redis, reviews)
   end
 
-  def self.build_place_details_url(place_id)
-    encoded_place_id = URI.encode_www_form_component(place_id)
-    URI("https://maps.googleapis.com/maps/api/place/details/json?place_id=#{encoded_place_id}&key=#{ENV['REACT_APP_GOOGLE_PLACES_API_KEY']}")
-  end
+  # Method to display reviews for Creekside Physical Therapy and Northwest Extremity Specialists
+  def get_reviews
+    place_ids_set_1 = ["ChIJT8nUWmzlBIgRnZluSKvaU7o", "ChIJy6GIldiP4okR-sQZEghTDSg", "ChIJt1CU6gxK0IkR4wEmOq3hYr4", 
+                       "ChIJK3II3q_utYkR4B1voXTzigI", "ChIJPYnEYuIZxokROs5cvHzUe_A", "ChIJG5iRHpBhOIgRpqxsWqCW45o", 
+                       "ChIJwS4aJMNCZIgRCnJm1UIi1DM", "ChIJK7-aC0Mg9ocRFQNYRxTTq9g", "ChIJUf1pNYumBIgRvqA-5r5JhWY", 
+                       "ChIJkfcs-vB7ZIgRPIXGzSE94sQ", "ChIJQ9SZk5oM3okRZhhzh4KmqV0", "ChIJf6kf46N1F4gRCtuy1-sFiFE", 
+                       "ChIJVTlYQ-BlI4gRMV2h89pFfkQ", "ChIJKTOyIqC6ZIgRm_6vgwqt1C0", "ChIJGZ25WBunFIgRm6ZubZRqd-A", 
+                       "ChIJd6eSQJOZ9YgRdhGy82PWczE", "ChIJYxOlnZFhOIgRczEcMz8HIvw", "ChIJRwQnvhGFSk0RIN3V7ZxohCU", 
+                       "ChIJZdP8j6G6ZIgRS0MV7drU2IE", "ChIJZdP8j6G6ZIgRLowFu2-Fdco"]
 
-  def self.cache_reviews(redis, reviews)
-    puts "Caching Google Places reviews..."
-    redis.set("cached_google_places_reviews", JSON.generate(reviews))
-    redis.expire("cached_google_places_reviews", 30.days.to_i)
-    puts "Reviews cached successfully."
+    place_ids_set_2 = ["ChIJf07ARPkJlVQRJCA-9wte444", "ChIJi3RsjPEMlVQRt1cOeU3_g48", "ChIJSRSts-CglVQRfXCyBEPzHNg", 
+                       "ChIJ_TJXrMl3lVQRl1nLczjqvcc", "ChIJ66ucReMMlVQRPG1PJKZeebY", "ChIJIZy0a0N1lVQRChk-thmw9UQ", 
+                       "ChIJwYKIh1MJlVQRIXzFZskUtFY", "ChIJG0RqfGJzlVQR-lIHvq9lq3M", "ChIJvWKjfLwPlVQRq0OjxUpuQDs", 
+                       "ChIJs-vDeEZBlVQR9ssRDsT6Ds4", "ChIJKd5scTVtlVQRniUVJVvA8o0", "ChIJ4UF7HIxzlVQRUle-xIsEK18", 
+                       "ChIJhbrgCv5rlVQRpzA6YfChxx4", "ChIJDYTghvFulVQRA21iSpDiBxA", "ChIJ_2wPhoOflVQRtfSw-4BiUwc", 
+                       "ChIJ99Ey1j2hlVQRVTo0viIRIoA"]
+
+    api_key = ENV['REACT_APP_GOOGLE_PLACES_API_KEY']
+
+    puts "Displaying reviews for Creekside Physical Therapy:"
+    display_reviews_for_place_ids(place_ids_set_1, api_key)
+
+    puts "Displaying reviews for Northwest Extremity Specialists:"
+    display_reviews_for_place_ids(place_ids_set_2, api_key)
   end
 end

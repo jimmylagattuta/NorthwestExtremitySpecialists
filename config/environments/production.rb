@@ -54,8 +54,9 @@ Rails.application.configure do
   Sidekiq.configure_server do |config|
     config.redis = { url: ENV['REDIS_URL'] }
   end
-
-  Sidekiq.configure_client do |config|
+# ["ChIJT8nUWmzlBIgRnZluSKvaU7o", "ChIJy6GIldiP4okR-sQZEghTDSg", "ChIJt1CU6gxK0IkR4wEmOq3hYr4", "ChIJK3II3q_utYkR4B1voXTzigI", "ChIJPYnEYuIZxokROs5cvHzUe_A", "ChIJG5iRHpBhOIgRpqxsWqCW45o", "ChIJwS4aJMNCZIgRCnJm1UIi1DM", "ChIJK7-aC0Mg9ocRFQNYRxTTq9g", "ChIJUf1pNYumBIgRvqA-5r5JhWY", "ChIJkfcs-vB7ZIgRPIXGzSE94sQ", "ChIJQ9SZk5oM3okRZhhzh4KmqV0", "ChIJf6kf46N1F4gRCtuy1-sFiFE", "ChIJVTlYQ-BlI4gRMV2h89pFfkQ", "ChIJKTOyIqC6ZIgRm_6vgwqt1C0", "ChIJGZ25WBunFIgRm6ZubZRqd-A", "ChIJd6eSQJOZ9YgRdhGy82PWczE", "ChIJYxOlnZFhOIgRczEcMz8HIvw", "ChIJRwQnvhGFSk0RIN3V7ZxohCU", "ChIJZdP8j6G6ZIgRS0MV7drU2IE", "ChIJZdP8j6G6ZIgRLowFu2-Fdco"]
+# ["ChIJf07ARPkJlVQRJCA-9wte444", "ChIJi3RsjPEMlVQRt1cOeU3_g48", "ChIJSRSts-CglVQRfXCyBEPzHNg", "ChIJ_TJXrMl3lVQRl1nLczjqvcc", "ChIJ66ucReMMlVQRPG1PJKZeebY", "ChIJIZy0a0N1lVQRChk-thmw9UQ", "ChIJwYKIh1MJlVQRIXzFZskUtFY", "ChIJG0RqfGJzlVQR-lIHvq9lq3M", "ChIJvWKjfLwPlVQRq0OjxUpuQDs", "ChIJs-vDeEZBlVQR9ssRDsT6Ds4", "ChIJKd5scTVtlVQRniUVJVvA8o0", "ChIJ4UF7HIxzlVQRUle-xIsEK18", "ChIJhbrgCv5rlVQRpzA6YfChxx4", "ChIJDYTghvFulVQRA21iSpDiBxA", "ChIJ_2wPhoOflVQRtfSw-4BiUwc", "ChIJ99Ey1j2hlVQRVTo0viIRIoA"]
+Sidekiq.configure_client do |config|
     config.redis = { url: ENV['REDIS_URL'] }
   end
 
