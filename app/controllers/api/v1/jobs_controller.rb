@@ -50,6 +50,7 @@ class GooglePlacesCached
   require 'json'
   require 'uri'
   require 'net/http'
+  require 'openssl'
 
   def self.fetch_five_star_reviews_for_companies
     puts "Fetching five-star reviews for companies..."
@@ -57,7 +58,27 @@ class GooglePlacesCached
       "Creekside Physical Therapy" => ["ChIJT8nUWmzlBIgRnZluSKvaU7o", "ChIJy6GIldiP4okR-sQZEghTDSg", "ChIJt1CU6gxK0IkR4wEmOq3hYr4"],
       "Northwest Extremity Specialists" => ["ChIJf07ARPkJlVQRJCA-9wte444", "ChIJi3RsjPEMlVQRt1cOeU3_g48", "ChIJSRSts-CglVQRfXCyBEPzHNg"]
     }
+
     api_key = ENV['REACT_APP_GOOGLE_PLACES_API_KEY']
+    reviews = {}
+
+    redis = Redis.new(url: ENV['REDIS_URL'], ssl: true, ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE })
+    cache_key = "google_places_reviews"
+
+    cached_reviews = redis.get(cache_key)
+    if cached_reviews
+      puts "Using cached reviews"
+      reviews = JSON.parse(cached_reviews)
+    else
+      puts "Fetching fresh reviews from Google Places API"
+      reviews = fetch_reviews_from_google(companies, api_key)
+      redis.setex(cache_key, 7.days.to_i, reviews.to_json)
+    end
+
+    reviews
+  end
+
+  def self.fetch_reviews_from_google(companies, api_key)
     reviews = {}
 
     companies.each do |company, place_ids|
@@ -98,3 +119,4 @@ class GooglePlacesCached
     end
   end
 end
+
