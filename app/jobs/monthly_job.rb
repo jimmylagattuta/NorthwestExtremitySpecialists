@@ -2,24 +2,23 @@ class MonthlyJob
   include Sidekiq::Worker
 
   def perform
-    clear_and_refresh_reviews_cache
-  end
+    # Load the class from the controller
+    require_relative '../../controllers/api/v1/jobs_controller'
 
-  private
-
-  def clear_and_refresh_reviews_cache
     redis = Redis.new(
       url: ENV['REDIS_URL'],
       ssl: true,
       ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
     )
     cache_key = "google_places_reviews"
-    
-    redis.del(cache_key) # Clear the cache
 
-    reviews = GooglePlacesCached.fetch_five_star_reviews_for_companies
+    # Clear the existing cache
+    redis.del(cache_key)
 
-    redis.setex(cache_key, 30.days.to_i, reviews.to_json) # Refresh the cache
-    puts "Successfully refreshed reviews cache"
+    # Fetch fresh reviews
+    reviews = Api::V1::JobsController::GooglePlacesCached.fetch_five_star_reviews_for_companies
+
+    # Reset the cache with new data
+    redis.setex(cache_key, 30.days.to_i, reviews.to_json)
   end
 end
