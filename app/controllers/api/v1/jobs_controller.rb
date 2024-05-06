@@ -8,9 +8,13 @@ class Api::V1::JobsController < ApplicationController
   end
 
   def pull_google_places_cache
-    redis = Redis.new(url: ENV['REDIS_URL'])
+    redis = Redis.new(
+      url: ENV['REDIS_URL'],
+      ssl: true,
+      ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
+    )
     cache_key = "google_places_reviews"
-
+  
     cached_reviews = redis.get(cache_key)
     if cached_reviews
       puts "Using cached reviews"
@@ -20,14 +24,15 @@ class Api::V1::JobsController < ApplicationController
       reviews = GooglePlacesCached.fetch_five_star_reviews_for_companies
       redis.setex(cache_key, 7.days.to_i, reviews.to_json)
     end
-
+  
     creekside_reviews = reviews["Creekside Physical Therapy"] || []
     northwest_reviews = reviews["Northwest Extremity Specialists"] || []
-
+  
     puts "Successfully fetched reviews for Creekside and Northwest"
     csrf_token = form_authenticity_token
     render json: { creekside_reviews: creekside_reviews, northwest_reviews: northwest_reviews, csrf_token: csrf_token }
   end
+  
 
   private
 
