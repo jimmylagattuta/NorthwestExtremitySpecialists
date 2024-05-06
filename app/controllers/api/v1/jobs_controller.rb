@@ -77,7 +77,7 @@ class GooglePlacesCached
     else
       puts "Fetching fresh reviews from Google Places API"
       reviews = fetch_reviews_from_google(companies, api_key)
-      redis.setex(cache_key, 7.days.to_i, reviews.to_json)
+      redis.setex(cache_key, 30.days.to_i, reviews.to_json)
     end
 
     reviews
