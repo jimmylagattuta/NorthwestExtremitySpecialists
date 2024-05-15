@@ -50,33 +50,33 @@ const FloatingOfficeInfo = ({
     const visibleOffices = offices.slice(startIdx, startIdx + officesPerPage);
     const getOfficeHours = (city) => {
         switch (city) {
-            case 'Bridgeport':
+            case 'Bridgeport Office':
                 return '8:00 a.m. – 5:00 p.m. Every 1st & 3rd Wednesday';
-            case 'Cedar Mill':
+            case 'Cedar Mill Office':
                 return '8 a.m. - 5 p.m. Mon - Thurs\n8 a.m. - 12 p.m. Fri';
-            case 'Gresham':
+            case 'Gresham Office':
                 return 'Every 2nd & 4th Friday from 8 a.m. - 12 p.m.';
-            case 'Happy Valley':
+            case 'Happy Valley Office':
                 return '8 a.m. –12 p.m. Fridays';
             case 'Hoyt':
                 return '8 a.m. - 5 p.m. Mon - Thurs';
-            case 'Milwaukie':
+            case 'Milwaukie Office':
                 return '9 a.m. – 5 p.m. Mon – Thurs\n9 a.m - 4 p.m. Fri';
-            case 'Newberg Washington Street':
+            case 'Newberg Washington Street Office':
                 return '8:30 a.m. - 4:30 p.m. Monday, Wednesday and Thursday\n8:30 a.m. - 3:00 p.m Every 2nd & 4th Tuesday\n8:30 a.m. - 2:00 p.m Fri';
-            case 'Portland Northwest District':
+            case 'Portland Northwest District Office':
                 return '8 a.m. – 4 p.m. Tues\n9 a.m. - 6 p.m. Every 2nd and 4th Wed\n8 a.m. - 12 p.m. Every 1st and 3rd Fri';
-            case 'Sherwood':
+            case 'Sherwood Office':
                 return 'By appointment only';
-            case 'Tanasbourne':
+            case 'Tanasbourne Office':
                 return 'By appointment only';
-            case 'Tigard Locust':
+            case 'Tigard Locust Office':
                 return '8 a.m. – 5 p.m. Mon – Thurs\n8 a.m - 2:30 p.m. Fri';
-            case 'Tigard Oleson':
+            case 'Tigard Oleson Office':
                 return '8 a.m. – 5 p.m. Mon – Thu\n8 a.m. – 1 p.m. Fri';
-            case 'West Linn':
+            case 'West Linn Office':
                 return '8 a.m. – 5 p.m. Mon – Thurs\n8 a.m - 4 p.m. Fri';
-            case 'Wilsonville':
+            case 'Wilsonville Office':
                 return '8 a.m. – 5 p.m. Wednesday';
             default:
                 return '';
