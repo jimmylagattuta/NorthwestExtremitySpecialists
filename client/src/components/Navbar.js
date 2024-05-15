@@ -249,7 +249,7 @@ const Navbar = () => {
                                         </NavLink>
                                     )}
                                     {/* ---------------------------------------------------------------------------------- */}
-                                    <div className={`submenu-list ${item.subMenuItems.length > 16 ? 'submenu-multi-column' : item.subMenuItems.length > 6 ? 'submenu-two-column' : ''}`}>
+                                    <div className={`submenu-list`}>
                                     {((isSubmenuOpen !== null) || (window.innerWidth >= 1000)) && item.subMenuItems.map((subItem) => (
                                         <NavLink
                                             onClick={resetMobileMenu}

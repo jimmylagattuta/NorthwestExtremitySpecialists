@@ -65,7 +65,7 @@
 .default-company-call-directions {
     display: flex;
     flex-direction: row;
-    margin: 10px 0px 4px 0px;
+    margin: 10px 0 4px;
 }
 
 .menu {
@@ -113,6 +113,7 @@
   
   #map-icon-nav-text {
     font-size: 1rem;
+    width: max-content;
   }
 
   #map-icon-nav:hover {
@@ -121,16 +122,17 @@
 
   @media (max-width: 1400px) {
     .nav-button {
-      align-self: center;
-      background-color: rgb(0 64 143 / 35%);
-      z-index: 8;
+      /* align-self: center; */
+      /* background-color: rgb(0 64 143 / 35%); */
+      /* z-index: 8; */
     }
     .default-company-call-directions {
-      margin: 25px 0px 25px 0px;
+      /* margin: 0px 10px 0px 10px; */
     }
 
     .contact-nav-menu {
       z-index: 8;
+      width: 100%;
     }
     #nav-phone-call {
       font-size: 1.8rem;
@@ -141,16 +143,26 @@
     }
 
   }
+  @media (max-width: 1150px) {
+    .nav-button {
+      font-size: 0.8rem;  
+      min-width: max-content;
+    }
+    .nav-button-white {
+      font-size: 0.8rem;  
+      min-width: max-content;
+    }
+  }
 
-  
   @media (max-width: 1050px) {
     .nav-button {
-      align-self: center;
-      background-color: rgb(0 64 143 / 35%);
-      z-index: 8;
+      /* align-self: center; */
+      /* background-color: rgb(0 64 143 / 35%); */
+      /* z-index: 8; */
     }
     .default-company-call-directions {
-      margin: 15px 0px 15px 0px;
+      font-size: 0.8rem;
+      width: -webkit-fill-available;
     }
 
     .contact-nav-menu {
@@ -167,24 +179,23 @@
       margin: 0px 4px 0px 2px;
     }
     .menu-open .nav-phone-and-seperater {
-      margin: 0px 0px 0px 20px;
+
     }
     .navbar-container {
       max-height: 160px;
     }
     .nav-button {
-      padding: 0px 0px 0px 0px;
-      margin: 5px 5px 0px 5px;
-      display: flex;
-      align-items: center;
-      align-self: unset;
-      justify-content: center;
-      z-index: 8;
+      /* padding: 0px 0px 0px 0px; */
+      /* margin: 5px 5px 0px 5px; */
+      /* display: flex; */
+      /* align-items: center; */
+      /* align-self: unset; */
+      /* justify-content: center; */
+      /* z-index: 8; */
     }
     .nav-phone-and-seperater {
       display: flex;
-      flex-direction: row;
-      margin: 5px;
+
       z-index: 8;
   }
     #nav-phone {
@@ -213,24 +224,45 @@
         z-index: 8;
     }
     .words-appear {
-      display: none;
+      display: flex;
+      align-self: center;
+      justify-self: center;
     }
     .contact-nav-menu {
-      position: absolute;
-      z-index: 8;
-      background-color: rgb(0 64 143 / 35%);
+      /* position: absolute; */
+      /* z-index: 8; */
+      /* background-color: rgb(0 64 143 / 75%); */
   
     }
     .default-company-call-directions {
-      min-width: 165px;
-      justify-content: space-between;
+      /* min-width: 300px; */
+      /* justify-content: space-between; */
+
     }
     .change-call-us {
       
     }
+    .nav-button {
+      font-size: 0.6rem;
+      padding: 2px 6px 2px 6px;
+      align-items: center;
+      justify-content: center;
+    }
+    .nav-button-white {
+      font-size: 0.6rem;  
+      padding: 2px 6px 2px 6px;
+
+    }
+    .downloads-call-us {
+      display: flex;
+      flex-direction: row;
+      max-height: 22px;
+      align-items: baseline;
+  }
   }
 
 @media (max-width: 450px) {
+  .
   .menu-open .words-appear {
     display: flex;
   }
@@ -245,7 +277,7 @@
     min-height: 66px;
   }
   .nav-button {
-    padding: 0px 0px 0px 0px;
+    /* padding: 0px 0px 0px 0px;
     margin: 5px 5px 0px 5px;
     display: flex;
     align-items: center;
@@ -253,7 +285,7 @@
     height: fit-content;
     z-index: 8;
     min-width: max-content;
-    font-size: 0.8rem;
+    font-size: 0.8rem; */
   }
   .nav-phone-and-seperater {
     display: flex;
@@ -292,14 +324,15 @@
     display: none;
   }
   .contact-nav-menu {
-    position: absolute;
-    z-index: 8;
-    background-color: rgb(0 64 143 / 35%);
+    /* position: absolute; */
+    /* z-index: 8; */
+    /* background-color: rgb(0 64 143 / 45%); */
 
   }
   .default-company-call-directions {
-    min-width: 125px;
-    justify-content: space-between;
+    /* min-width: max-content; */
+    font-size: 0.8rem;
+    /* justify-content: space-between; */
   }
   .change-call-us {
     
@@ -311,7 +344,7 @@
     max-height: 60px;
     min-height: 50px;
   }
-  .nav-button {
+  /* .nav-button {
     padding: 0px 0px 0px 0px;
     margin: 5px 5px 0px 5px;
     display: flex;
@@ -321,7 +354,7 @@
     z-index: 8;
     min-width: max-content;
     font-size: unset;
-  }
+  } */
   .nav-phone-and-seperater {
     /* display: flex;
     flex-direction: row;
@@ -343,10 +376,10 @@
     font-size: 0.7rem;
   }
   .default-company-call-directions {
-    min-width: 105px;
+    /* min-width: 105px; */
   }
 
   .nav-button {
-    min-width: 60px;
+    /* min-width: 60px; */
   }
 }
