@@ -48,7 +48,41 @@ const FloatingOfficeInfo = ({
 
     const startIdx = currentPage * officesPerPage;
     const visibleOffices = offices.slice(startIdx, startIdx + officesPerPage);
-
+    const getOfficeHours = (city) => {
+        switch (city) {
+            case 'Bridgeport':
+                return '8:00 a.m. – 5:00 p.m. Every 1st & 3rd Wednesday';
+            case 'Cedar Mill':
+                return '8 a.m. - 5 p.m. Mon - Thurs\n8 a.m. - 12 p.m. Fri';
+            case 'Gresham':
+                return 'Every 2nd & 4th Friday from 8 a.m. - 12 p.m.';
+            case 'Happy Valley':
+                return '8 a.m. –12 p.m. Fridays';
+            case 'Hoyt':
+                return '8 a.m. - 5 p.m. Mon - Thurs';
+            case 'Milwaukie':
+                return '9 a.m. – 5 p.m. Mon – Thurs\n9 a.m - 4 p.m. Fri';
+            case 'Newberg Washington Street':
+                return '8:30 a.m. - 4:30 p.m. Monday, Wednesday and Thursday\n8:30 a.m. - 3:00 p.m Every 2nd & 4th Tuesday\n8:30 a.m. - 2:00 p.m Fri';
+            case 'Portland Northwest District':
+                return '8 a.m. – 4 p.m. Tues\n9 a.m. - 6 p.m. Every 2nd and 4th Wed\n8 a.m. - 12 p.m. Every 1st and 3rd Fri';
+            case 'Sherwood':
+                return 'By appointment only';
+            case 'Tanasbourne':
+                return 'By appointment only';
+            case 'Tigard Locust':
+                return '8 a.m. – 5 p.m. Mon – Thurs\n8 a.m - 2:30 p.m. Fri';
+            case 'Tigard Oleson':
+                return '8 a.m. – 5 p.m. Mon – Thu\n8 a.m. – 1 p.m. Fri';
+            case 'West Linn':
+                return '8 a.m. – 5 p.m. Mon – Thurs\n8 a.m - 4 p.m. Fri';
+            case 'Wilsonville':
+                return '8 a.m. – 5 p.m. Wednesday';
+            default:
+                return '';
+        }
+    };
+    
     return (
         <div className='map-float-menu'>
             <div className='pagination-arrows'>
@@ -100,19 +134,7 @@ const FloatingOfficeInfo = ({
                                 Hours of Operation
                             </h2>
                             <div className='map-float-info'>
-                                Monday: 8 AM- 5PM
-                            </div>
-                            <div className='map-float-info'>
-                                Tuesday: 8 AM- 5PM
-                            </div>
-                            <div className='map-float-info'>
-                                {place.city === 'Hilltown' ? 'Wednesday: Closed' : 'Wednesday: 8 AM- 5PM'}
-                            </div>
-                            <div className='map-float-info'>
-                                {place.city === 'Rivercity' ? 'Thursday: Closed' : 'Thursday: 8 AM- 5PM'}
-                            </div>
-                            <div className='map-float-info'>
-                                Friday: 8 AM- 5PM
+                                {getOfficeHours(place.city)}
                             </div>
                         </div>
                     </div>
@@ -165,7 +187,7 @@ const InfoWindow = ({ place, handleInfoWindowClose, markerSelected }) => {
                     Hours of Operation
                 </h2>
                 <div className='info-window-text'>
-                    {place.city === 'Bridgeport Office' ? '8:00 a.m. – 5:00 p.m. Every 1st & 3rd Wednesday' : (place.city === 'Rivercity' ? 'Mon, Tue, Wed, Fri' : 'Monday - Friday')}
+                    {place.city === 'Eastwood' ? 'Mon, Tue, Thu, Fri' : (place.city === 'Rivercity' ? 'Mon, Tue, Wed, Fri' : 'Monday - Friday')}
                 </div>
                 <div className='info-window-text'>8AM-5PM</div>
             </div>

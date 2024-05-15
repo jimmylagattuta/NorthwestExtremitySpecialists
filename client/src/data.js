@@ -1980,7 +1980,7 @@ export const officesData = [
         addressTwo: 'Tigard, OR 97224',
         phone: '503-245-2420',
         fax: '503-245-2445',
-        image: './BridgePort.jpg',
+        image: './Bridgeport.png',
         coordinates: {
             lat: 45.3909275,
             lng: -122.7506849,
@@ -1994,7 +1994,7 @@ export const officesData = [
         addressTwo: 'Portland, OR 97229',
         phone: '503-643-1737',
         fax: '503-643-4926',
-        image: './Cedar.jpg',
+        image: '../Bridgeport.png',
         coordinates: {
             lat: 45.5252959,
             lng: -122.8050949,
