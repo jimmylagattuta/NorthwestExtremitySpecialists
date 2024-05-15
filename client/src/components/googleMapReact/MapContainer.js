@@ -60,6 +60,8 @@ const FloatingOfficeInfo = ({
                 return '8 a.m. –12 p.m. Fridays';
             case 'Hoyt':
                 return '8 a.m. - 5 p.m. Mon - Thurs';
+            case 'Hoyt Office':
+                return '8 a.m. - 5 p.m. Mon - Thurs';
             case 'Milwaukie Office':
                 return '9 a.m. – 5 p.m. Mon – Thurs\n9 a.m - 4 p.m. Fri';
             case 'Newberg Washington Street Office':
