@@ -75,6 +75,8 @@ function App() {
                     <Route path=":serviceId" element={<SingleService />} />
                 </Route>
                 <Route path="locations" element={<Locations />} />
+                <Route path="locations/*" element={<Locations />} />
+
                 <Route path="about" element={<AboutLayout />} />
                 <Route path="providers/*" element={<Navigate to="/providers" replace />} />
                 <Route path="*" element={<Navigate to="/" replace />} />
