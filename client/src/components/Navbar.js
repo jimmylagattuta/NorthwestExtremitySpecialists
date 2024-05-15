@@ -132,7 +132,7 @@ const Navbar = () => {
         );
       };
       
-    return (
+      return (
         <header className='navbar-div'>
             <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
                 <div className="navbar-container">
@@ -144,14 +144,14 @@ const Navbar = () => {
                                 className='navbar-logo'
                             />
                             <div>
-
+    
                             </div>
                         </div>
                     </Link>
                     <div className='navbar-buttons-nav'>
-
+    
                         <div className="call-contact-download">
-
+    
                             <NavLink
                                 onClick={toggleAppointmentForm}
                                 to={{ pathname: '/locations', hash: '#chatbox' }}
@@ -174,7 +174,7 @@ const Navbar = () => {
                             </div>    
                                 
                         </div>
-
+    
                         {isPopupOpen && (
                             <div id="form-div">
                                 <ForesightSquare togglePopup={togglePopup} />
@@ -217,7 +217,7 @@ const Navbar = () => {
                                 className={({ isActive }) =>
                                     isActive ? 'nav-link-nav active' : 'nav-link-nav'
                                 }>
-                                {item.menu}
+                                {item.menu.replace(/Office$/, '')}
                             </NavLink>
                             {/* ---------------------------------------------------------------------------------- */}
                                 {item.subMenuItems && (
@@ -258,7 +258,7 @@ const Navbar = () => {
                                             className={({ isActive }) =>
                                                 isActive ? 'sub-link active' : 'sub-link'
                                             }>
-                                            {subItem}
+                                            {subItem.endsWith("Office") ? subItem.slice(0, -6) : subItem}
                                         </NavLink>
                                     ))}
                                     </div>
@@ -271,6 +271,7 @@ const Navbar = () => {
             </nav>
         </header>
     );
+    
 };
 
 export default Navbar;

@@ -570,10 +570,10 @@ img {
 }
 
 .submenu-multi-column {
-    min-width: 860px;
+    min-width: 775px;
     display: grid;
     align-items: center;
-    grid-gap: 0px; /* Adjust the gap between items */
+    grid-gap: 9px; /* Adjust the gap between items */
     padding: 10px;
     grid-template-columns: repeat(4, minmax(0, 1fr)); /* Initial three columns */
 
@@ -632,14 +632,14 @@ img {
 }
 
 .sub-link {
-    padding: 15px 20px 15px 20px;
+    padding: 15px 10px 15px 10px;
     text-decoration: none;
     border-bottom: 2px solid transparent; /* Hide the original border */
     background-image: linear-gradient(to right, rgba(0, 64, 143, 0.5), rgba(197, 206, 195, 0.5) 50%, transparent 50%);;
     background-size: 200% 100%;
     background-position: 100% 0;
     transition: background-position 0.3s, font-size 0.3s; /* Add font-size transition */
-    font-size: 1rem;
+    font-size: 0.8rem;
     color: black; /* Set initial text color */
     border-bottom: 1px solid rgb(0 64 143 / 35%);
 
