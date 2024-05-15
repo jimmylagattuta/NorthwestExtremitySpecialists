@@ -93,7 +93,7 @@ const CompanyReviewsPage = () => {
         const fetchReviews = () => {
             const url =
                 process.env.NODE_ENV === 'production'
-                    ? 'https://nespecialists.com/api/v1/pull_google_places_cache'
+                    ? 'https://www.nespecialists.com/api/v1/pull_google_places_cache'
                     : 'http://localhost:3001/api/v1/pull_google_places_cache';
 
             const headers = {
