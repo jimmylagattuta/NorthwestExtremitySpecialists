@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './ForesightSquare.css';
-import MorphingFont from './MorphingFont';
+
 const ForesightSquare = ({ togglePopup }) => {
 
     return (

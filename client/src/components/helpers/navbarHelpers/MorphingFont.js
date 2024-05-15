@@ -12,7 +12,7 @@ const MorphingFont = ({ texts }) => {
 
         const changeText = () => {
             // Fade out current text
-            textRef.current.classList.add('fade-out');
+            // textRef.current.classList.add('fade-out');
             
             setTimeout(() => {
                 // Change text after fade-out
@@ -24,12 +24,12 @@ const MorphingFont = ({ texts }) => {
                 }
 
                 // Remove 'fade-out' to reset state, then fade in
-                textRef.current.classList.remove('fade-out');
-                textRef.current.classList.add('fade-in');
+                // textRef.current.classList.remove('fade-out');
+                // textRef.current.classList.add('fade-in');
                 
                 // After fade-in, remove class to allow for next fade-out
                 setTimeout(() => {
-                    textRef.current.classList.remove('fade-in');
+                    // textRef.current.classList.remove('fade-in');
                 }, 1000); // This matches the duration of the fade-in animation
             }, 1000); // This matches the duration of the fade-out animation
         };
