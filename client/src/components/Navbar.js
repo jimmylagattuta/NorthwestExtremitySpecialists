@@ -139,12 +139,12 @@ const Navbar = () => {
                     <Link to='/' className='logo-link-navbar' style={{ textDecorationLine: 'none' }}>
                         <div className='logo-and-title'>
                             <img
-                                src='https://i.imgur.com/QuXDpPX.webp'
+                                src='../logo.png'
                                 alt='Northwest Extremity Specialists'
                                 className='navbar-logo'
                             />
                             <div>
-                                <h2 className="animate-charcter">Northwest Extremity Specialists</h2>
+
                             </div>
                         </div>
                     </Link>
