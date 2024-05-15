@@ -83,7 +83,9 @@
   display: inline-block;
   padding: 10px 20px;
   margin-right: 20px;
-  background-color: rgb(0 64 143 / 35%);
+  border-radius: 7px;
+
+  background-color: #222;
   color: white;
   border: none;
   font-size: 16px;
@@ -91,7 +93,20 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease; /* Include box-shadow in the transition */
   box-shadow: -0.5px 0.5px 0 0 rgba(192, 192, 192,1), -1px 1px 0 0 rgba(192, 192, 192,0.6), -1.5px 1.5px 0 0 rgba(192, 192, 192,0.4), -2px 2px 0 0 rgba(192, 192, 192,0.2), -4px 4px 0 0 rgba(192, 192, 192,0.4); /* Initial box shadow */
 }
+.nav-button-white {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-right: 20px;
+  border-radius: 7px;
 
+  background-color: white;
+  color: black;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Include box-shadow in the transition */
+  box-shadow: -0.5px 0.5px 0 0 rgba(192, 192, 192,1), -1px 1px 0 0 rgba(192, 192, 192,0.6), -1.5px 1.5px 0 0 rgba(192, 192, 192,0.4), -2px 2px 0 0 rgba(192, 192, 192,0.2), -4px 4px 0 0 rgba(192, 192, 192,0.4); /* Initial box shadow */
+}
 .nav-button:hover {
   transform: scale(1); /* Increase size on hover */
   box-shadow: -2px 2px 0 0 rgba(192, 192, 192,1), -4px 4px 0 0 rgba(192, 192, 192,0.6), -6px 6px 0 0 rgba(192, 192, 192,0.4), -18px 25.5px rgba(192, 192, 192,0.2); /* Adjusted box shadow on hover */

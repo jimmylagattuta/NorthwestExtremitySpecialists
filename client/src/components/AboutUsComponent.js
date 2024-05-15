@@ -10,28 +10,18 @@ const AboutUsComponent = () => {
     return (
         <div className='about-container'>
             <div className='about-container-top'>
-                <h1 className='about-title'>Company Default</h1>
+                <h1 className='about-title'>Northwest Extremity Specialists</h1>
                 <p className='about-description'>
-                    Company Default is committed to providing the highest quality of orthopaedic care possible. Along with the treatment of immediate or chronic problems, we strive to integrate the doctrine of prevention in all our treatment plans as a way to alleviate potential future difficulties. It is the goal of Company Default and its employees to provide high quality, sensitive care to each and every patient, family member and/or friend we come in contact with. We fully understand and furthermore take very seriously the trust our patients put in our hands. We are committed to devoting ourselves to kindness and consideration when interacting with our patients, their family members and friends. We are pleased to have you as a patient. If you have any questions, always feel free to contact our office and our trained staff will assist you in any way possible.
-                </p>
+                We are committed to offering state-of-the-art orthopedic and podiatric treatment. Formed when four of Portland's top clinics—Tigard Orthopedics and Fracture Clinic, Cascade Foot and Ankle Specialists, Pacific Foot and Ankle Clinic, and Westside Foot and Ankle Specialists-- joined together, our team of doctors and staff provide full-service orthopedic and podiatric care from our 15 convenient locations throughout the Portland metropolitan area.                </p>
             </div>
             <div className='about-container-bottom'>
                 <img aria-label="bottom left container" className='about-container-bottom-left'
                 />
                 <div className='about-container-bottom-right'>
                 <h2 className='about-title-right'>
-                    Default Company Patient Portal
+                    Why Choose Us?
                 </h2>
-                <p className='about-description-right'>
-                    Company Default is pleased to introduce the
-                    <a className="animate-grow" href="https://default-company.myezyaccess.com/Patient/Main.aspx" target="_blank" rel="noopener noreferrer">
-                        Default Company Patient Portal!
-                    </a>
-                    The Patient Portal is an electronic system that will allow you, our patients, to communicate your medical needs with our office staff and provide
-                <p className='about-description-right'>
-                    To join the Patient Portal, call the office and provide our staff with your email address. Then, log on to Default Company’s Patient Portal to access our patient features.
-                </p>
-                </p>
+            
 
                 <p className='about-description-right'>
                     <ul>

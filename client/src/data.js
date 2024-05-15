@@ -1038,21 +1038,19 @@ export const aboutObj = [
     {
         nameOne: "Insurance Information",
         descriptionOne: [
-            "We Accept most major insurance plans."
+            "Insurance plans Accepted."
         ],
         descriptionOneBullettedList: [
-            "Aetna",
-            "Beech Street",
+            "United Healthcare",
+            "Blue Cross",
             "Blue Shield",
-            "Care Plan of Illinois",
-            "Cigna",
-            "Coventree",
-            "Healthlink",
-            "Humana",
             "Medicare",
-            "Multiplan",
-            "United Health Care",
-            "And More!"
+            "Tricare",
+            "Triwest(VA)",
+            "Health Net",
+            "Aetna",
+            "Kaiser",
+            "Cigna"
         ],
         link: '/about',
     }
@@ -1075,99 +1073,49 @@ export const aboutObjOther = [
 ];
 export const aboutObjPortal = [
     {
-        nameOne: "Default Company Patient Portal",
+        nameOne: "Portland’s Orthopedic & Podiatry Experts",
         descriptionOne: [
-            "Company Default is pleased to introduce the Default Company Patient Portal! The Patient Portal is an electronic system that will allow you, our patients, to communicate your medical needs with our office staff and providers through a secure online system at your convenience.",
-            "To join the Patient Portal, call the office and provide our staff with your email address then click on the button link above."
+            "Welcome to our website! At Northwest Extremity Specialists, we are committed to offering state-of-the-art medical and surgical treatment. Formed when three of Portland's top clinics--Cascade Foot and Ankle Specialists, Pacific Foot and Ankle Clinic, and Westside Foot and Ankle Specialists-- joined together, our team of doctors and staff provide full-service orthopedic and podiatric care from our 15 convenient locations throughout the Portland metropolitan area."
         ],
-        descriptionOneBullettedList: [
-            "Expedite your check-in process by completing New Patient Forms online",
-            "Tired of waiting on hold? Schedule your appointments, order medical records, and request prescription refills electronically",
-            "Update your medical history and pay bills from the privacy of your home",
-            "Verify your insurance eligibility and review your benefits prior to your appointment",
+        nameTwo: "Patient-Centered Care",
+        descriptionTwoBullettedList: [
+            "Too many doctors treat a patient like a number. The main goal seems to be getting you in and out of the office as quickly as possible, even if you’re still confused at the end.",
+            "We believe that effective medicine always begins with careful attention to each patient’s desires, concerns, and questions. Our philosophy is to provide effective, compassionate, and efficient care to each and every person who walks through our doors.",
+            "You deserve doctors who will listen carefully and respond thoughtfully and compassionately. You deserve comfortable and convenient service. You deserve to be fully educated about your condition and treatment options so that you can make informed decisions about your health and wellbeing. That’s what you’ll receive from every member of our team.",
         ],
         link: '/patient-portal', // Assuming a link to the patient portal
     }
 ];
 export const insuranceInformation = [
+    { name: "BCBS" },
+    { name: "BCBS FEP" },
+    { name: "Humana" },
+    { name: "Cigna" },
+    { name: "United Health Care" },
+    { name: "Moda" },
+    { name: "Medicare Part B" },
+    { name: "Bridgespan" },
     { name: "Aetna" },
-    { name: "Beech Street" },
-    { name: "Blue Cross Blue Shield", plans: [
-        "Blue Card PPO",
-        "Blue PPO Gold",
-        "Blue PPO Silver",
-        "Blue PPO Bronze",
-        "Blue Options",
-        "Blue Choice Options",
-        "Blue Edge",
-        "Community MMAI Medicare-Medicaid Plan",
-        "Medicare Advantage PPO",
-        "Blue Advantage HMO",
-        "HMO Illinois",
-        "Blue Precision",
-        "Blue Medicare Advantage HMO",
-        "*Network Affiliation: Chicago Health Systems"
-      ]
-    },
-    { name: "Cigna/Great West", plans: [
-        "PPO",
-        "HMO",
-        "POS",
-        "EPO",
-        "Local Plus"
-      ]
-    },
-    { name: "Cigna/Healthspring", plans: [
-        "Medicare Advantage HMO",
-        "Preferred HMO-POS",
-        "Primary HMO",
-        "Totalcare HMO-SNP",
-        "Care Plan of Illinois",
-        "Special Care Plan of Illinois"
-      ]
-    },
-    { name: "Coventry" },
-    { name: "First Health" },
-    { name: "Healthlink" },
-    { name: "HFN" },
-    { name: "Humana", plans: [
-        "PPO",
-        "PPO/ASO",
-        "POS",
-        "Choice POS",
-        "Medicare Advantage",
-        "Humana Gold Plus Integrated Medicare-Medicaid Plan (MMAI)",
-        "Humana Integrated Care Program of Illinois",
-        "Humana HMO",
-        "Humana Illinois Platinum",
-        "Humana Gold Plus",
-        "Humana Medicare Employer",
-        "Humana HMO X"
-      ]
-    },
-    { name: "Interplan" },
-    { name: "Land of Lincoln", plans: [
-        "Select plans – please call the office for more information"
-      ]
-    },
-    { name: "Medicare" },
-    { name: "Railroad Medicare" },
-    { name: "Multiplan" },
-    { name: "PHCS" },
-    { name: "PHCS Savility" },
-    { name: "Preferred Network Access" },
-    { name: "United Health Care", plans: [
-        "Our doctors are UHC designated providers"
-      ]
-    },
-    { name: "UFCW Local 1546 Health and Welfare Fund" },
-    { name: "Unicare" }
+    { name: "Health Net" },
+    { name: "Health Net Medicare" },
+    { name: "Regence Group Administrators" },
+    { name: "Pacific Source" },
+    { name: "GEHA" },
+    { name: "Kaiser" },
+    { name: "Triwest (VA) / Tricare" },
+    { name: "MVA" },
+    { name: "Workers Comp" },
+    { name: "Saif" },
+    { name: "Majoris" },
+    { name: "Providence MCO" }
 ];
+
+
 export const aboutTerms = [
     {
         subtitle: null,
         body: [
-            "Company Default's website is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of this practice website constitutes your agreement to all such terms, conditions, and notices.",
+            "NES's website is offered to you conditioned on your acceptance without modification of the terms, conditions, and notices contained herein. Your use of this practice website constitutes your agreement to all such terms, conditions, and notices.",
         ],
     },
     {
@@ -1279,7 +1227,7 @@ export const aboutExtra = [
             {
                 subtitle: 'Do you take my insurance?',
                 body: [
-                    'Company Default is enrolled with all major insurance plans.',
+                    'Northwest Extremity Specialists is enrolled with all major insurance plans.',
                 ],
             },
             {
@@ -1296,19 +1244,19 @@ export const aboutExtra = [
             {
                 subtitle: 'Do you have weekend or evening hours?',
                 body: [
-                    'Company Default does have some early evening hours, but does not have weekend hours available.',
+                    'Northwest Extremity Specialists does have some early evening hours, but does not have weekend hours available.',
                 ],
             },
             {
                 subtitle: 'Do you have parking available?',
                 body: [
-                    "Yes, all of Company Default's offices have easily accessible free parking available.",
+                    "Yes, all of NES's offices have easily accessible free parking available.",
                 ],
             },
             {
                 subtitle: 'Do you do minimally invasive surgery?',
                 body: [
-                    'Yes, the Physicians at Company Default do minimally invasive surgery.',
+                    'Yes, the Physicians at Northwest Extremity Specialists do minimally invasive surgery.',
                 ],
             },
             {
@@ -1357,7 +1305,7 @@ export const aboutExtra = [
             {
                 subtitle: 'After Hours Information:',
                 body: [
-                    'Company Default offers 24 hour on call services for emergencies involving our patients. To contact the on call physician regarding your emergency call our office and you will be connected to an operator who can page the on call physician. Office appointments cannot be made and medications cannot be prescribed after hours. For life threatening emergencies go to your nearest emergency room or call 911.',
+                    'Northwest Extremity Specialists offers 24 hour on call services for emergencies involving our patients. To contact the on call physician regarding your emergency call our office and you will be connected to an operator who can page the on call physician. Office appointments cannot be made and medications cannot be prescribed after hours. For life threatening emergencies go to your nearest emergency room or call 911.',
                 ],
             },
             {
@@ -1414,9 +1362,9 @@ export const aboutExtra = [
         name: 'Patient Education',
         title: 'Patient Education',
         body: [
-            'Using the very latest techniques and tools available, Company Default treat patients with the highest quality, most cost-effective, and compassionate care available. Our goal is to exceed our patients’ expectations.',
+            'Using the very latest techniques and tools available, Northwest Extremity Specialists treat patients with the highest quality, most cost-effective, and compassionate care available. Our goal is to exceed our patients’ expectations.',
             'The aim of this page is to provide some quick links to some of the more widely searched orthopedic surgeries. Please note, someof the links will take you to a new website.',
-            'For more information or to schedule an appointment with Company Default, please contact us today.',
+            'For more information or to schedule an appointment with Northwest Extremity Specialists, please contact us today.',
         ],
         itemOne: {
             subtitle: 'Featured Conditions and Procedures',
@@ -1460,7 +1408,7 @@ export const aboutExtra = [
         content: [
             {
                 body: [
-                    'The physicians of Company Default have been the leading Orthopedic Doctors for injured City of Chicago workers for many years. We frequently treat police officers and firefighters injured in the line of duty and take great pride in our excellent record of restoring injured city workers to full health and function. We provide the same level of excellence in treatment of all injured workers which has resulted in outstanding outcomes.',
+                    'The physicians of Northwest Extremity Specialists have been the leading Orthopedic Doctors for injured City of Chicago workers for many years. We frequently treat police officers and firefighters injured in the line of duty and take great pride in our excellent record of restoring injured city workers to full health and function. We provide the same level of excellence in treatment of all injured workers which has resulted in outstanding outcomes.',
                     'Independent Medical Evaluation Appointments',
                     'To schedule an independent medical evaluation appointment with our physicians for a work-related injury, simply call the most convenient office location listed on this website and inform the receptionist that you need to be evaluated for a work-related injury or request your appointment online.',
                     'Please bring the following completed form to your appointment:',
@@ -1488,7 +1436,7 @@ export const aboutExtra = [
                     'An Independent Medical Evaluation (IME) is often required to answer specific medical questions, including relationships of diagnosis to specific injury, accident or illness, further treatment recommendations, extent of permanent impairment or disability, and other information as needed. Our practicing physician consultants possess a broad range of credentials, and board certifications in their respective specialties. We make every effort to schedule and complete the IME as soon as possible. After completion, we process and send a comprehensive report within a 24 hour period.',
                     'We provide emergency surgery and treatment for the most serious work-related injuries and facilitate treatment including occupational therapy and physical therapy for common conditions such as tendonitis, carpal tunnel syndrome, knee pain, and back pain.',
                     'We also offer comprehensive physical and occupational therapy as well as new state of the art non-surgical treatment including Platelet Rich Plasma injections.',
-                    'Company Default strive to ensure expeditious scheduling of appointments for injured workers, typically within twenty-four hours. Our physician forms and reports are available within one business day, with quick reports available the day of service. We will complete any employer work status forms at the time of visit.',
+                    'Northwest Extremity Specialists strive to ensure expeditious scheduling of appointments for injured workers, typically within twenty-four hours. Our physician forms and reports are available within one business day, with quick reports available the day of service. We will complete any employer work status forms at the time of visit.',
                     'Any necessary diagnostic tests will be arranged by our office staff, and we will take care of any required Workers Compensation authorization procedures. We work closely with nurse case managers and will provide any necessary documentation to the injured worker at the time of visit.',
                 ],
             },
@@ -1659,7 +1607,7 @@ export const navMenu = [
             'Locust Clinic'
         ]
     },
-    { menu: 'Careers', link: 'https://ats.rippling.com/default-company/jobs' }
+    // { menu: 'Careers', link: 'https://ats.rippling.com/default-company/jobs' }
 
 ];
 

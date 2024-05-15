@@ -7,7 +7,7 @@ const Services = () => {
                 Explore Our Services
             </h1>
             <p className='expertise-header-description'>
-                Services in Cityville, Metropolis, Springfield, Laketown, Hilldale, Rivercity, Greenville, and Eastwood
+                Services in Bridgeport, Gresham, Tigard Locust, Cedar Mill, and Surrounding Areas.
 
             </p>
             <ExpertiseBlocks />

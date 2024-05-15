@@ -7,6 +7,19 @@ const AppointmentInfo = () => {
       <article id="appointment-form-article">
         <div className="appointment-form">
      
+        <section className="for-your-appointment">
+            <h2>Comprehensive Services</h2>
+            <p>
+              If it has anything to do with orthopedics or podiatry, we can help! Our orthopedic providers and podiatrists offer specialized treatment for a wide range of conditions—ankle sprains, heel pain, bunions, arthritis, ingrown toenails, fungal infections, nerve pain, sports injuries, pediatric care, meniscus repair, ACL reconstructions and more.
+            </p>
+            <p style={{ margin: '10px 0px 10px 0px' }}>
+              All our doctors are board certified and offer extensive skill and experience in reconstructive surgery and other complicated procedures. But we also provide state-of-the-art conservative options, like physical therapy and custom orthotics, that can help you avoid surgery altogether. It’s all about what’s best for you.
+            </p>
+            <p>
+              For more information, please feel free to fully review the educational materials available on this website at your own pace. You can also fill out a contact form, or call your local office directly. We’ll be glad to help!
+            </p>
+          </section>
+
           <section className="for-your-appointment">
             <h2>For Your Appointment</h2>
             <p>Please call the office to make an appointment in advance. If you are unable to keep your appointment, please call us as far in advance as possible so we may use that time to see another patient in need of care. We make a sincere effort to adhere to our appointment schedule and appreciate your patience if we are late due to emergencies or hospital surgery.</p>
@@ -24,27 +37,7 @@ const AppointmentInfo = () => {
             <p>We ask that you please arrive five minutes early to your scheduled appointment time to complete the check-in process. We will always do our best to accommodate our patients; however, we cannot guarantee appointments outside of your scheduled appointment time. Please bring the items listed below to every appointment.</p>
           </section>
 
-          <section className="fees-payments">
-            <h3>Fees & Payments</h3>
-            <p>We make every effort to decrease the cost of your medical care. Therefore, we request payment arrangements for all office services at the time they are rendered unless prior arrangements have been made. We accept cash, checks, MasterCard, Visa, and Discover for your convenience. If we are a participating provider of your insurance company, we will bill them. However, payment is the patient’s responsibility. We will help in any way we can to assist you in handling claims.</p>
-          </section>
-
-          <section className="prescriptions-renewals">
-            <h3>Prescriptions & Renewals</h3>
-            <p>Effective October 6, 2014 the Drug Enforcement Agency has developed new mandates for narcotic medications.</p>
-            <ul>
-              <li>Narcotic medications cannot be filled or refilled over the phone, by fax, or electronically.</li>
-              <li>Pharmacies will only accept hand written prescriptions signed by your provider. Therefore, all prescriptions will need to picked up in the office during office hours.</li>
-              <li>Due to these new regulations, your provider will not be able to refill your narcotic medication(s) over the weekend.</li>
-              <li>Our providers are dedicated to your medical treatment and recovery. Therefore, it is very important to request all narcotic medication refills timely.</li>
-            </ul>
-            <p>Please ask a member of the clinical staff if you have any questions regarding this information.</p>
-            <p>Thank you in advance for your patience and understanding.</p>
-            <div>OFFICE HOURS FOR PRESCRIPTION REFILL REQUESTS</div>
-            <p>Monday–Thursday: 8:00am–4:30pm<br/>Friday: 8:00am–11:00am</p>
-            <div>OFFICE HOURS FOR PRESCRIPTION PICK UP</div>
-            <p>Monday–Friday: 8:00am–4:30pm</p>
-          </section>
+          
         </div>
       </article>
     </div>

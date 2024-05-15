@@ -20,8 +20,7 @@ const Locations = () => {
             <div className='page-container'>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', flexDirection: 'row' }} className='page-info'>
                     <h3 style={{ alignSelf: 'baseline' }}>
-                        All locations have parking and parking for individuals
-                        with disabilities available.
+                        Effective November 1, 2023, from 12:00 PM to 1:00 PM, our clinic and call center will be temporarily closed to allow our dedicated staff to take a well-deserved lunch break. Rest assured; we will resume normal operations promptly at 1:00 PM.  Thank you for choosing NES for your healthcare needs. We value your trust and remain committed to delivering exceptional care and service.
                     </h3>
                     <i style={{ color: 'var(--violet)', alignSelf: 'baseline', paddingLeft: '10px', fontSize: '1.5rem' }} class="fas fa-wheelchair"></i>
                 </div>

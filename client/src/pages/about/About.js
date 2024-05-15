@@ -96,8 +96,8 @@ const About = () => {
                 {/* Check if item.descriptionOne is a string */}
                 {typeof item.descriptionOne === 'string' ? (
                   // If it's a string, split it to insert the link where needed
-                  item.descriptionOne.split(/(Default Company Patient Portal!)/).map((part, index) => (
-                    part === "Default Company Patient Portal!" ? (
+                  item.descriptionOne.split(/(Northwest Extremity Specialists Patient Portal!)/).map((part, index) => (
+                    part === "Northwest Extremity Specialists Patient Portal!" ? (
                       <a
                         key={index}
                         className="animate-grow"
@@ -105,7 +105,7 @@ const About = () => {
                         target="_blank"
                         rel="noopener noreferrer"
                       >
-                        Default Company Patient Portal!
+                        Northwest Extremity Specialists Patient Portal!
                       </a>
                     ) : (
                       part
@@ -126,13 +126,7 @@ const About = () => {
                   </ul>
                 ))}
 
-              <ul className='unordered-list-about-bring'>
-                <a href="tel:17084420221">
-                  <button className="portal-button">
-                    Call Us at (123) 456-7890
-                  </button>
-                </a>
-              </ul>
+            
             </div>
           ))}
           <h2>Insurances We Cover</h2>
@@ -159,18 +153,26 @@ const About = () => {
           <div key={index} className='portal-about-div-bulleted-bring'>
             <h2 style={{ color: 'black' }}>{item.nameOne}</h2>
             <div>
-              {item.descriptionOne.map((description, idx) => (
+              {item.descriptionOne && item.descriptionOne.map((description, idx) => (
                 <p key={idx}>{description}</p>
               ))}
             </div>
-              {item.descriptionOneBullettedList.map((bulletItem, bulletIndex) => (
+              {item.descriptionOneBullettedList && item.descriptionOneBullettedList.map((bulletItem, bulletIndex) => (
                 <ul className='portal-unordered-list-about'>
                   <li key={bulletIndex}>{bulletItem}</li>
                 </ul>
               ))}
-            <ul className='portal-unordered-list-about'>
-              <a style={{ color: 'black' }} className="animate-grow-portal" href="https://default-company.myezyaccess.com/Patient/Main.aspx" target="_blank" rel="noopener noreferrer">Go To Portal!</a>
-            </ul>
+              <div>
+              {item.descriptionTwo && item.descriptionTwo.map((description, idx) => (
+                <p key={idx}>{description}</p>
+              ))}
+            </div>
+              {item.descriptionTwoBullettedList && item.descriptionTwoBullettedList.map((bulletItem, bulletIndex) => (
+                <ul className='portal-unordered-list-about'>
+                  <li key={bulletIndex}>{bulletItem}</li>
+                </ul>
+              ))}
+        
           </div>
         ))}
       </div>

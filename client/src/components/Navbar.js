@@ -52,7 +52,25 @@ const Navbar = () => {
             setIsSubmenuOpen(null);
         }, 0.25);
     };
-
+    const locations = [
+        'Bridgeport Office',
+        'Cedar Mill',
+        'Gresham Office',
+        'Happy Valley Office',
+        'Hoyt Office',
+        'Milwaukie Office',
+        'Newberg Washington Street Office',
+        'Portland Northwest District Office',
+        'Sherwood Office',
+        'Tanasbourne Office',
+        'Tigard Locust Office',
+        'Tigard Oleson Office',
+        'West Linn Office',
+        'Wilsonville Office',
+        'Cedar Mill Clinic',
+        'Tigard Clinic',
+        'Locust Clinic'
+    ]
     const toggleAppointmentForm = () => {
         if (location.pathname === '/locations') {
           const scrollToHeight = document.body.scrollHeight * 0.8;
@@ -93,6 +111,26 @@ const Navbar = () => {
     const closeForm = () => {
         setIsPopupOpen(false); // Close the form
     };
+    const generateDynamicLink = (item) => {
+        let link;
+        if (locations.includes(item)) {
+          link = `/locations#${item.replace(/\s+/g, '-').toLowerCase()}`;
+        } else {
+          // Default link for other items
+          link = `/${item.replace(/\s+/g, '-').toLowerCase()}`;
+        }
+      
+        return (
+          <NavLink
+            key={item}
+            to={link}
+            className={({ isActive }) =>
+              isActive ? 'nav-link-nav active' : 'nav-link-nav'
+            }>
+            {item}
+          </NavLink>
+        );
+      };
       
     return (
         <header className='navbar-div'>
@@ -102,7 +140,7 @@ const Navbar = () => {
                         <div className='logo-and-title'>
                             <img
                                 src='https://i.imgur.com/QuXDpPX.webp'
-                                alt='Default Company'
+                                alt='Northwest Extremity Specialists'
                                 className='navbar-logo'
                             />
                             <div>
@@ -123,13 +161,13 @@ const Navbar = () => {
                                 </span>
                             </NavLink>
                             <div className="downloads-call-us">
-                                <div
-                                    onClick={togglePopup}
-                                    >
-                                    <span className='nav-button'>
-                                        Download Forms
-                                    </span>
-                                </div>
+                            <div
+                                onClick={() => window.open('/NESPaperwork.pdf', '_blank')}
+                            >
+                                <span className='nav-button-white'>
+                                    Download Forms
+                                </span>
+                            </div>
                                 <span className='nav-button'>
                                     <ContactNav />
                                 </span>

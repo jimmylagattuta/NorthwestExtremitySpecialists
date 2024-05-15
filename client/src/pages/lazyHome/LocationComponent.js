@@ -27,8 +27,8 @@ const LocationComponent = () => {
                     <i className='fas fa-map-marked-alt fa-3x'></i>
                 </div>
                 <h2 className='section-title-location-component'>
-                    Offices Located Across
-                    The Greater Hilltown and Rivercity Area
+                    We Bring Personalized Podiatric & Orthopedic Care
+                    Throughout Oregon
                 </h2>
             </div>
         </div>

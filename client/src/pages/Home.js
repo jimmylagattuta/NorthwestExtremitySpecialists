@@ -49,17 +49,17 @@ const Home = () => {
                 <div className='home-banner'>
                     <div className="banner-title-container">
                         <h1 style={{ color: 'white', textShadow: '1px 1px 6px black' }} className='banner-title'>
-                            {" "}Compassionate{" "}
+                            {" "}Orthopedic{" "}
                         </h1>
                         <h1 style={{ color: 'white', textShadow: '1px 1px 6px black' }} className='banner-title'>
-                            {" "}Orthopedic{" "}
+                            {" "}& Podiatry{" "}
                         </h1>
                         <h1 style={{ color: 'white', textShadow: '1px 1px 6px black' }} className='banner-title'>
                             {" "}Care{" "}
                         </h1>
                     </div>
                     <p style={{ color: 'white', textShadow: '1px 1px 6px black' }} className='banner-description'>
-                        Experienced Medical Professionals With A Personal Touch
+                        Committed to Offering You State-of-the-Art Treatment
                     </p>
                     <div className='banner-buttons'>
                         <div className='button-wrapper'>
