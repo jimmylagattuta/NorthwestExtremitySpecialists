@@ -63,13 +63,16 @@ const Home = () => {
                     </p>
                     <div className='banner-buttons'>
                         <div className='button-wrapper'>
-                            <Link
+                            <a
                                 className='btn header-button-yellow'
-                                to={{ pathname: '/locations', hash: '#chatbox' }}
+                                href='https://www.zocdoc.com/practice/northwest-extremity-specialists-29786'
+                                target='_blank' // Opens the link in a new tab
+                                rel='noopener noreferrer' // Recommended for security reasons
                             >
                                 Request Appointment
                                 <i id="banner-btn-arrow" className="fas fa-long-arrow-alt-right"></i>
-                            </Link>
+                            </a>
+
                         </div>
                     </div>
                 </div>
