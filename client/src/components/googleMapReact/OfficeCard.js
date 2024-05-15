@@ -5,6 +5,7 @@ import { officesData } from '../../data';
 
 const InfoWindow = ({ place, handleInfoWindowClose }) => {
     const getOfficeHours = (city) => {
+        console.log('city', city);
         switch (city) {
             case 'Bridgeport Office':
                 return '8:00 a.m. – 5:00 p.m. Every 1st & 3rd Wednesday';
