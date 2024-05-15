@@ -4,6 +4,41 @@ import GoogleMapReact from 'google-map-react';
 import { officesData } from '../../data';
 
 const InfoWindow = ({ place, handleInfoWindowClose }) => {
+    const getOfficeHours = (city) => {
+        switch (city) {
+            case 'Bridgeport Office':
+                return '8:00 a.m. – 5:00 p.m. Every 1st & 3rd Wednesday';
+            case 'Cedar Mill':
+                return '8 a.m. - 5 p.m. Mon - Thurs\n8 a.m. - 12 p.m. Fri';
+            case 'Gresham Office':
+                return 'Every 2nd & 4th Friday from 8 a.m. - 12 p.m.';
+            case 'Happy Valley Office':
+                return '8 a.m. –12 p.m. Fridays';
+            case 'Hoyt':
+                return '8 a.m. - 5 p.m. Mon - Thurs';
+            case 'Milwaukie Office':
+                return '9 a.m. – 5 p.m. Mon – Thurs\n9 a.m - 4 p.m. Fri';
+            case 'Newberg Washington Street Office':
+                return '8:30 a.m. - 4:30 p.m. Monday, Wednesday and Thursday\n8:30 a.m. - 3:00 p.m Every 2nd & 4th Tuesday\n8:30 a.m. - 2:00 p.m Fri';
+            case 'Portland Northwest District Office':
+                return '8 a.m. – 4 p.m. Tues\n9 a.m. - 6 p.m. Every 2nd and 4th Wed\n8 a.m. - 12 p.m. Every 1st and 3rd Fri';
+            case 'Sherwood Office':
+                return 'By appointment only';
+            case 'Tanasbourne Office':
+                return 'By appointment only';
+            case 'Tigard Locust Office':
+                return '8 a.m. – 5 p.m. Mon – Thurs\n8 a.m - 2:30 p.m. Fri';
+            case 'Tigard Oleson Office':
+                return '8 a.m. – 5 p.m. Mon – Thu\n8 a.m. – 1 p.m. Fri';
+            case 'West Linn Office':
+                return '8 a.m. – 5 p.m. Mon – Thurs\n8 a.m - 4 p.m. Fri';
+            case 'Wilsonville Office':
+                return '8 a.m. – 5 p.m. Wednesday';
+            default:
+                return '';
+        }
+    };
+    
     return (
         <div className='location-info-window'>
             <div className="location-card-info">
@@ -23,9 +58,8 @@ const InfoWindow = ({ place, handleInfoWindowClose }) => {
                         Hours of Operation
                     </h2>
                     <div className='info-window-text-cards'>
-                        {place.city === 'Eastville' ? 'Mon, Tue, Thu, Fri' : (place.city === 'Rivercity' ? 'Mon, Tue, Wed, Fri' : 'Monday - Friday')}
+                        {getOfficeHours(place.city)}
                     </div>
-                    <div className='info-window-text-cards'>8AM-5PM</div>
                     <div className='info-window-icons-cards'>
                         <a
                             className='info-window-icon'

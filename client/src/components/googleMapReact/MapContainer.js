@@ -52,7 +52,7 @@ const FloatingOfficeInfo = ({
         switch (city) {
             case 'Bridgeport Office':
                 return '8:00 a.m. – 5:00 p.m. Every 1st & 3rd Wednesday';
-            case 'Cedar Mill Office':
+            case 'Cedar Mill':
                 return '8 a.m. - 5 p.m. Mon - Thurs\n8 a.m. - 12 p.m. Fri';
             case 'Gresham Office':
                 return 'Every 2nd & 4th Friday from 8 a.m. - 12 p.m.';
