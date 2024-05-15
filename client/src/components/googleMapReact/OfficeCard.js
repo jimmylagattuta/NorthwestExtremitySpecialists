@@ -14,7 +14,7 @@ const InfoWindow = ({ place, handleInfoWindowClose }) => {
                 return 'Every 2nd & 4th Friday from 8 a.m. - 12 p.m.';
             case 'Happy Valley Office':
                 return '8 a.m. –12 p.m. Fridays';
-            case 'Hoyt':
+            case 'Hoyt Office':
                 return '8 a.m. - 5 p.m. Mon - Thurs';
             case 'Milwaukie Office':
                 return '9 a.m. – 5 p.m. Mon – Thurs\n9 a.m - 4 p.m. Fri';
