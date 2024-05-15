@@ -136,7 +136,7 @@ img {
 
 .fa-map-marker-alt {
     font-size: 30px;
-    color: rgb(0 64 143 / 35%);
+    color: rgb(0 64 143 / 90%);
     cursor: pointer;
     z-index: 10;
 }
@@ -178,7 +178,7 @@ img {
 .map-float-title {
     font-size: 16px;
     margin: 0 0 3px 0;
-    color:rgb(0 64 143 / 35%);
+    color:rgba(0 64 143 / 90%);
 
 }
 
@@ -208,7 +208,7 @@ img {
 }
 
 .map-float-info-container.show-extra {
-    border: 2px solid rgb(0 64 143 / 75%);
+    border: 2px solid rgb(0 64 143 / 35%);
 }
 
 .map-container {
