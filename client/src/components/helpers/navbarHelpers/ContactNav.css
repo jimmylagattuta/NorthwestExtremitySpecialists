@@ -321,7 +321,7 @@
       z-index: 8;
   }
   .words-appear {
-    display: none;
+    /* display: none; */
   }
   .contact-nav-menu {
     /* position: absolute; */
