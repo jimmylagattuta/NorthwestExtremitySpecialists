@@ -1980,7 +1980,7 @@ export const officesData = [
         addressTwo: 'Tigard, OR 97224',
         phone: '503-245-2420',
         fax: '503-245-2445',
-        image: '../BridgePort.jpg',
+        image: './BridgePort.jpg',
         coordinates: {
             lat: 45.3909275,
             lng: -122.7506849,
@@ -1994,7 +1994,7 @@ export const officesData = [
         addressTwo: 'Portland, OR 97229',
         phone: '503-643-1737',
         fax: '503-643-4926',
-        image: '../Cedar.jpg',
+        image: './Cedar.jpg',
         coordinates: {
             lat: 45.5252959,
             lng: -122.8050949,
@@ -2008,7 +2008,7 @@ export const officesData = [
         addressTwo: 'Portland, OR 97233',
         phone: '503-221-1581',
         fax: '503-221-1582',
-        image: '../Gresham.jpg',
+        image: './Gresham.jpg',
         coordinates: {
             lat: 45.518265,
             lng: -122.533436,
@@ -2022,7 +2022,7 @@ export const officesData = [
         addressTwo: 'Happy Valley, OR 97086',
         phone: '503-245-2420',
         fax: '503-245-2445',
-        image: '../Happy.jpg',
+        image: './Happy.jpg',
         coordinates: {
             lat: 45.4269689,
             lng: -122.4979055,
@@ -2036,7 +2036,7 @@ export const officesData = [
         addressTwo: 'Portland, OR 97213',
         phone: '503-643-1737',
         fax: '503-643-4926',
-        image: '../Hoyt.jpg',
+        image: './Hoyt.jpg',
         coordinates: {
             lat: 45.5267949,
             lng: -122.6116677,
@@ -2050,7 +2050,7 @@ export const officesData = [
         addressTwo: 'Milwaukie, OR 97222',
         phone: '503-659-6686',
         fax: '503-905-6202',
-        image: '../Milwaukie.jpg',
+        image: './Milwaukie.jpg',
         coordinates: {
             lat: 45.4265911,
             lng: -122.5975221,
@@ -2064,7 +2064,7 @@ export const officesData = [
         addressTwo: 'Newberg, OR 97132',
         phone: '503-538-0800',
         fax: '503-554-8408',
-        image: '../Newberg.jpg',
+        image: './Newberg.jpg',
         coordinates: {
             lat: 45.3013744,
             lng: -122.9774889,
@@ -2078,7 +2078,7 @@ export const officesData = [
         addressTwo: 'Portland, OR 97210',
         phone: '503-924-6509',
         fax: '503-221-1582',
-        image: '../Portland.jpg',
+        image: './Portland.jpg',
         coordinates: {
             lat: 45.5295222,
             lng: -122.6969282,
@@ -2091,7 +2091,7 @@ export const officesData = [
         addressOne: '16770 SW Edy Rd #318',
         addressTwo: 'Sherwood, OR 97140',
         phone: '503-245-2420',
-        image: '../Sherwood.jpg',
+        image: './Sherwood.jpg',
         fax: '503-245-2445',
         coordinates: {
             lat: 45.3665578,
@@ -2106,7 +2106,7 @@ export const officesData = [
         addressTwo: 'Hillsboro, OR 97124',
         phone: '503-245-2420',
         fax: '503-245-2445',
-        image: '../Tanasbourne.jpg',
+        image: './Tanasbourne.jpg',
         coordinates: {
             lat: 45.5337576,
             lng: -122.8697315,
@@ -2120,7 +2120,7 @@ export const officesData = [
         addressTwo: 'Tigard, OR 97223',
         phone: '503-352-1313',
         fax: '503-352-1314',
-        image: '../Tigard.jpg',
+        image: './Tigard.jpg',
         coordinates: {
             lat: 45.4472672,
             lng: -122.7740161,
@@ -2134,7 +2134,7 @@ export const officesData = [
         addressTwo: 'Portland, OR 97223',
         phone: '503-245-2420',
         fax: '503-245-2445',
-        image: '../TigardO.jpg',
+        image: './TigardO.jpg',
         coordinates: {
             lat: 45.454624,
             lng: -122.7734863,
@@ -2148,7 +2148,7 @@ export const officesData = [
         addressTwo: 'West Linn, OR 97068',
         phone: '503-655-0775',
         fax: '503-655-0751',
-        image: '../West.jpg',
+        image: './West.jpg',
         coordinates: {
             lat: 45.3651197,
             lng: -122.612059,
@@ -2162,7 +2162,7 @@ export const officesData = [
         addressTwo: 'Wilsonville, OR 97070',
         phone: '503-682-6035',
         fax: '503-245-2445',
-        image: '../Wilsonville.jpg',
+        image: './Wilsonville.jpg',
         coordinates: {
             lat: 45.3043652,
             lng: -122.7644405,
