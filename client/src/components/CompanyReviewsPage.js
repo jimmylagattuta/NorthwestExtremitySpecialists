@@ -124,7 +124,7 @@ const CompanyReviewsPage = () => {
                                 return false;
                             }
 
-                            if (review.author_name.includes('Dr. Denny Le')) {
+                            if (review.text.includes('Dr. Denny Le')) {
                                 if (dennyLeReviewIncluded) {
                                     return false;
                                 } else {
