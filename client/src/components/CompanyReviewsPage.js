@@ -141,7 +141,7 @@ const CompanyReviewsPage = () => {
                     const randomReviews = dennyLeReviews.concat(shuffledReviews).slice(0, 3);
         
                     console.log('Selected random reviews including Dr. Denny Le:', randomReviews);
-                    saveToCache(data.northwest_reviews);
+                    saveToCache(shuffledReviews);
                     setReviews(randomReviews);
                     setLoading(false);
                 } else {
