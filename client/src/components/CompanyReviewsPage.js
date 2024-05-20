@@ -102,60 +102,30 @@ const CompanyReviewsPage = () => {
             };
 
             fetch(url, { headers })
-                .then((response) => {
-                    if (response.ok) {
-                        return response.json();
-                    } else {
-                        throw new Error('Failed to fetch reviews');
+            .then((data) => {
+                if (Array.isArray(data.northwest_reviews)) {
+                    // Update CSRF token only if it changes
+                    if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
+                        setCsrfToken(data.csrf_token);
+                        previousCsrfToken.current = data.csrf_token;
                     }
-                })
-                .then((data) => {
-                  // console.log('data', data);
-                    if (Array.isArray(data.northwest_reviews)) {
-                        // Update CSRF token only if it changes
-                        if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
-                            setCsrfToken(data.csrf_token);
-                            previousCsrfToken.current = data.csrf_token;
-                        }
-
-                        
-                        let dennyLeReviewIncluded = false;
-                        const dennyLeForms = ['denny le', 'dr. denny le', 'dr. denny lee', 'dr. lee', 'dr. le', 'denny lee'];
-
-                        const filteredReviews = data.northwest_reviews.filter((review) => {
-                            if (!isRelevantReview(review) || review.text.startsWith("Absolutely horrendous") || defaultProfilePhotoUrls.includes(review.profile_photo_url)) {
-                                return false;
-                            }
-                        
-                            const reviewText = review.text.toLowerCase();
-                            if (dennyLeForms.some(form => reviewText.includes(form))) {
-                                if (!dennyLeReviewIncluded) {
-                                    dennyLeReviewIncluded = true;
-                                    return true;
-                                } else {
-                                    return false;
-                                }
-                            }
-                        
-                            return true;
-                        });
-                        
-
-                        const shuffledReviews = shuffleArray(filteredReviews);
-                        let dennyLeReviews = shuffledReviews.filter(review => dennyLeForms.some(form => review.text.toLowerCase().includes(form)));
-                        const remainingReviews = shuffledReviews.filter(review => !dennyLeForms.some(form => review.text.toLowerCase().includes(form)));
-                        
-                        if (dennyLeReviews.length > 1) {
-                            dennyLeReviews = dennyLeReviews.slice(0, 1);
-                        }
-                        
-                        const randomReviews = dennyLeReviews.concat(remainingReviews.slice(0, 3 - dennyLeReviews.length));
-                        
-                        saveToCache(randomReviews);
-                        setReviews(randomReviews);
-                        setLoading(false);
-                        
-                        
+        
+                    const dennyLeForms = ['denny le', 'dr. denny le', 'dr. denny lee', 'dr. lee', 'dr. le', 'denny lee'];
+        
+                    const dennyLeReviews = data.northwest_reviews.filter(review =>
+                        dennyLeForms.some(form => review.text.toLowerCase().includes(form))
+                    );
+        
+                    const remainingReviews = data.northwest_reviews.filter(review =>
+                        !dennyLeForms.some(form => review.text.toLowerCase().includes(form))
+                    );
+        
+                    const shuffledReviews = shuffleArray(remainingReviews);
+                    const randomReviews = dennyLeReviews.concat(shuffledReviews.slice(0, 3 - dennyLeReviews.length));
+        
+                    saveToCache(randomReviews);
+                    setReviews(randomReviews);
+                    setLoading(false);
                     } else {
                         throw new Error('Data.northwest_reviews is not an array');
                     }
