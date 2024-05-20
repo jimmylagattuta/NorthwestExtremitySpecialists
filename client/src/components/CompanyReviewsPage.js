@@ -144,7 +144,7 @@ const CompanyReviewsPage = () => {
                         const shuffledReviews = shuffleArray(filteredReviews);
                         const randomReviews = shuffledReviews.slice(0, 3);
 
-                        saveToCache(shuffledReviews);
+                        saveToCache(randomReviews);
                         setReviews(randomReviews);
                         setLoading(false);
                     } else {
