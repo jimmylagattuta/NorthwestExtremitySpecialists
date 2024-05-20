@@ -76,9 +76,9 @@ const CompanyReviewsPage = () => {
             if (cachedData) {
                 const { reviews, expiry } = JSON.parse(cachedData);
                 if (expiry > Date.now()) {
-                    return JSON.parse(reviews);
+                    return reviews;
                 } else {
-                    localStorage.removeItem(cacheKey); // Remove expired cache
+                    localStorage.removeItem(cacheKey);
                 }
             }
             return null;
@@ -87,7 +87,7 @@ const CompanyReviewsPage = () => {
         const saveToCache = (data) => {
             const expiry = Date.now() + 7 * 24 * 60 * 60 * 1000;
             const cacheData = { reviews: data, expiry };
-            localStorage.setItem(cacheKey, cacheData);
+            localStorage.setItem(cacheKey, JSON.stringify(cacheData));
         };
 
         const fetchReviews = () => {
@@ -95,67 +95,68 @@ const CompanyReviewsPage = () => {
                 process.env.NODE_ENV === 'production'
                     ? 'https://www.nespecialists.com/api/v1/pull_google_places_cache'
                     : 'http://localhost:3001/api/v1/pull_google_places_cache';
-        
+
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRF-Token': csrfToken,
             };
-        
-            console.log('Fetching reviews...');
+
             fetch(url, { headers })
-            .then((response) => {
-                console.log('Response status:', response.status);
-                if (response.ok) {
-                    return response.json();
-                } else {
-                    throw new Error('Failed to fetch reviews');
-                }
-            })
-            .then((data) => {
-                console.log('Received reviews data:', data);
-                if (Array.isArray(data.northwest_reviews)) {
-                    console.log('Data is an array');
-        
-                    // Update CSRF token only if it changes
-                    if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
-                        console.log('Updating CSRF token:', data.csrf_token);
-                        setCsrfToken(data.csrf_token);
-                        previousCsrfToken.current = data.csrf_token;
+                .then((response) => {
+                    if (response.ok) {
+                        return response.json();
+                    } else {
+                        throw new Error('Failed to fetch reviews');
                     }
-        
-                    const dennyLeForms = ['denny le', 'dr. denny le', 'dr. denny lee', 'dr. lee', 'dr. le', 'denny lee'];
-        
-                    const dennyLeReviews = data.northwest_reviews.filter(review =>
-                        dennyLeForms.some(form => review.text.toLowerCase().includes(form))
-                    );
-        
-                    console.log('Reviews related to Dr. Denny Le:', dennyLeReviews);
-        
-                    const remainingReviews = data.northwest_reviews.filter(review =>
-                        !dennyLeForms.some(form => review.text.toLowerCase().includes(form))
-                    );
-        
-                    console.log('Remaining reviews after filtering:', remainingReviews);
-        
-                    const shuffledReviews = shuffleArray(remainingReviews);
-                    const randomReviews = dennyLeReviews.concat(shuffledReviews).slice(0, 3);
-        
-                    console.log('Selected random reviews including Dr. Denny Le:', randomReviews);
-                    saveToCache(shuffledReviews);
-                    setReviews(randomReviews);
+                })
+                .then((data) => {
+                  // console.log('data', data);
+                    if (Array.isArray(data.northwest_reviews)) {
+                        // Update CSRF token only if it changes
+                        if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
+                            setCsrfToken(data.csrf_token);
+                            previousCsrfToken.current = data.csrf_token;
+                        }
+
+                        
+                        let dennyLeReviewIncluded = false;
+                        const dennyLeForms = ['denny le', 'dr. denny le', 'dr. denny lee', 'dr. lee', 'dr. le', 'denny lee'];
+
+                        const filteredReviews = data.northwest_reviews.filter((review) => {
+                            if (!isRelevantReview(review) || review.text.startsWith("Absolutely horrendous") || defaultProfilePhotoUrls.includes(review.profile_photo_url)) {
+                                return false;
+                            }
+
+                            const reviewText = review.text.toLowerCase();
+                            if (dennyLeForms.some(form => reviewText.includes(form))) {
+                                if (dennyLeReviewIncluded) {
+                                    return false;
+                                } else {
+                                    dennyLeReviewIncluded = true;
+                                }
+                            }
+
+                            return true;
+                        });
+
+
+
+                        const shuffledReviews = shuffleArray(filteredReviews);
+                        const randomReviews = shuffledReviews.slice(0, 3);
+
+                        saveToCache(randomReviews);
+                        setReviews(randomReviews);
+                        setLoading(false);
+                    } else {
+                        throw new Error('Data.northwest_reviews is not an array');
+                    }
+                })
+                .catch((err) => {
+                    console.error(err);
+                    setError(err.message);
                     setLoading(false);
-                } else {
-                    throw new Error('Data.northwest_reviews is not an array');
-                }
-            })
-            .catch((err) => {
-                console.error(err);
-                setError(err.message);
-                setLoading(false);
-            });
+                });
         };
-        
-        
 
         const shuffleArray = (array) => {
             for (let i = array.length - 1; i > 0; i--) {
