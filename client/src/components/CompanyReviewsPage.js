@@ -142,13 +142,19 @@ const CompanyReviewsPage = () => {
 
 
                         const shuffledReviews = shuffleArray(filteredReviews);
-                        const dennyLeReviews = shuffledReviews.filter(review => dennyLeForms.some(form => review.text.toLowerCase().includes(form)));
-                        const remainingReviews = shuffledReviews.filter(review => !dennyLeForms.some(form => review.text.toLowerCase().includes(form))).slice(0, 3 - dennyLeReviews.length);
-                        const randomReviews = dennyLeReviews.concat(remainingReviews);
+                        let dennyLeReviews = shuffledReviews.filter(review => dennyLeForms.some(form => review.text.toLowerCase().includes(form)));
+                        const remainingReviews = shuffledReviews.filter(review => !dennyLeForms.some(form => review.text.toLowerCase().includes(form)));
+                        
+                        if (dennyLeReviews.length > 1) {
+                            dennyLeReviews = dennyLeReviews.slice(0, 1);
+                        }
+                        
+                        const randomReviews = dennyLeReviews.concat(remainingReviews.slice(0, 3 - dennyLeReviews.length));
                         
                         saveToCache(randomReviews);
                         setReviews(randomReviews);
                         setLoading(false);
+                        
                         
                     } else {
                         throw new Error('Data.northwest_reviews is not an array');
