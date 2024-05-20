@@ -110,45 +110,36 @@ const CompanyReviewsPage = () => {
                     }
                 })
                 .then((data) => {
-                  // console.log('data', data);
-                    if (Array.isArray(data.northwest_reviews)) {
+                    // console.log('data', data);
+                    if (Array.isArray(data.creekside_reviews) && Array.isArray(data.northwest_reviews)) {
                         // Update CSRF token only if it changes
                         if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
                             setCsrfToken(data.csrf_token);
                             previousCsrfToken.current = data.csrf_token;
                         }
 
-                        
-                        let dennyLeReviewIncluded = false;
-                        const dennyLeForms = ['denny le', 'dr. denny le', 'dr. denny lee', 'dr. lee', 'dr. le', 'denny lee'];
 
-                        const filteredReviews = data.northwest_reviews.filter((review) => {
-                            if (!isRelevantReview(review) || review.text.startsWith("Absolutely horrendous") || defaultProfilePhotoUrls.includes(review.profile_photo_url)) {
-                                return false;
-                            }
+                        const creeksideReviews = getFilteredReviews(data.creekside_reviews);
+                        const northwestReviews = getFilteredReviews(data.northwest_reviews);
+            
+                        const combinedReviews = [
+                            ...data.creekside_reviews,
+                            ...data.northwest_reviews
+                        ];
 
-                            // const reviewText = review.text.toLowerCase();
-                            // if (dennyLeForms.some(form => reviewText.includes(form))) {
-                            //     if (dennyLeReviewIncluded) {
-                            //         return false;
-                            //     } else {
-                            //         dennyLeReviewIncluded = true;
-                            //     }
-                            // }
-
-                            return true;
-                        });
-
-
-
-                        const shuffledReviews = shuffleArray(filteredReviews);
+                        const shuffledReviews = shuffleArray(combinedReviews);
+                        console.log('shuffledReviews', shuffledReviews);
                         const randomReviews = shuffledReviews.slice(0, 3);
-
-                        saveToCache(randomReviews);
+                        console.log('combinedReviews', combinedReviews);
+                        console.log('data', data);
+                        console.log('randomReviews', randomReviews);
+                        saveToCache(combinedReviews);
+                        console.log('setReviews 1');
                         setReviews(randomReviews);
+                        setKey((prevKey) => prevKey + 1); // Update the key to force re-render
                         setLoading(false);
                     } else {
-                        throw new Error('Data.northwest_reviews is not an array');
+                        console.log('Data reviews are not arrays');
                     }
                 })
                 .catch((err) => {

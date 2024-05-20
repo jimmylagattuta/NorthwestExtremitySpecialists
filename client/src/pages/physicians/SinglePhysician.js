@@ -11,14 +11,23 @@ const SinglePhysician = () => {
     });
     // console.log('physician', physician);
     const doctors = [
-        'Default Doctor 1',
-        'Default Doctor 2',
-        'Default Doctor 3',
-        'Default Doctor 4',
-        'Default Doctor 5',
-        'Default Doctor 6',
-        'Default Doctor 7'
-    ];
+        'dr. ron bowman',
+        'dr. alex friedman',
+        'dr. clifford d. mah',
+        'dr. denny le',
+        'dr. jason surratt',
+        'dr. manny moy',
+        'dr. mia horvath',
+        'dr. peter pham',
+        'dr. thomas melillo',
+        'dr. todd galle',
+        'dr. yama dehqanzada',
+        'dr. cara beach',
+        'dr. lacey beth lockhart',
+        'dr. melinda nicholes',
+        'dr. taylor bunka'
+    ]
+    
     const { bio, image, name, practiceEmphasis, specialProcedures } = physician;
     const cacheKey = 'cached_northwest_reviews';
     const formatDate = (dateString) => {
