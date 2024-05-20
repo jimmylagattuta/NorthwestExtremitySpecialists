@@ -102,7 +102,7 @@ class GooglePlacesCached
   private
 
   def self.fetch_five_star_reviews_for_place_id(place_id, api_key)
-    # puts "Fetching five-star reviews for place ID: #{place_id}"
+    puts "Fetching five-star reviews for place ID: #{place_id}"
     http = Net::HTTP.new("maps.googleapis.com", 443)
     http.use_ssl = true
     url = URI("https://maps.googleapis.com/maps/api/place/details/json?place_id=#{place_id}&fields=reviews&key=#{api_key}")
@@ -114,7 +114,7 @@ class GooglePlacesCached
       # puts "Successfully fetched reviews for place ID: #{place_id}"
       reviews = data['result']['reviews'] || []
       reviews.select { |review| review['rating'] == 5 }.each do |review|
-        # puts " - #{review['author_name']}: #{review['text']}"
+        puts " - #{review['author_name']}: #{review['text']}"
       end
       reviews.select { |review| review['rating'] == 5 }
     else
