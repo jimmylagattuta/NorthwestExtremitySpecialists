@@ -126,20 +126,20 @@ const CompanyReviewsPage = () => {
                             if (!isRelevantReview(review) || review.text.startsWith("Absolutely horrendous") || defaultProfilePhotoUrls.includes(review.profile_photo_url)) {
                                 return false;
                             }
-
-                            // const reviewText = review.text.toLowerCase();
-                            // if (dennyLeForms.some(form => reviewText.includes(form))) {
-                            //     if (dennyLeReviewIncluded) {
-                            //         return false;
-                            //     } else {
-                            //         dennyLeReviewIncluded = true;
-                            //     }
-                            // }
-
+                        
+                            const reviewText = review.text.toLowerCase();
+                            if (dennyLeForms.some(form => reviewText.includes(form))) {
+                                if (!dennyLeReviewIncluded) {
+                                    dennyLeReviewIncluded = true;
+                                    return true;
+                                } else {
+                                    return false;
+                                }
+                            }
+                        
                             return true;
                         });
-
-
+                        
 
                         const shuffledReviews = shuffleArray(filteredReviews);
                         let dennyLeReviews = shuffledReviews.filter(review => dennyLeForms.some(form => review.text.toLowerCase().includes(form)));
