@@ -76,9 +76,9 @@ const CompanyReviewsPage = () => {
             if (cachedData) {
                 const { reviews, expiry } = JSON.parse(cachedData);
                 if (expiry > Date.now()) {
-                    return reviews;
+                    return JSON.parse(reviews);
                 } else {
-                    localStorage.removeItem(cacheKey);
+                    localStorage.removeItem(cacheKey); // Remove expired cache
                 }
             }
             return null;
