@@ -87,7 +87,7 @@ const CompanyReviewsPage = () => {
         const saveToCache = (data) => {
             const expiry = Date.now() + 7 * 24 * 60 * 60 * 1000;
             const cacheData = { reviews: data, expiry };
-            localStorage.setItem(cacheKey, JSON.stringify(cacheData));
+            localStorage.setItem(cacheKey, cacheData);
         };
 
         const fetchReviews = () => {
@@ -95,12 +95,12 @@ const CompanyReviewsPage = () => {
                 process.env.NODE_ENV === 'production'
                     ? 'https://www.nespecialists.com/api/v1/pull_google_places_cache'
                     : 'http://localhost:3001/api/v1/pull_google_places_cache';
-
+        
             const headers = {
                 'Content-Type': 'application/json',
                 'X-CSRF-Token': csrfToken,
             };
-
+        
             fetch(url, { headers })
             .then((response) => {
                 if (response.ok) {
@@ -129,21 +129,22 @@ const CompanyReviewsPage = () => {
                     );
         
                     const shuffledReviews = shuffleArray(remainingReviews);
-                    const randomReviews = dennyLeReviews.concat(shuffledReviews.slice(0, 3 - dennyLeReviews.length));
+                    const randomReviews = dennyLeReviews.concat(shuffledReviews).slice(0, 3);
         
                     saveToCache(data.northwest_reviews);
                     setReviews(randomReviews);
                     setLoading(false);
-                    } else {
-                        throw new Error('Data.northwest_reviews is not an array');
-                    }
-                })
-                .catch((err) => {
-                    console.error(err);
-                    setError(err.message);
-                    setLoading(false);
-                });
+                } else {
+                    throw new Error('Data.northwest_reviews is not an array');
+                }
+            })
+            .catch((err) => {
+                console.error(err);
+                setError(err.message);
+                setLoading(false);
+            });
         };
+        
 
         const shuffleArray = (array) => {
             for (let i = array.length - 1; i > 0; i--) {
@@ -155,7 +156,7 @@ const CompanyReviewsPage = () => {
 
         const cachedReviews = getCachedReviews();
         if (cachedReviews) {
-            setReviews(randomReviews);
+            setReviews(cachedReviews);
             setLoading(false);
         } else {
             fetchReviews();
