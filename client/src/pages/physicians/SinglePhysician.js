@@ -20,7 +20,7 @@ const SinglePhysician = () => {
         'Default Doctor 7'
     ];
     const { bio, image, name, practiceEmphasis, specialProcedures } = physician;
-    const cacheKey = 'cached_northwest_reviews';
+    const cacheKey = 'google_places_reviews';
     const formatDate = (dateString) => {
         const date = new Date(dateString);
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
@@ -75,6 +75,7 @@ const SinglePhysician = () => {
             const { reviews, expiry } = JSON.parse(cachedDataBeforeJson);
             // const cachedData = JSON.parse(cachedDataOne);
             // console.log('cachedData', cachedData);
+            console.log('reviews', reviews);
             return reviews.map((review, index) => {
                 console.log('review NES', review);
 
