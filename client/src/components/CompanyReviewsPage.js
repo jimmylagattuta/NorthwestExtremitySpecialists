@@ -102,6 +102,13 @@ const CompanyReviewsPage = () => {
             };
 
             fetch(url, { headers })
+            .then((response) => {
+                if (response.ok) {
+                    return response.json();
+                } else {
+                    throw new Error('Failed to fetch reviews');
+                }
+            })
             .then((data) => {
                 console.log('data', data);
                 if (Array.isArray(data.northwest_reviews)) {
