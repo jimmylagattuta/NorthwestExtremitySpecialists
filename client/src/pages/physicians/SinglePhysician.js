@@ -76,7 +76,8 @@ const SinglePhysician = () => {
             // const cachedData = JSON.parse(cachedDataOne);
             // console.log('cachedData', cachedData);
             return reviews.map((review, index) => {
-                console.log('review', review);
+                console.log('review NES', review);
+
                 const filteredName = name
                     .split(/[,.]\s*/)
                     .filter(

@@ -117,27 +117,28 @@ const CompanyReviewsPage = () => {
                             setCsrfToken(data.csrf_token);
                             previousCsrfToken.current = data.csrf_token;
                         }
+
+                        
                         let dennyLeReviewIncluded = false;
                         const dennyLeForms = ['denny le', 'dr. denny le', 'dr. denny lee', 'dr. lee', 'dr. le', 'denny lee'];
-        
+
                         const filteredReviews = data.northwest_reviews.filter((review) => {
                             if (!isRelevantReview(review) || review.text.startsWith("Absolutely horrendous") || defaultProfilePhotoUrls.includes(review.profile_photo_url)) {
                                 return false;
                             }
-        
+
                             const reviewText = review.text.toLowerCase();
                             if (dennyLeForms.some(form => reviewText.includes(form))) {
                                 if (dennyLeReviewIncluded) {
                                     return false;
                                 } else {
                                     dennyLeReviewIncluded = true;
-                                    return true;
                                 }
                             }
-        
+
                             return true;
                         });
-        
+
 
 
                         const shuffledReviews = shuffleArray(filteredReviews);
