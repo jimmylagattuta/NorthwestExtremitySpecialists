@@ -89,7 +89,13 @@ const CompanyReviewsPage = () => {
             const cacheData = { reviews: data, expiry };
             localStorage.setItem(cacheKey, JSON.stringify(cacheData));
         };
-
+        const getFilteredReviews = (reviewList) => {
+            return reviewList.filter(
+                (review) => isRelevantReview(review) &&
+                    !review.text.startsWith("Absolutely horrendous") &&
+                    !defaultProfilePhotoUrls.includes(review.profile_photo_url)
+            );
+        };
         const fetchReviews = () => {
             const url =
                 process.env.NODE_ENV === 'production'
