@@ -155,7 +155,7 @@ const CompanyReviewsPage = () => {
 
         const cachedReviews = getCachedReviews();
         if (cachedReviews) {
-            setReviews(cachedReviews);
+            setReviews(randomReviews);
             setLoading(false);
         } else {
             fetchReviews();
