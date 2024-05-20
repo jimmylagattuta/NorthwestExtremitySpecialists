@@ -170,7 +170,17 @@ const CompanyReviewsPage = () => {
 
         const cachedReviews = getCachedReviews();
         if (cachedReviews) {
-            setReviews(cachedReviews);
+            console.log('setReviews 2');
+            console.log('cachedReviews', cachedReviews);
+            console.log('cachedReviews.length', cachedReviews.length);
+
+            if (cachedReviews.length === 3) {
+                console.log('cachedReviews is 3', cachedReviews);
+                setReviews(cachedReviews);
+            } else {
+                console.log('cachedReviews is not 3', cachedReviews);
+                setReviews(cachedReviews.slice(0, 3));
+            }
             setLoading(false);
         } else {
             fetchReviews();
