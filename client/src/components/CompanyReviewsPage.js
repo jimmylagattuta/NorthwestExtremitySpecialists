@@ -131,7 +131,7 @@ const CompanyReviewsPage = () => {
                     const shuffledReviews = shuffleArray(remainingReviews);
                     const randomReviews = dennyLeReviews.concat(shuffledReviews.slice(0, 3 - dennyLeReviews.length));
         
-                    saveToCache(randomReviews);
+                    saveToCache(data.northwest_reviews);
                     setReviews(randomReviews);
                     setLoading(false);
                     } else {
