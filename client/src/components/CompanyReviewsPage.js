@@ -117,21 +117,21 @@ const CompanyReviewsPage = () => {
                             setCsrfToken(data.csrf_token);
                             previousCsrfToken.current = data.csrf_token;
                         }
-                        let dennyLeReviewIncluded = false;
+                        // let dennyLeReviewIncluded = false;
 
                         const filteredReviews = data.northwest_reviews.filter((review) => {
                             if (!isRelevantReview(review) || review.text.startsWith("Absolutely horrendous") || defaultProfilePhotoUrls.includes(review.profile_photo_url)) {
                                 return false;
                             }
 
-                            if (review.text.includes('Dr. Denny Le')) {
-                                if (dennyLeReviewIncluded) {
-                                    return false;
-                                } else {
-                                    dennyLeReviewIncluded = true;
-                                    return true;
-                                }
-                            }
+                            // if (review.text.includes('Dr. Denny Le')) {
+                            //     if (dennyLeReviewIncluded) {
+                            //         return false;
+                            //     } else {
+                            //         dennyLeReviewIncluded = true;
+                            //         return true;
+                            //     }
+                            // }
 
                             return true;
                         });
