@@ -2006,6 +2006,14 @@ display: none;
         flex-direction: column;
     }
 }
+
+@media (max-width: 1750px) {
+    .submenu-multi-column {
+        min-width: 495px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
 @media (max-width: 1650px) {
     .pages-header {
         background-image: url(https://i.imgur.com/Cb9CEbY.webp);
@@ -2016,7 +2024,14 @@ display: none;
     .pages-header {
         background-image: url(https://i.imgur.com/Cb9CEbY.webp);
     }
-
+    .submenu-multi-column {
+        min-width: 300px;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .submenu-two-column {
+        min-width: 300px;
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
 }
 @media (max-width: 1000px) {
 
