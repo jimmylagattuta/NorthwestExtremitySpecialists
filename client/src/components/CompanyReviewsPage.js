@@ -127,14 +127,14 @@ const CompanyReviewsPage = () => {
                                 return false;
                             }
 
-                            const reviewText = review.text.toLowerCase();
-                            if (dennyLeForms.some(form => reviewText.includes(form))) {
-                                if (dennyLeReviewIncluded) {
-                                    return false;
-                                } else {
-                                    dennyLeReviewIncluded = true;
-                                }
-                            }
+                            // const reviewText = review.text.toLowerCase();
+                            // if (dennyLeForms.some(form => reviewText.includes(form))) {
+                            //     if (dennyLeReviewIncluded) {
+                            //         return false;
+                            //     } else {
+                            //         dennyLeReviewIncluded = true;
+                            //     }
+                            // }
 
                             return true;
                         });
