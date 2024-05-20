@@ -101,6 +101,7 @@ const CompanyReviewsPage = () => {
                 'X-CSRF-Token': csrfToken,
             };
         
+            console.log('Fetching reviews...');
             fetch(url, { headers })
             .then((response) => {
                 if (response.ok) {
@@ -110,7 +111,7 @@ const CompanyReviewsPage = () => {
                 }
             })
             .then((data) => {
-                console.log('data', data);
+                console.log('Received reviews data:', data);
                 if (Array.isArray(data.northwest_reviews)) {
                     // Update CSRF token only if it changes
                     if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
@@ -131,6 +132,7 @@ const CompanyReviewsPage = () => {
                     const shuffledReviews = shuffleArray(remainingReviews);
                     const randomReviews = dennyLeReviews.concat(shuffledReviews).slice(0, 3);
         
+                    console.log('Selected random reviews:', randomReviews);
                     saveToCache(data.northwest_reviews);
                     setReviews(randomReviews);
                     setLoading(false);
@@ -144,6 +146,7 @@ const CompanyReviewsPage = () => {
                 setLoading(false);
             });
         };
+        
         
 
         const shuffleArray = (array) => {
