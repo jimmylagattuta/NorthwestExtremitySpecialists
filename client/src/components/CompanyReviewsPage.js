@@ -61,7 +61,7 @@ const CompanyReviewsPage = () => {
     };
 
     useEffect(() => {
-        const cacheKey = 'google_places_reviews';
+        const cacheKey = 'cached_northwest_reviews';
 
         const isRelevantReview = (review) => {
             const normalizedText = review.text.toLowerCase();
@@ -144,7 +144,7 @@ const CompanyReviewsPage = () => {
                         const shuffledReviews = shuffleArray(filteredReviews);
                         const randomReviews = shuffledReviews.slice(0, 3);
 
-                        saveToCache(randomReviews);
+                        saveToCache(data);
                         setReviews(randomReviews);
                         setLoading(false);
                     } else {
