@@ -104,6 +104,7 @@ const CompanyReviewsPage = () => {
             console.log('Fetching reviews...');
             fetch(url, { headers })
             .then((response) => {
+                console.log('Response status:', response.status);
                 if (response.ok) {
                     return response.json();
                 } else {
@@ -113,8 +114,11 @@ const CompanyReviewsPage = () => {
             .then((data) => {
                 console.log('Received reviews data:', data);
                 if (Array.isArray(data.northwest_reviews)) {
+                    console.log('Data is an array');
+        
                     // Update CSRF token only if it changes
                     if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
+                        console.log('Updating CSRF token:', data.csrf_token);
                         setCsrfToken(data.csrf_token);
                         previousCsrfToken.current = data.csrf_token;
                     }
@@ -125,14 +129,18 @@ const CompanyReviewsPage = () => {
                         dennyLeForms.some(form => review.text.toLowerCase().includes(form))
                     );
         
+                    console.log('Reviews related to Dr. Denny Le:', dennyLeReviews);
+        
                     const remainingReviews = data.northwest_reviews.filter(review =>
                         !dennyLeForms.some(form => review.text.toLowerCase().includes(form))
                     );
         
+                    console.log('Remaining reviews after filtering:', remainingReviews);
+        
                     const shuffledReviews = shuffleArray(remainingReviews);
                     const randomReviews = dennyLeReviews.concat(shuffledReviews).slice(0, 3);
         
-                    console.log('Selected random reviews:', randomReviews);
+                    console.log('Selected random reviews including Dr. Denny Le:', randomReviews);
                     saveToCache(data.northwest_reviews);
                     setReviews(randomReviews);
                     setLoading(false);
