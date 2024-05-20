@@ -65,9 +65,13 @@ const CompanyReviewsPage = () => {
 
         const isRelevantReview = (review) => {
             const normalizedText = review.text.toLowerCase();
+            const doctorNamesLowerCase = doctors.map((doctor) => doctor.toLowerCase().replace("dr. ", ""));
             return (
-                companyAliases.some(alias => normalizedText.includes(alias)) ||
-                doctors.some(doctor => normalizedText.includes(doctor.toLowerCase().replace("dr. ", "")))
+                companyAliases.some(alias => normalizedText.includes(alias.toLowerCase())) ||
+                doctorNamesLowerCase.some(name => {
+                    const nameParts = name.split(' ');
+                    return nameParts.some(part => normalizedText.includes(part));
+                })
             );
         };
 
