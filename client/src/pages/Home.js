@@ -65,9 +65,8 @@ const Home = () => {
                         <div className='button-wrapper'>
                             <a
                                 className='btn header-button-yellow'
-                                href='https://www.zocdoc.com/practice/northwest-extremity-specialists-29786'
+                                href='https://www.zocdoc.com/practice/northwest-https://www.zocdoc.com/practice/northwest-extremity-specialists-29786?lock=true&isNewPatient=false&referrerType=widget-specialists-29786'
                                 target='_blank' // Opens the link in a new tab
-                                referrerType='widget'
                                 rel='noopener noreferrer' // Recommended for security reasons
                             >
                                 Request Appointment
