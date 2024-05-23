@@ -165,7 +165,11 @@
 
     }
 }
-
+@media (max-width: 775px) {
+    .expertise-name {
+        font-size: 0.9rem;
+    }
+}
 @media (max-width: 750px) {
     .home-expertise {
         padding: 20px 0;
@@ -250,5 +254,11 @@
 @media (max-width: 350px) {
     .home-expertise {
         padding: 10px 0;
+    }
+    .expertise-item {
+        width: 85%;
+    }
+    .expertise-name {
+        font-size: 0.8rem;
     }
 }

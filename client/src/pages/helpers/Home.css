@@ -131,18 +131,33 @@
 }
 @media (max-width: 950px) {
     .Carousel-container {
-        height: 105vh;
+        height: 125vh;
     }
     .home-hero {
-        min-height: 105vh;
+        min-height: 125vh;
     }
     .home-banner {
-        min-height: 105vh;
+        min-height: 125vh;
     }
     .banner-title {
         font-size: 3.6rem;
     }
 }
+@media (max-width: 883px) and (max-height: 344px) {
+    .Carousel-container {
+        height: 150vh;
+    }
+    .home-hero {
+        min-height: 150vh;
+    }
+    .home-banner {
+        min-height: 150vh;
+    }
+    .banner-title {
+        font-size: 3.6rem;
+    }
+}
+
 @media (max-width: 815px) {
     .home-hero {
         min-height: 60vh;
@@ -381,14 +396,14 @@
     }
     .home-banner {
         display: flex;
-        justify-content: flex-start;
+        justify-content: center;
         height: 100%;
         min-height: 80vh;
-        padding: 20px 0px 0px 0px;
+        padding: 0px 0px 0px 0px;
         margin: 0px 0px 0px 0px;
     }
     .Carousel-container {
-        height: 88vh;
+        height: 80vh;
     }
     .home-banner:after {
         min-width: 355px;
