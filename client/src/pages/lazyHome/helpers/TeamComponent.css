@@ -97,13 +97,13 @@
 @media (max-width: 750px) {
 
 }
-
 @media (max-width: 450px) {
     .home-team {
         max-height: 10px;
+        align-items: normal;
     }
     .follow-us-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
         padding: 0px 0px 0px 0px;
     }
     .team-icon-container {
@@ -114,6 +114,10 @@
         justify-content: space-evenly;
         align-items: center;
         font-size: 0.8rem;
+    }
+    .team-print-staff {
+        padding: 0px;
+        margin: 0px;
     }
 }
 
