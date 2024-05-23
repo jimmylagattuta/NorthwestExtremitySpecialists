@@ -67,6 +67,7 @@ const Home = () => {
                                 className='btn header-button-yellow'
                                 href='https://www.zocdoc.com/practice/northwest-extremity-specialists-29786'
                                 target='_blank' // Opens the link in a new tab
+                                referrerType='widget'
                                 rel='noopener noreferrer' // Recommended for security reasons
                             >
                                 Request Appointment

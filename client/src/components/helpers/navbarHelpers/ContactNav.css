@@ -145,12 +145,16 @@
   }
   @media (max-width: 1150px) {
     .nav-button {
-      font-size: 0.8rem;  
+      font-size: 0.9rem;  
       min-width: max-content;
+      padding: 2px;
+      margin: 5px;
     }
     .nav-button-white {
-      font-size: 0.8rem;  
+      font-size: 0.9rem;  
       min-width: max-content;
+      padding: 2px;
+      margin: 5px;
     }
   }
 
@@ -367,7 +371,7 @@
 
 @media (max-width: 350px) {
   .navbar-container {
-    min-height: 40px;
+    min-height: 50px;
   }
   #nav-phone {
     font-size: 0.7rem;

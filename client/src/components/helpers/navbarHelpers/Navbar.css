@@ -195,7 +195,8 @@
   .navbar-buttons-nav {
     font-size: 1rem;
     min-width: max-content;
-
+    height: 100%;
+    align-self: center;
   }
   .navbar-buttons-nav a {
     font-size: 1rem;
@@ -285,6 +286,9 @@
   .navbar-logo {
     max-width: 125px;
     padding-left: 5px;
+  }
+  .nav-button {
+    display: none;
   }
   .mobile-menu-button-navbar {
     padding-right: 10px;
