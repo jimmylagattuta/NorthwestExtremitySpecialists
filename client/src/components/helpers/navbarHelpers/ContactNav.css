@@ -371,7 +371,7 @@
 
 @media (max-width: 350px) {
   .navbar-container {
-    min-height: 50px;
+    min-height: 40px;
   }
   #nav-phone {
     font-size: 0.7rem;

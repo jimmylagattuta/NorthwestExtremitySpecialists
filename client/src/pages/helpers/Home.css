@@ -131,7 +131,7 @@
 }
 @media (max-width: 950px) {
     .Carousel-container {
-        min-height: 105vh;
+        height: 105vh;
     }
     .home-hero {
         min-height: 105vh;
@@ -388,7 +388,7 @@
         margin: 0px 0px 0px 0px;
     }
     .Carousel-container {
-        height: 80vh;
+        height: 88vh;
     }
     .home-banner:after {
         min-width: 355px;
