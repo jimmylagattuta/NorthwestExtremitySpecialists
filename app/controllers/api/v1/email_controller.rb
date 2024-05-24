@@ -4,7 +4,7 @@ class Api::V1::EmailController < ApplicationController
     if send_email_to_office(form_data)
       render json: { message: "Email sent successfully" }, status: :ok
     else
-      render json: { error: "Email sending failed" }, status: :unprocessable_entity
+      render json: { error: "Email sending failed NES: " }, status: :unprocessable_entity
     end
   end
 
@@ -29,7 +29,7 @@ def send_email_to_office(form_data)
 
   true
 rescue StandardError => e
-  Rails.logger.error("Email sending error: #{e.message}")
+  Rails.logger.error("Email sending error NES: #{e.message}")
   false
 end
 
