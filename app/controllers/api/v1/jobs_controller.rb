@@ -45,7 +45,7 @@ class Api::V1::JobsController < ApplicationController
   def handle_json_parsing_error(error)
     # puts "Handling JSON parsing error: #{error.message}"
     error_message = "Failed to parse JSON: #{error.message}"
-    OfficeMailer.error_email("JSON Parsing Error", error_message).deliver_later
+    # OfficeMailer.error_email("JSON Parsing Error", error_message).deliver_later
     render json: { error: error_message }, status: :unprocessable_entity
   end
 end
