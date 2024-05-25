@@ -38,7 +38,7 @@ class Api::V1::JobsController < ApplicationController
 
   def handle_unexpected_error(error)
     # puts "Handling unexpected error: #{error.message}"
-    OfficeMailer.error_email("Unexpected Error", error.message).deliver_later
+    # OfficeMailer.error_email("Unexpected Error", error.message).deliver_later
     render json: { error: "An unexpected error occurred: #{error.message}" }, status: :internal_server_error
   end
 
