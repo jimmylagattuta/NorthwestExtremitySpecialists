@@ -9,20 +9,32 @@ class Api::V1::JobsController < ApplicationController
 
   def pull_google_places_cache
     puts "Entering pull_google_places_cache method..."
+    redis_url = ENV['REDIS_URL']
+    puts "Redis URL: #{redis_url}"
+
     redis = Redis.new(
-      url: ENV['REDIS_URL'],
+      url: redis_url,
       ssl: true,
       ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
     )
     cache_key = "google_places_reviews"
   
-    cached_reviews = redis.get(cache_key)
+    begin
+      puts "Attempting to get cached reviews from Redis"
+      cached_reviews = redis.get(cache_key)
+      puts "Cached reviews: #{cached_reviews.nil? ? 'none' : 'found'}"
+    rescue => e
+      puts "Error fetching from Redis: #{e.message}"
+      raise
+    end
+  
     if cached_reviews
       puts "Using cached reviews"
       reviews = JSON.parse(cached_reviews)
     else
       puts "Fetching fresh reviews from Google Places API"
       reviews = GooglePlacesCached.fetch_five_star_reviews_for_companies
+      puts "Storing fetched reviews in Redis"
       redis.setex(cache_key, 30.days.to_i, reviews.to_json)
     end
   
@@ -66,18 +78,29 @@ class GooglePlacesCached
     }
 
     api_key = ENV['REACT_APP_GOOGLE_PLACES_API_KEY']
+    puts "Google Places API Key: #{api_key}"
+
     reviews = {}
 
     redis = Redis.new(url: ENV['REDIS_URL'], ssl: true, ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE })
     cache_key = "google_places_reviews"
 
-    cached_reviews = redis.get(cache_key)
+    begin
+      puts "Attempting to get cached reviews from Redis"
+      cached_reviews = redis.get(cache_key)
+      puts "Cached reviews: #{cached_reviews.nil? ? 'none' : 'found'}"
+    rescue => e
+      puts "Error fetching from Redis: #{e.message}"
+      raise
+    end
+
     if cached_reviews
       puts "Using cached reviews in fetch_five_star_reviews_for_companies"
       reviews = JSON.parse(cached_reviews)
     else
       puts "Fetching fresh reviews from Google Places API in fetch_five_star_reviews_for_companies"
       reviews = fetch_reviews_from_google(companies, api_key)
+      puts "Storing fetched reviews in Redis"
       redis.setex(cache_key, 30.days.to_i, reviews.to_json)
     end
 
