@@ -12,39 +12,49 @@ class Api::V1::JobsController < ApplicationController
     redis_url = ENV['REDIS_URL']
     puts "Redis URL: #{redis_url}"
 
-    redis = Redis.new(
-      url: redis_url,
-      ssl: true,
-      ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
-    )
-    cache_key = "google_places_reviews"
-  
     begin
+      redis = Redis.new(
+        url: redis_url,
+        ssl: true,
+        ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
+      )
+      cache_key = "google_places_reviews"
+      
       puts "Attempting to get cached reviews from Redis"
       cached_reviews = redis.get(cache_key)
       puts "Cached reviews: #{cached_reviews.nil? ? 'none' : 'found'}"
+    rescue Redis::CannotConnectError => e
+      puts "Cannot connect to Redis: #{e.message}"
+      raise
+    rescue Redis::TimeoutError => e
+      puts "Redis connection timed out: #{e.message}"
+      raise
+    rescue Redis::ConnectionError => e
+      puts "Redis connection error: #{e.message}"
+      raise
     rescue => e
-      puts "Error fetching from Redis: #{e.message}"
+      puts "General error fetching from Redis: #{e.message}"
       raise
     end
-  
+
     if cached_reviews
       puts "Using cached reviews"
       reviews = JSON.parse(cached_reviews)
     else
       puts "Fetching fresh reviews from Google Places API"
       reviews = GooglePlacesCached.fetch_five_star_reviews_for_companies
-      puts "Storing fetched reviews in Redis"
+      puts "Storing fetched reviews in Redis for 30 days"
       redis.setex(cache_key, 30.days.to_i, reviews.to_json)
     end
-  
+
     creekside_reviews = reviews["Creekside Physical Therapy"] || []
     northwest_reviews = reviews["Northwest Extremity Specialists"] || []
-  
+
     puts "Successfully fetched reviews for Creekside and Northwest"
     csrf_token = form_authenticity_token
     render json: { creekside_reviews: creekside_reviews, northwest_reviews: northwest_reviews, csrf_token: csrf_token }
   end
+
   
 
   private
