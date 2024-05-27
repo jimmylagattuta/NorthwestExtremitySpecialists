@@ -13,11 +13,8 @@ class Api::V1::JobsController < ApplicationController
     puts "Redis URL: #{redis_url}"
 
     begin
-      redis = Redis.new(
-        url: redis_url,
-        ssl: true,
-        ssl_params: { verify_mode: OpenSSL::SSL::VERIFY_NONE }
-      )
+      redis = Redis.new(url: ENV['REDIS_URL'])
+
       cache_key = "google_places_reviews"
       
       puts "Attempting to get cached reviews from Redis"
