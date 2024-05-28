@@ -129,6 +129,8 @@ const CompanyReviewsPage = () => {
                             console.log('setting csrf token');
                             setCsrfToken(data.csrf_token);
                             previousCsrfToken.current = data.csrf_token;
+                        } else {
+                            setCsrfToken(data.csrf_token);
                         }
 
 
