@@ -67,6 +67,19 @@ function ChatBox(props) {
     setCsrfToken: setCsrfToken
   });
   const previousCsrfToken = useRef(csrfToken);
+  const [key, setKey] = useState(0); // Add a key state
+  const isRelevantReview = (review) => {
+    const normalizedText = review.text.toLowerCase();
+    const doctorNamesLowerCase = doctors.map((doctor) => doctor.toLowerCase().replace("dr. ", ""));
+    return (
+        companyAliases.some(alias => normalizedText.includes(alias.toLowerCase())) ||
+        doctorNamesLowerCase.some(name => {
+            const nameParts = name.split(' ');
+            return nameParts.some(part => normalizedText.includes(part));
+        })
+    );
+};
+
   const getFilteredReviews = (reviewList) => {
     return reviewList.filter(
         (review) => isRelevantReview(review) &&
