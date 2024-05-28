@@ -49,8 +49,8 @@ class Api::V1::JobsController < ApplicationController
 
     # puts "Successfully fetched reviews for Creekside and Northwest"
     csrf_token = form_authenticity_token
-    puts "authenticity_token"
-    puts authenticity_token.inpsect
+    puts "csrf_token"
+    puts csrf_token.inpsect
     render json: { creekside_reviews: creekside_reviews, northwest_reviews: northwest_reviews, csrf_token: csrf_token }
   end
 

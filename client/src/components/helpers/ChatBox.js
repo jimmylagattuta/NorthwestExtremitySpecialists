@@ -73,51 +73,6 @@ function ChatBox(props) {
     }
   }, []);
 
-  const fetchReviews = () => {
-    const url =
-      process.env.NODE_ENV === 'production'
-        ? 'https://www.nespecialists.com/api/v1/pull_google_places_cache'
-        : 'localhost:3001/api/v1/pull_google_places_cache';
-
-    const headers = {
-      'Content-Type': 'application/json',
-      'X-CSRF-Token': csrfToken,
-    };
-
-    fetch(url, { headers })
-      .then((response) => {
-        if (response.ok) {
-          return response.json();
-        } else {
-          throw new Error('Failed to fetch reviews');
-        }
-      })
-      .then((data) => {
-        if (Array.isArray(data.reviews)) {
-          if (data.csrf_token) {
-            setCsrfToken(data.csrf_token);
-          }
-
-          const filteredReviews = data.reviews.filter(
-            (item) => !defaultProfilePhotoUrls.includes(item.profile_photo_url)
-          );
-
-          const shuffledReviews = shuffleArray(filteredReviews);
-          const randomReviews = shuffledReviews.slice(0, 3);
-
-          saveToCache(data);
-          setReviews(randomReviews);
-          setLoading(false);
-        } else {
-          throw new Error('Data.reviews is not an array');
-        }
-      })
-      .catch((err) => {
-        console.error(err);
-        setError(err.message);
-        setLoading(false);
-      });
-  };
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
