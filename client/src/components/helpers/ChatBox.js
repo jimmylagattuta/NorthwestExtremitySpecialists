@@ -99,6 +99,65 @@ useEffect(() => {
   };
 
   loadRecaptchaScript();
+  const fetchReviews = () => {
+    console.log('carfToken', csrfToken);
+    const url =
+        process.env.NODE_ENV === 'production'
+            ? 'https://www.nespecialists.com/api/v1/pull_google_places_cache'
+            : 'http://localhost:3001/api/v1/pull_google_places_cache';
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': csrfToken,
+    };
+
+    fetch(url, { headers })
+        .then((response) => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Failed to fetch reviews');
+            }
+        })
+        .then((data) => {
+            console.log('data', data);
+            if (Array.isArray(data.creekside_reviews) && Array.isArray(data.northwest_reviews)) {
+                // Update CSRF token only if it changes
+                if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
+                    setCsrfToken(data.csrf_token);
+                    previousCsrfToken.current = data.csrf_token;
+                }
+
+
+                const creeksideReviews = getFilteredReviews(data.creekside_reviews);
+                const northwestReviews = getFilteredReviews(data.northwest_reviews);
+    
+                const combinedReviews = [
+                    ...data.creekside_reviews,
+                    ...data.northwest_reviews
+                ];
+
+                const shuffledReviews = shuffleArray(combinedReviews);
+                console.log('shuffledReviews', shuffledReviews);
+                const randomReviews = shuffledReviews.slice(0, 3);
+                console.log('combinedReviews', combinedReviews);
+                console.log('data', data);
+                console.log('randomReviews', randomReviews);
+                saveToCache(combinedReviews);
+                console.log('setReviews 1');
+                setReviews(randomReviews);
+                setKey((prevKey) => prevKey + 1); // Update the key to force re-render
+                setLoading(false);
+            } else {
+                console.log('Data reviews are not arrays');
+            }
+        })
+        .catch((err) => {
+            console.error(err);
+            setError(err.message);
+            setLoading(false);
+        });
+};
 
   if (!csrfToken) {
     console.log('ChatBox: 109 There is no csrfToken so calling fetchReviews');
