@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 import { useCsrfToken } from '../CsrfTokenContext';
 import Dropdown from 'react-bootstrap/Dropdown';
@@ -66,7 +66,14 @@ function ChatBox(props) {
     csrfToken: csrfToken,
     setCsrfToken: setCsrfToken
   });
-
+  const previousCsrfToken = useRef(csrfToken);
+  const getFilteredReviews = (reviewList) => {
+    return reviewList.filter(
+        (review) => isRelevantReview(review) &&
+            !review.text.startsWith("Absolutely horrendous") &&
+            !defaultProfilePhotoUrls.includes(review.profile_photo_url)
+    );
+};
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
