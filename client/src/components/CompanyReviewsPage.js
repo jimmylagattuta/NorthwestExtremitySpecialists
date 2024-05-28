@@ -102,6 +102,7 @@ const CompanyReviewsPage = () => {
             );
         };
         const fetchReviews = () => {
+            console.log('carfToken', csrfToken);
             const url =
                 process.env.NODE_ENV === 'production'
                     ? 'https://www.nespecialists.com/api/v1/pull_google_places_cache'
