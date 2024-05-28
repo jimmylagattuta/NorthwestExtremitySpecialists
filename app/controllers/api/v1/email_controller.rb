@@ -14,23 +14,23 @@ class Api::V1::EmailController < ApplicationController
     params.permit(:fName, :lName, :email, :phone, :message, :recaptcha, :agreeToTerms, :dob, :agreeToTermsTexts, :selectedPatientType, :selectedSex, :selectedLocation, :selectedProvider)
   end
 
-def send_email_to_office(form_data)
-  cc_emails = ['unitymskwebsites@gmail.com', 'jimmy.lagattuta@gmail.com', 'contact@nespecialists.com'] # Use an array for multiple CCs
+  def send_email_to_office(form_data)
+    cc_emails = ['unitymskwebsites@gmail.com', 'jimmy.lagattuta@gmail.com', 'contact@nespecialists.com'] # Use an array for multiple CCs
 
-  if form_data[:dob]
-    if form_data[:agreeToTermsTexts]
-      # texter wireup
-      # puts "Texter"
+    if form_data[:dob]
+      if form_data[:agreeToTermsTexts]
+        # texter wireup
+        # puts "Texter"
+      end
+      OfficeMailer.request_appointment_email(form_data, cc_emails).deliver_now
+    else
+      OfficeMailer.contact_us_email(form_data, cc_emails).deliver_now
     end
-    OfficeMailer.request_appointment_email(form_data, cc_emails).deliver_now
-  else
-    OfficeMailer.contact_us_email(form_data, cc_emails).deliver_now
+
+    true
+  rescue StandardError => e
+    Rails.logger.error("Email sending error NES: #{e.message}")
+    OfficeMailer.error_email("Email Sending Error", "Failed to send email: #{e.message}").deliver_later
+    false
   end
-
-  true
-rescue StandardError => e
-  Rails.logger.error("Email sending error NES: #{e.message}")
-  false
-end
-
 end
