@@ -67,11 +67,6 @@ function ChatBox(props) {
     setCsrfToken: setCsrfToken
   });
 
-  useEffect(() => {
-    if (!csrfToken) {
-      fetchReviews();
-    }
-  }, []);
 
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
@@ -106,6 +101,7 @@ useEffect(() => {
   loadRecaptchaScript();
 
   if (!csrfToken) {
+    console.log('ChatBox: 109 There is no csrfToken so calling fetchReviews');
     fetchReviews();
   }
 }, []);
