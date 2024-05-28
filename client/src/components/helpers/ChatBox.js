@@ -34,6 +34,31 @@ function ChatBox(props) {
     'https://lh3.googleusercontent.com/a/ACg8ocIFg5G-JO49VMdkvA4N5IwxQ9XKjHP3HHTytStrVCI=s128-c0x00000000-cc-rp-mo'
 
 ];
+
+const companyAliases = [
+  'northwest extremity specialists',
+  'nw extremity specialists',
+  'northwest extremity',
+  'nw extremity'
+];
+
+const doctors = [
+  'Dr. Ron Bowman',
+  'Dr. Alex Friedman',
+  'Dr. Clifford D. Mah',
+  'Dr. Denny Le',
+  'Dr. Jason Surratt',
+  'Dr. Manny Moy',
+  'Dr. Mia Horvath',
+  'Dr. Peter Pham',
+  'Dr. Thomas Melillo',
+  'Dr. Todd Galle',
+  'Dr. Yama Dehqanzada',
+  'Dr. Cara Beach',
+  'Dr. Lacey Beth Lockhart',
+  'Dr. Melinda Nicholes',
+  'Dr. Taylor Bunka'
+];
   const [state, setState] = useState({
     showDropdownLocations: false,
     showDropdownNewOrReturning: false,
