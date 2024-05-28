@@ -126,10 +126,11 @@ const CompanyReviewsPage = () => {
                     if (Array.isArray(data.creekside_reviews) && Array.isArray(data.northwest_reviews)) {
                         // Update CSRF token only if it changes
                         if (data.csrf_token && data.csrf_token !== previousCsrfToken.current) {
-                            console.log('setting csrf token');
+                            console.log('setting csrf token 1');
                             setCsrfToken(data.csrf_token);
                             previousCsrfToken.current = data.csrf_token;
                         } else {
+                            console.log('setting csrf token 2');
                             setCsrfToken(data.csrf_token);
                         }
 
