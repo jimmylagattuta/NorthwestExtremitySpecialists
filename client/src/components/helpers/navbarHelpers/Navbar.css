@@ -84,7 +84,7 @@
   padding: 10px 20px;
   margin-right: 20px;
   border-radius: 7px;
-
+  min-width: 119px;
   background-color: #222;
   color: white;
   border: none;
@@ -98,7 +98,7 @@
   padding: 10px 20px;
   margin-right: 20px;
   border-radius: 7px;
-
+  min-width: 120px;
   background-color: white;
   color: black;
   border: none;

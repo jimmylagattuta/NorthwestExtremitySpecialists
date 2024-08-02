@@ -17,7 +17,7 @@ const Navbar = () => {
     const location = useLocation();
 
     const togglePopup = () => {
-      setIsPopupOpen(!isPopupOpen);
+        setIsPopupOpen(!isPopupOpen);
     };
 
     const toggleMobileMenu = () => {
@@ -38,12 +38,9 @@ const Navbar = () => {
         }
     };
     
-
-    
     const closeSubmenu = () => {
         setIsSubmenuOpen(null);
     };
-    
 
     const resetMobileMenu = () => {
         console.log('resetMobileMenu');
@@ -52,6 +49,7 @@ const Navbar = () => {
             setIsSubmenuOpen(null);
         }, 0.25);
     };
+
     const locations = [
         'Bridgeport Office',
         'Cedar Mill',
@@ -71,68 +69,74 @@ const Navbar = () => {
         'Tigard Clinic',
         'Locust Clinic'
     ]
+
     const toggleAppointmentForm = () => {
         if (location.pathname === '/locations') {
-          const scrollToHeight = document.body.scrollHeight * 0.8;
-          const start = window.scrollY;
-          const end = scrollToHeight;
-          const duration = 1000; // Duration of the scroll animation in milliseconds
-      
-          let startTime;
-      
-          const scrollAnimation = (timestamp) => {
-            if (!startTime) {
-              startTime = timestamp;
-            }
-      
-            const elapsed = timestamp - startTime;
-            const progress = Math.min(elapsed / duration, 1); // Ensure progress doesn't exceed 1
-      
-            const easedProgress = easeInOutCubic(progress); // Apply easing function
-      
-            window.scrollTo(0, start + (end - start) * easedProgress);
-      
-            if (elapsed < duration) {
-              // Continue the animation
-              window.requestAnimationFrame(scrollAnimation);
-            }
-          };
-      
-          // Easing function for smooth scroll animation
-          const easeInOutCubic = (t) =>
-            t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2;
-      
-          // Start the animation
-          window.requestAnimationFrame(scrollAnimation);
+            const scrollToHeight = document.body.scrollHeight * 0.8;
+            const start = window.scrollY;
+            const end = scrollToHeight;
+            const duration = 1000; // Duration of the scroll animation in milliseconds
+        
+            let startTime;
+        
+            const scrollAnimation = (timestamp) => {
+                if (!startTime) {
+                    startTime = timestamp;
+                }
+        
+                const elapsed = timestamp - startTime;
+                const progress = Math.min(elapsed / duration, 1); // Ensure progress doesn't exceed 1
+        
+                const easedProgress = easeInOutCubic(progress); // Apply easing function
+        
+                window.scrollTo(0, start + (end - start) * easedProgress);
+        
+                if (elapsed < duration) {
+                    // Continue the animation
+                    window.requestAnimationFrame(scrollAnimation);
+                }
+            };
+        
+            // Easing function for smooth scroll animation
+            const easeInOutCubic = (t) =>
+                t < 0.5 ? 4 * t ** 3 : 1 - Math.pow(-2 * t + 2, 3) / 2;
+        
+            // Start the animation
+            window.requestAnimationFrame(scrollAnimation);
         }
-      };
+    };
 
-      
     const closeForm = () => {
         setIsPopupOpen(false); // Close the form
     };
+
     const generateDynamicLink = (item) => {
         let link;
         if (locations.includes(item)) {
-          link = `/locations#${item.replace(/\s+/g, '-').toLowerCase()}`;
+            link = `/locations#${item.replace(/\s+/g, '-').toLowerCase()}`;
         } else {
-          // Default link for other items
-          link = `/${item.replace(/\s+/g, '-').toLowerCase()}`;
+            // Default link for other items
+            link = `/${item.replace(/\s+/g, '-').toLowerCase()}`;
         }
-      
+    
         return (
-          <NavLink
-            key={item}
-            to={link}
-            className={({ isActive }) =>
-              isActive ? 'nav-link-nav active' : 'nav-link-nav'
-            }>
-            {item}
-          </NavLink>
+            <NavLink
+                key={item}
+                to={link}
+                className={({ isActive }) =>
+                    isActive ? 'nav-link-nav active' : 'nav-link-nav'
+                }>
+                {item}
+            </NavLink>
         );
-      };
-      
-      return (
+    };
+
+    const handlePayNowClick = (e) => {
+        e.preventDefault();
+        window.open("https://www.healowpay.com/HealowPay/jsp/healow/login.jsp", "_blank", "noopener noreferrer");
+    };
+    
+    return (
         <header className='navbar-div'>
             <div style={{ display: 'flex', flexDirection: 'column', width: '100%' }}>
                 <div className="navbar-container">
@@ -151,28 +155,39 @@ const Navbar = () => {
                     <div className='navbar-buttons-nav'>
     
                         <div className="call-contact-download">
-    
-                            <NavLink
-                                onClick={toggleAppointmentForm}
-                                to={{ pathname: '/locations', hash: '#chatbox' }}
-                            >
-                                <span className='nav-button'>
-                                    Contact Us
-                                </span>
-                            </NavLink>
                             <div className="downloads-call-us">
-                            <div
-                                onClick={() => window.open('/NESPaperwork.pdf', '_blank')}
-                            >
-                                <span className='nav-button-white'>
-                                    Download Forms
-                                </span>
+                
+                                <NavLink
+                                    onClick={toggleAppointmentForm}
+                                    to={{ pathname: '/locations', hash: '#chatbox' }}
+                                >
+                                    <span className='nav-button'>
+                                        Contact Us
+                                    </span>
+                                </NavLink>
+                                <NavLink
+                                    to="https://www.healowpay.com/HealowPay/jsp/healow/login.jsp"
+
+
+                                >
+                                    <span className='nav-button-white'>
+                                        Pay Now
+                                    </span>
+                                </NavLink>
                             </div>
+
+                            <div className="downloads-call-us">
+                                <div
+                                    onClick={() => window.open('/NESPaperwork.pdf', '_blank')}
+                                >
+                                    <span className='nav-button-white'>
+                                        Download Forms
+                                    </span>
+                                </div>
                                 <span className='nav-button'>
                                     <ContactNav />
                                 </span>
-                            </div>    
-                                
+                            </div>
                         </div>
     
                         {isPopupOpen && (
@@ -199,7 +214,7 @@ const Navbar = () => {
                             aria-hidden='true'></i>
                     </button>
                 </div>
-                    <div>
+                <div>
                 </div>
             </div>
             <nav
@@ -210,16 +225,15 @@ const Navbar = () => {
                     return (
                         <div key={index} className={`nav-link-container ${item.menu}-nav`}>
                             <div className='link-items'>
-                            <NavLink
+                                <NavLink
                                     onClick={resetMobileMenu}
-                                key={item.menu}
-                                to={item.link}
-                                className={({ isActive }) =>
-                                    isActive ? 'nav-link-nav active' : 'nav-link-nav'
-                                }>
-                                {item.menu.replace(/Office$/, '')}
-                            </NavLink>
-                            {/* ---------------------------------------------------------------------------------- */}
+                                    key={item.menu}
+                                    to={item.link}
+                                    className={({ isActive }) =>
+                                        isActive ? 'nav-link-nav active' : 'nav-link-nav'
+                                    }>
+                                    {item.menu.replace(/Office$/, '')}
+                                </NavLink>
                                 {item.subMenuItems && (
                                     <button
                                         onClick={() => submenuOpen(item.menu)} 
@@ -232,7 +246,6 @@ const Navbar = () => {
                                         )}
                                     </button>
                                 )}
-                            {/* ---------------------------------------------------------------------------------- */}
                             </div>
                             {item.subMenuItems && (
                                 <div className='submenu'>
@@ -248,30 +261,32 @@ const Navbar = () => {
                                             All {item.menu}
                                         </NavLink>
                                     )}
-                                    {/* ---------------------------------------------------------------------------------- */}
                                     <div className={`submenu-list ${item.subMenuItems.length > 18 ? 'submenu-multi-column' : item.subMenuItems.length > 6 ? 'submenu-two-column' : ''}`}>
                                     {((isSubmenuOpen !== null) || (window.innerWidth >= 1000)) && item.subMenuItems.map((subItem) => (
                                         <NavLink
                                             onClick={resetMobileMenu}
                                             key={subItem}
-                                            to={`${item.link}/${subItem.toLowerCase().split(' ').join('-')}`}
+                                            to={`/services/${subItem.replace(/\s+/g, '-').toLowerCase()}`}
                                             className={({ isActive }) =>
                                                 isActive ? 'sub-link active' : 'sub-link'
                                             }>
-                                            {subItem.endsWith("Office") ? subItem.slice(0, -6) : subItem}
+                                            {subItem}
                                         </NavLink>
                                     ))}
                                     </div>
-                                    {/* ---------------------------------------------------------------------------------- */}
                                 </div>
                             )}
                         </div>
                     );
                 })}
             </nav>
+            {isMobileMenuOpen && (
+                <div
+                    className='mobile-menu-backdrop'
+                    onClick={toggleMobileMenu}></div>
+            )}
         </header>
     );
-    
 };
 
 export default Navbar;
