@@ -15,28 +15,17 @@ import Services from './pages/services/Services';
 import ServicesLayout from './pages/services/ServicesLayout';
 import SingleService from './pages/services/SingleService';
 
-
-const validPhysicianIds = [
-    "Michael J. Hejna",
-    "Scott A. Seymour",
-    "Erling Ho",
-    "Nicolas S. Anderson"
-];
-
-function App() {
+const App = () => {
     const { pathname } = useLocation();
+
     useEffect(() => {
         window.scrollTo({
             top: 0,
             left: 0,
             behavior: 'instant',
         });
+        console.log('Current Pathname:', pathname);
     }, [pathname]);
-
-    const isValidPhysicianId = (physicianId) => {
-        console.log('physicianId', physicianId);
-        return validPhysicianIds.includes(physicianId);
-    };
 
     return (
         <>
@@ -47,39 +36,21 @@ function App() {
                     <Route index element={<About />} />
                     <Route path=":aboutId" element={<SingleAbout />} />
                 </Route>
-
-
-
-                {/* Physician not there */}
-                <Route path="providers" element={<PhysiciansLayout />}>
+                <Route path="providers/*" element={<PhysiciansLayout />}>
                     <Route index element={<Physicians />} />
-
-                    <Route path=":physicianId" element={<SinglePhysician />} match={isValidPhysicianId} />
+                    <Route path=":physicianId" element={<SinglePhysician />} />
                     <Route path="*" element={<Navigate to="/providers" replace />} />
                 </Route>
-
-
-
-                {/* Physician there */}
-                {/* <Route path="physicians/*" element={<PhysiciansLayout />}>
-                    <Route index element={<Physicians />} />
-                    <Route path='*' element={<Navigate to="/providers" replace />} />
-
-                </Route> */}
-
-
-
-
                 <Route path="services/*" element={<ServicesLayout />}>
                     <Route index element={<Services />} />
                     <Route path=":serviceId" element={<SingleService />} />
                 </Route>
-                <Route path="locations" element={<Locations />} />
-                <Route path="locations/*" element={<Locations />} />
 
-                <Route path="about" element={<AboutLayout />} />
-                <Route path="providers/*" element={<Navigate to="/providers" replace />} />
-                <Route path="*" element={<Navigate to="/" replace />} />
+                {/* Route for Locations */}
+                <Route path="locations" element={<Locations />} />
+                <Route path="locations/*" element={<Navigate to="/locations" replace />} /> {/* Redirect unmatched paths to locations */}
+
+                <Route path="*" element={<Error />} />
             </Routes>
             <Footer />
         </>

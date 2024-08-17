@@ -248,34 +248,46 @@ const Navbar = () => {
                                 )}
                             </div>
                             {item.subMenuItems && (
-                                <div className='submenu'>
-                                    {isSubmenuOpen !== null && (
-                                        <NavLink
-                                            onClick={resetMobileMenu}
-                                            key={item.menu}
-                                            to={item.link}
-                                            className={({ isActive }) =>
-                                                isActive ? 'sub-link mobile-nav-link active' : 'sub-link mobile-nav-link'
-                                            }
-                                            end>
-                                            All {item.menu}
-                                        </NavLink>
-                                    )}
-                                    <div className={`submenu-list ${item.subMenuItems.length > 18 ? 'submenu-multi-column' : item.subMenuItems.length > 6 ? 'submenu-two-column' : ''}`}>
-                                    {((isSubmenuOpen !== null) || (window.innerWidth >= 1000)) && item.subMenuItems.map((subItem) => (
-                                        <NavLink
-                                            onClick={resetMobileMenu}
-                                            key={subItem}
-                                            to={`/services/${subItem.replace(/\s+/g, '-').toLowerCase()}`}
-                                            className={({ isActive }) =>
-                                                isActive ? 'sub-link active' : 'sub-link'
-                                            }>
-                                            {subItem}
-                                        </NavLink>
-                                    ))}
-                                    </div>
-                                </div>
-                            )}
+    <div className='submenu'>
+        {isSubmenuOpen !== null && (
+            <NavLink
+                onClick={resetMobileMenu}
+                key={item.menu}
+                to={item.link}
+                className={({ isActive }) =>
+                    isActive ? 'sub-link mobile-nav-link active' : 'sub-link mobile-nav-link'
+                }
+                end>
+                All {item.menu}
+            </NavLink>
+        )}
+        <div className={`submenu-list ${item.subMenuItems.length > 18 ? 'submenu-multi-column' : item.subMenuItems.length > 6 ? 'submenu-two-column' : ''}`}>
+            {((isSubmenuOpen !== null) || (window.innerWidth >= 1000)) && item.subMenuItems.map((subItem) => {
+                console.log("Mapping subItem:", subItem);
+                const subItemLink = item.menu === 'Physicians'
+                    ? `/providers/${subItem.replace(/\s+/g, '-').toLowerCase()}` // Correctly form the URL for physicians
+                    : `${item.link}/${subItem.replace(/\s+/g, '-').toLowerCase()}`; // Handle other links appropriately
+                console.log("subItemLink:", subItemLink);
+                
+                return (
+                    <NavLink
+                        onClick={() => {
+                            console.log("NavLink clicked, subItem:", subItem);
+                            resetMobileMenu();
+                        }}
+                        key={subItem}
+                        to={subItemLink}
+                        className={({ isActive }) =>
+                            isActive ? 'sub-link active' : 'sub-link'
+                        }>
+                        {subItem}
+                    </NavLink>
+                );
+            })}
+        </div>
+    </div>
+)}
+
                         </div>
                     );
                 })}
