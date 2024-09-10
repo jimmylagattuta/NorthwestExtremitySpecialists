@@ -1817,11 +1817,6 @@ export const aboutExtra = [
 ];
 export const locations = [
     {
-        name: 'Bridgeport Office',
-        component: 'Locations',
-        link: '/locations',
-    },
-    {
         name: 'Cedar Mill',
         component: 'Locations',
         link: '/locations',
@@ -1853,16 +1848,6 @@ export const locations = [
     },
     {
         name: 'Portland Northwest District Office',
-        component: 'Locations',
-        link: '/locations',
-    },
-    {
-        name: 'Sherwood Office',
-        component: 'Locations',
-        link: '/locations',
-    },
-    {
-        name: 'Tanasbourne Office',
         component: 'Locations',
         link: '/locations',
     },
@@ -1949,7 +1934,6 @@ export const navMenu = [
         menu: 'Locations',
         link: '/locations',
         subMenuItems: [
-            'Bridgeport Office',
             'Cedar Mill',
             'Gresham Office',
             'Happy Valley Office',
@@ -1957,8 +1941,6 @@ export const navMenu = [
             'Milwaukie Office',
             'Newberg Washington Street Office',
             'Portland Northwest District Office',
-            'Sherwood Office',
-            'Tanasbourne Office',
             'Tigard Locust Office',
             'Tigard Oleson Office',
             'West Linn Office',
@@ -1973,20 +1955,6 @@ export const navMenu = [
 ];
 
 export const officesData = [
-    {
-        id: 1,
-        city: 'Bridgeport Office',
-        addressOne: '18040 Lower Boones Ferry Rd #207',
-        addressTwo: 'Tigard, OR 97224',
-        phone: '503-245-2420',
-        fax: '503-245-2445',
-        image: './Bridgeport.png',
-        coordinates: {
-            lat: 45.3909275,
-            lng: -122.7506849,
-        },
-        show: false,
-    },
     {
         id: 2,
         city: 'Cedar Mill',
@@ -2082,34 +2050,6 @@ export const officesData = [
         coordinates: {
             lat: 45.5295222,
             lng: -122.6969282,
-        },
-        show: false,
-    },
-    {
-        id: 9,
-        city: 'Sherwood Office',
-        addressOne: '16770 SW Edy Rd #318',
-        addressTwo: 'Sherwood, OR 97140',
-        phone: '503-245-2420',
-        image: './Sherwood.png',
-        fax: '503-245-2445',
-        coordinates: {
-            lat: 45.3665578,
-            lng: -122.8492295,
-        },
-        show: false,
-    },
-    {
-        id: 10,
-        city: 'Tanasbourne Office',
-        addressOne: '10690 NE Cornell Rd. Building C Suite 212',
-        addressTwo: 'Hillsboro, OR 97124',
-        phone: '503-245-2420',
-        fax: '503-245-2445',
-        image: './Tanasbourne.png',
-        coordinates: {
-            lat: 45.5337576,
-            lng: -122.8697315,
         },
         show: false,
     },

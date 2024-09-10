@@ -51,7 +51,6 @@ const Navbar = () => {
     };
 
     const locations = [
-        'Bridgeport Office',
         'Cedar Mill',
         'Gresham Office',
         'Happy Valley Office',
@@ -59,8 +58,6 @@ const Navbar = () => {
         'Milwaukie Office',
         'Newberg Washington Street Office',
         'Portland Northwest District Office',
-        'Sherwood Office',
-        'Tanasbourne Office',
         'Tigard Locust Office',
         'Tigard Oleson Office',
         'West Linn Office',
